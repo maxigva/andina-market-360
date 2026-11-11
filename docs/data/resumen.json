@@ -1,0 +1,20 @@
+{
+  "operaciones": 12,
+  "total": 1845.0,
+  "por_sede": {
+    "Lima": 814.0,
+    "Ica": 555.0,
+    "Arequipa": 476.0
+  },
+  "por_producto": {
+    "Arroz 5kg": 600.0,
+    "Aceite 1L": 285.0,
+    "Leche 1L": 560.0,
+    "Azucar 1kg": 400.0
+  },
+  "por_mes": {
+    "2026-01": 614.0,
+    "2026-02": 605.0,
+    "2026-03": 626.0
+  }
+}

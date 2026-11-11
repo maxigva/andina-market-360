@@ -1,0 +1,13 @@
+id,fecha,sede,producto,cantidad,precio_unitario
+1,2026-01-05,Lima,Arroz 5kg,10,25.00
+2,2026-01-09,Ica,Arroz 5kg,6,25.00
+3,2026-01-18,Lima,Aceite 1L,12,9.50
+4,2026-01-22,Arequipa,Leche 1L,25,4.00
+5,2026-02-07,Lima,Azucar 1kg,30,5.00
+6,2026-02-10,Arequipa,Arroz 5kg,8,25.00
+7,2026-02-14,Ica,Leche 1L,40,4.00
+8,2026-02-21,Ica,Aceite 1L,10,9.50
+9,2026-03-03,Ica,Azucar 1kg,30,5.00
+10,2026-03-08,Arequipa,Aceite 1L,8,9.50
+11,2026-03-12,Lima,Leche 1L,75,4.00
+12,2026-03-25,Arequipa,Azucar 1kg,20,5.00
