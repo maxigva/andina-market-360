@@ -11,3 +11,20 @@
 2. ¿Qué producto vende más?
 3. ¿Cómo cambia el total mensual?
 
+## Herramientas
+- Git: registra versiones y cambios de archivos en la computadora.
+- GitHub: aloja el repositorio y permite revisar cambios con otras personas.
+- Python: ejecuta el programa que calcula las ventas.
+
+## Flujo de trabajo
+```
+archivo local  →  Git local (commit)  →  repositorio remoto GitHub (push)  →  revisión del equipo (pull request)
+```
+1. Modifico archivos locales.
+2. Git registra los cambios en un repositorio local.
+3. Envío los cambios al repositorio remoto de GitHub, cuando lo configure.
+4. Otras personas pueden revisar los cambios en una pull request.
+
+## Comprobación
+Para guardar y revisar cambios, GitHub no necesita ejecutar src/resumen.py. Python ejecuta el código localmente. GitHub Actions podría ejecutar pruebas, pero solo si lo configuramos.
+
