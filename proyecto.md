@@ -54,3 +54,11 @@ La página web lee `docs/data/resumen.json`, que genera `src/resumen.py` a parti
 ### Comparación con el proyecto base
 El árbol coincide con el proyecto base (`data/`, `src/`, `tests/`, `docs/`, `.github/`). Las únicas diferencias son los archivos del curso que se agregaron: `proyecto.md`, `inventario.md`, `retos_cap01.md` y `evidencias/`.
 
+## Criterios de éxito
+| Indicador | Meta | Responsable | Evidencia requerida |
+|---|---|---|---|
+| Ventas importadas | 12 transacciones en data/ventas.csv | Analista de datos | `python src/resumen.py` → 12 operaciones |
+| Totales por sede | Lima S/ 814.00, Ica S/ 555.00, Arequipa S/ 476.00, total S/ 1845.00 | Desarrollador | Salida de `python src/resumen.py` |
+| Pruebas aprobadas | 4 de 4 pruebas correctas | Desarrollador | `python -m unittest discover -s tests -v` |
+| Resumen web | La página muestra los mismos totales del CSV | Responsable de publicación | Captura de http://localhost:8000 |
+| Control de versiones | Cambios registrados con Git desde el Capítulo 06 | Todo el equipo | `git log --oneline` |
