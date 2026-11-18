@@ -15,7 +15,7 @@
 - Secretos: no hay contraseñas, tokens ni claves privadas.
 - Comando usado (PowerShell, en la raíz del proyecto):
   ```powershell
-  Get-ChildItem -Recurse -File | Select-String -Pattern "password|contraseña|token|secret|@gmail|@hotmail"
+    Get-ChildItem -Recurse -File -Exclude *.md,*.png | Where-Object FullName -notmatch '\\\.git\\' | Select-String -Pattern "password|contraseña|token|secret|@gmail|@hotmail"
   ```
-- Resultado: sin coincidencias.
+- Resultado: sin coincidencias. Se excluyen los .md (solo mencionan esas palabras como reglas) y la carpeta .git (archivos internos de Git).
 - Plantilla original: se conservó el ZIP sin modificar y se trabajó en una carpeta separada.
