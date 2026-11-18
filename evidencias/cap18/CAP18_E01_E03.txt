@@ -1,0 +1,15 @@
+$ grep -E "^\| \*\*(MAYOR|MENOR|PARCHE)" VERSIONES.md | cut -d"|" -f2,3; echo "--- secciones del CHANGELOG 1.0.0:"; grep -E "^##" CHANGELOG.md; echo "--- entradas por sección:"; awk "/^### /{s=\$0} /^- /{c[s]++} END{for (k in c) print k\": \"c[k]}" CHANGELOG.md
+ **MAYOR** | Cambia algo que obliga a quien usa el proyecto a adaptarse: columnas del CSV, campos del JSON o la línea de comandos de `src/resumen.py` 
+ **MENOR** | Se agrega una funcionalidad compatible 
+ **PARCHE** | Se corrige un error sin cambiar el uso 
+--- secciones del CHANGELOG 1.0.0:
+## [1.0.0] – 2026-11-18
+### Añadido
+### Cambiado
+### Corregido
+### Pendiente (no incluido en 1.0.0)
+--- entradas por sección:
+### Corregido: 4
+### Pendiente (no incluido en 1.0.0): 2
+### Añadido: 6
+### Cambiado: 3

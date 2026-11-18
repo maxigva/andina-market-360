@@ -1,0 +1,23 @@
+$ git status --short | grep -v "evidencias/cap18" ; echo "(árbol limpio salvo esta evidencia)"; python -m unittest discover -s tests 2>&1 | tail -n 3; GIT_COMMITTER_DATE="2026-11-18T11:54:20-05:00" git tag -a v1.0.0 -m "Primera versión de Andina Market"; git tag --list; git show v1.0.0 --stat | head -n 14; echo "--- el tag apunta al commit de la entrega:"; echo "v1.0.0^{commit} = $(git rev-parse --short v1.0.0^{commit}) | HEAD = $(git rev-parse --short HEAD)"; git status --short | grep -v "evidencias/cap18" | wc -l | sed "s/^/archivos alterados por el tag: /"
+(árbol limpio salvo esta evidencia)
+Ran 7 tests in 0.004s
+
+OK
+v1.0.0
+tag v1.0.0
+Tagger: Estudiante <estudiante@example.com>
+Date:   Wed Nov 18 11:54:20 2026 -0500
+
+Primera versión de Andina Market
+
+commit 0f5a39a5821d5cdae5f13f24d2905cf254a8c63c
+Author: Estudiante <estudiante@example.com>
+Date:   Wed Nov 18 11:54:20 2026 -0500
+
+    docs: definir versiones y registrar cambios de la 1.0.0
+
+ CHANGELOG.md | 29 +++++++++++++++++++++++++++++
+ VERSIONES.md | 21 +++++++++++++++++++++
+--- el tag apunta al commit de la entrega:
+v1.0.0^{commit} = 0f5a39a | HEAD = 0f5a39a
+archivos alterados por el tag: 0

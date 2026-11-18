@@ -1,0 +1,16 @@
+$ gh release view v1.0.0 --json tagName,name,isDraft,isPrerelease,url --jq "\"\(.name) | tag \(.tagName) | borrador: \(.isDraft) | url: \(.url)\"" 2>/dev/null; gh release view v1.0.0 --json body --jq ".body" 2>/dev/null | grep -E "^### "; gh release download v1.0.0 --archive zip -D "$D" 2>/dev/null; python -c "import zipfile,sys,glob; z=zipfile.ZipFile(glob.glob(sys.argv[1]+\"/*.zip\")[0]); n=z.namelist(); print(\"archivos en la descarga:\", len(n)); malos=[x for x in n if any(k in x.lower() for k in (\".env\",\".git/\",\"_material\",\"__pycache__\",\".pem\",\".key\",\"secret\",\"token\"))]; print(\"sospechosos (.env, .git, _material, cachés, claves):\", malos or \"ninguno\"); import re; t=sum(len(re.findall(rb\"gh[po]_[A-Za-z0-9]{36}|github_pat_|BEGIN [A-Z ]*PRIVATE KEY\", z.read(x))) for x in n if not x.endswith(\"/\")); print(\"patrones de credenciales en el contenido:\", t)" "$D"
+Andina Market 360 v1.0.0 | tag v1.0.0 | borrador: false | url: https://github.com/maxigva/andina-market-360/releases/tag/v1.0.0
+### Añadido
+### Cambiado
+### Corregido
+### Pendiente (no incluido en 1.0.0)
+archivos en la descarga: 271
+sospechosos (.env, .git, _material, cachés, claves): ninguno
+patrones de credenciales en el contenido: 5
+# Revisión de las 5 coincidencias: son los propios patrones de búsqueda escritos en evidencias y fichas, no credenciales.
+$ python -c "import zipfile,glob,re,sys; z=zipfile.ZipFile(glob.glob(sys.argv[1]+\"/*.zip\")[0]); laxo=rb\"gh[po]_[A-Za-z0-9]{36}|github_pat_|BEGIN [A-Z ]*PRIVATE KEY\"; estricto=rb\"gh[po]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9]{22}_[A-Za-z0-9]{59}|-----BEGIN [A-Z ]+PRIVATE KEY-----\"; [print(\"coincidencia laxa en\", x.split(\"/\",1)[1], \"->\", re.search(laxo, z.read(x)).group().decode()) for x in z.namelist() if not x.endswith(\"/\") and re.search(laxo, z.read(x))]; print(\"credenciales reales (formato estricto):\", sum(len(re.findall(estricto, z.read(x))) for x in z.namelist() if not x.endswith(\"/\")))" "$DW"  # $DW = carpeta temporal con la descarga
+coincidencia laxa en evidencias/cap02/CAP02_E03.txt -> github_pat_
+coincidencia laxa en evidencias/cap02/CAP02_R02.txt -> github_pat_
+coincidencia laxa en evidencias/cap04/CAP04_R03.txt -> github_pat_
+coincidencia laxa en fichas/seguridad_cuenta.md -> github_pat_
+credenciales reales (formato estricto): 0

@@ -1,0 +1,18 @@
+$ echo "== Etiqueta Git =="; git cat-file -t v1.0.0; git cat-file -p v1.0.0 | sed -n "1,6p"; echo "objeto tag en origin: $(git ls-remote --tags origin v1.0.0 | cut -c1-7)"; echo "== Release de GitHub =="; gh release view v1.0.0 --json tagName,name,author,createdAt,publishedAt,assets,body,url --jq "\"nombre: \(.name)\ntag: \(.tagName) | autor: \(.author.login)\ncreatedAt (fecha del commit etiquetado): \(.createdAt)\npublishedAt (momento real de publicación en GitHub): \(.publishedAt)\narchivos adjuntos: \(.assets|length) (+ zip y tar.gz del código, automáticos)\nnotas: \(.body|split(\"\n\")|length) líneas\n\(.url)\"" 2>/dev/null
+== Etiqueta Git ==
+tag
+object 0f5a39a5821d5cdae5f13f24d2905cf254a8c63c
+type commit
+tag v1.0.0
+tagger Estudiante <estudiante@example.com> 1795020860 -0500
+
+Primera versión de Andina Market
+objeto tag en origin: 48a1232
+== Release de GitHub ==
+nombre: Andina Market 360 v1.0.0
+tag: v1.0.0 | autor: maxigva
+createdAt (fecha del commit etiquetado): 2026-11-18T16:54:20Z
+publishedAt (momento real de publicación en GitHub): 2026-11-18T22:24:52Z
+archivos adjuntos: 0 (+ zip y tar.gz del código, automáticos)
+notas: 27 líneas
+https://github.com/maxigva/andina-market-360/releases/tag/v1.0.0

@@ -1,0 +1,12 @@
+$ echo "hash de v1.0.0: $(git rev-parse v1.0.0^{commit})"; echo "main antes: $(git rev-parse --short main)"; git worktree add -q -b prueba/revision-desde-tag "$WT" v1.0.0; cd "$WT"; git branch --show-current; git log -1 --oneline; python -m unittest discover -s tests 2>&1 | tail -n 3; python src/resumen.py | tail -n 1; cd /c/andina-market-360; echo "main después: $(git rev-parse --short main)"; git worktree remove "$WT"; git branch -D prueba/revision-desde-tag; git worktree list
+hash de v1.0.0: 0f5a39a5821d5cdae5f13f24d2905cf254a8c63c
+main antes: 0f5a39a
+prueba/revision-desde-tag
+0f5a39a docs: definir versiones y registrar cambios de la 1.0.0
+Ran 7 tests in 0.041s
+
+OK
+TOTAL      S/  1845.00
+main después: 0f5a39a
+Deleted branch prueba/revision-desde-tag (was 0f5a39a).
+C:/andina-market-360 0f5a39a [main]

@@ -12,3 +12,4 @@ Guardar cada PNG en `evidencias/` con el nombre indicado. Antes de capturar, ver
 | 14 | CAP14_pr6.png | https://github.com/maxigva/andina-market-360/pull/6 | Pestaña *Conversation* del PR #6: estado **Merged**, los 2 commits, la revisión y la respuesta | Pendiente |
 | 15 | CAP15_revision.png | https://github.com/maxigva/andina-market-360/pull/8/files | Comentarios en línea del PR #8 sobre la línea 31: dos hilos *Resolved* y la sugerencia abierta | Pendiente |
 | 17 | CAP17_ruleset.png | https://github.com/maxigva/andina-market-360/settings/rules | Ruleset `proteger-main` en estado **Active** con “Restrict deletions” y “Block force pushes”, sin “Require a pull request” | Pendiente |
+| 18 | CAP18_release.png | https://github.com/maxigva/andina-market-360/releases/tag/v1.0.0 | Release **Andina Market 360 v1.0.0** con etiqueta `v1.0.0`, notas Añadido/Cambiado/Corregido/Pendiente y los archivos *Source code* | Pendiente |

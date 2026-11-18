@@ -1,0 +1,22 @@
+$ echo "Entradas de 1.0.0: $(sed -n "/## \[1.0.0\]/,/### Pendiente/p" CHANGELOG.md | grep -c "^- ")"; for h in $(grep -oE "\`[0-9a-f]{7}\`" CHANGELOG.md | tr -d "\`" | sort -u); do if git merge-base --is-ancestor $h HEAD 2>/dev/null; then echo "$h en main: $(git log -1 --format=%s $h)"; else echo "$h NO ESTÁ EN main"; fi; done; for n in 1 2 3 5; do gh issue view $n --json number,state --jq "\"Issue #\(.number): \(.state)\"" 2>/dev/null; done; gh issue view 4 --json number,state --jq "\"Issue #\(.number): \(.state) (pendiente, coherente con el CHANGELOG)\"" 2>/dev/null
+Entradas de 1.0.0: 13
+11dda2e en main: fix: precisar título del gráfico y calcular la sede líder
+2dbc497 en main: feat: generar las cifras del README desde resumen.py
+2e67da0 en main: feat: nombrar tablero de sedes
+4120a55 en main: feat: graficar ventas por sede
+56098bf en main: feat: indicar período del informe en el tablero
+61b2e9d en main: feat: presentar sedes y origen ficticio en el tablero
+778f942 en main: feat: agregar CSV de muestra para pruebas
+902b0ac en main: fix: escribir el JSON con finales de línea LF
+91bbd2a en main: chore: agregar plantillas de PR y responsables por área
+b6168d7 en main: chore: agregar plantillas de issues
+bc936f5 en main: test: verificar que el JSON publicado coincide con el CSV
+be19b40 en main: test: validar el resumen con el CSV de muestra
+e096234 en main: fix: ignorar código en línea al verificar enlaces
+f70b537 en main: fix: corregir encabezado del tablero en README
+fba5946 en main: docs: estructurar README con manual y guía de contribución
+Issue #1: CLOSED
+Issue #2: CLOSED
+Issue #3: CLOSED
+Issue #5: CLOSED
+Issue #4: OPEN (pendiente, coherente con el CHANGELOG)
