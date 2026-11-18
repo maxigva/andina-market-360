@@ -1,6 +1,6 @@
 # Andina Market 360
 
-Resumen verificable de ventas **ficticias** por sede (Lima, Ica y Arequipa), calculado con Python, probado con `unittest` y mostrado en una página web estática.
+Objetivo comercial: que la gerencia sepa **qué sede lidera las ventas ficticias** (Lima, Ica y Arequipa) con cifras calculadas por Python, probadas con `unittest` y mostradas en una página web estática.
 
 Caso único del **Cuaderno de prácticas Git y GitHub (36 capítulos)**. Nunca contiene datos reales de personas ni de ventas.
 
