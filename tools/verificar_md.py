@@ -9,6 +9,7 @@ from pathlib import Path
 
 ENLACE = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
 TUBERIA = re.compile(r"(?<!\\)\|")
+CODIGO_EN_LINEA = re.compile(r"(`+).+?\1")
 
 
 def revisar(ruta):
@@ -28,7 +29,8 @@ def revisar(ruta):
             celdas_tabla = celdas if celdas_tabla is None else celdas_tabla
         else:
             celdas_tabla = None
-        for destino in ENLACE.findall(linea):
+        sin_codigo = CODIGO_EN_LINEA.sub("", linea)
+        for destino in ENLACE.findall(sin_codigo):
             if re.match(r"^[a-zA-Z]:\\|^file:", destino):
                 errores.append(f"{ruta}:{n}: enlace a ruta local absoluta: {destino}")
             elif not re.match(r"^(https?:|mailto:|#)", destino):
