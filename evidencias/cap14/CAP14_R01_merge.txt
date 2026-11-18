@@ -1,0 +1,11 @@
+$ gh pr view 7 --json mergeable,commits --jq "\"mergeable: \(.mergeable) | commits: \(.commits|length)\"" 2>/dev/null; gh pr diff 7 --name-only 2>/dev/null; GIT_AUTHOR_DATE="2026-11-18T09:41:30-05:00" GIT_COMMITTER_DATE="2026-11-18T09:41:30-05:00" git merge --no-ff -q feature/filtro-productos -m "Merge pull request #7 from maxigva/feature/filtro-productos" -m "docs: proponer filtro por producto (refs #4)"; python -m unittest discover -s tests 2>&1 | tail -n 1; git push -q origin main; git log --oneline --graph -4
+mergeable: MERGEABLE | commits: 2
+fichas/propuesta_filtro_productos.md
+OK
+*   3454b08 Merge pull request #7 from maxigva/feature/filtro-productos
+|\  
+| * db08c08 docs: definir producto inexistente en la propuesta de filtro
+| * bac3c40 docs: proponer filtro por producto
+* |   a61b4dd Merge pull request #6 from maxigva/feature/ficha-sedes
+|\ \  
+PR 7: MERGED

@@ -1,0 +1,6 @@
+$ gh pr view 6 --json reviews --jq ".reviews[] | \"\(.state) | \(.body | split(\"\n\")[0])\"" 2>/dev/null; gh pr view 6 --json reviews --jq ".reviews[-1].body" 2>/dev/null | grep -E "^[0-9]\.|Estado"
+COMMENTED | **Revisión (rol: revisor de publicación, simulado).** El repositorio no tiene otros colaboradores, así que el titular hace la revisión con la lista de comprobación del PR.
+1. **Exactitud (bloqueante para #3):** falta el **período del informe**. Propuesta: calcularlo con el primer y el último mes de `d.por_mes` y mostrarlo en el mismo subtítulo, sin escribir fechas a mano.
+2. **Alcance:** los 16 archivos extra son del Capítulo 13; vienen de un commit que estaba solo en `main` local. Publicar `main` y volver a comprobar *Files changed*.
+3. **Presentación (no bloqueante):** destacar visualmente el subtítulo. Se puede dejar para el gráfico de #1.
+Estado: **se solicitan cambios** (1 y 2) antes de fusionar.

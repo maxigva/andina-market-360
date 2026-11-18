@@ -1,0 +1,14 @@
+$ gh pr checks 6 2>/dev/null; gh pr view 6 --json mergeable,mergeStateStatus,commits --jq "\"mergeable: \(.mergeable) | estado: \(.mergeStateStatus) | commits: \(.commits|length)\"" 2>/dev/null; git switch -q main; git pull -q --ff-only origin main; GIT_AUTHOR_DATE="2026-11-18T09:33:55-05:00" GIT_COMMITTER_DATE="2026-11-18T09:33:55-05:00" git merge --no-ff -q feature/ficha-sedes -m "Merge pull request #6 from maxigva/feature/ficha-sedes" -m "feat: presentar sedes, período y origen ficticio en el tablero (atiende #3)"; python -m unittest discover -s tests 2>&1 | tail -n 1; git push -q origin main; git log --oneline --graph -4
+pruebas	pass	7s	https://github.com/maxigva/andina-market-360/actions/runs/44403574584/job/135152729553	
+mergeable: MERGEABLE | estado: CLEAN | commits: 2
+OK
+*   a61b4dd Merge pull request #6 from maxigva/feature/ficha-sedes
+|\  
+| * 56098bf feat: indicar período del informe en el tablero
+| * 61b2e9d feat: presentar sedes y origen ficticio en el tablero
+|/  
+* be39dd0 docs: documentar capítulo 13
+$ gh pr view 6 --json state,mergedAt,mergeCommit --jq "\"PR #6: \(.state) | commit de fusión \(.mergeCommit.oid[0:7])\"" 2>/dev/null; node "$PRESENTACION"; gh issue view 3 --json state,stateReason --jq "\"Issue #3: \(.state) (\(.stateReason))\"" 2>/dev/null
+PR #6: MERGED | commit de fusión a61b4dd
+#presentacion: Sedes: Lima, Ica y Arequipa · Período: 2026-01 a 2026-03 · Origen: datos ficticios de data/ventas.csv
+Issue #3: CLOSED (COMPLETED)

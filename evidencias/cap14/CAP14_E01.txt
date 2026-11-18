@@ -1,0 +1,12 @@
+$ git branch --show-current; git diff --stat; python "$HTML_OK" docs/index.html; node "$PRESENTACION"; GIT_AUTHOR_DATE="2026-11-18T09:20:15-05:00" GIT_COMMITTER_DATE="2026-11-18T09:20:15-05:00" git commit -q -am "feat: presentar sedes y origen ficticio en el tablero"; git log -1 --oneline; echo "--- aislado de main:"; git log --oneline main..feature/ficha-sedes; git diff --stat main feature/ficha-sedes
+# ($HTML_OK = verificador de etiquetas HTML con html.parser; $PRESENTACION = script de Node que ejecuta la expresión del tablero sobre docs/data/resumen.json)
+feature/ficha-sedes
+ docs/index.html | 4 ++++
+ 1 file changed, 4 insertions(+)
+HTML válido (etiquetas balanceadas): True | pendientes: [] | sobrantes: []
+#presentacion: Sedes: Lima, Ica y Arequipa · Origen: datos ficticios de data/ventas.csv
+61b2e9d feat: presentar sedes y origen ficticio en el tablero
+--- aislado de main:
+61b2e9d feat: presentar sedes y origen ficticio en el tablero
+ docs/index.html | 4 ++++
+ 1 file changed, 4 insertions(+)

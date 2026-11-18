@@ -1,0 +1,9 @@
+$ gh api repos/maxigva/andina-market-360/pulls/6 --jq "\"antes: base \(.base.sha[0:7]) | archivos \(.changed_files) | commits \(.commits)\"" 2>/dev/null; gh pr edit 6 --base prueba/alternativa-b >/dev/null 2>&1; gh pr edit 6 --base main 2>/dev/null; for i in $(seq 1 30); do c=$(gh api repos/maxigva/andina-market-360/pulls/6 --jq .changed_files 2>/dev/null); [ "$c" = "1" ] && break; done; gh api repos/maxigva/andina-market-360/pulls/6 --jq "\"después: base \(.base.sha[0:7]) | archivos \(.changed_files) | commits \(.commits)\"" 2>/dev/null; echo "--- Files changed:"; gh pr diff 6 --name-only 2>/dev/null; echo "--- commits del PR:"; gh api repos/maxigva/andina-market-360/pulls/6/commits --jq ".[] | .sha[0:7] + \" \" + .commit.message" 2>/dev/null
+antes: base b6168d7 | archivos 17 | commits 3
+https://github.com/maxigva/andina-market-360/pull/6
+después: base be39dd0 | archivos 1 | commits 2
+--- Files changed:
+docs/index.html
+--- commits del PR:
+61b2e9d feat: presentar sedes y origen ficticio en el tablero
+56098bf feat: indicar período del informe en el tablero

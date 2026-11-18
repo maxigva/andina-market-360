@@ -1,0 +1,13 @@
+$ gh pr view 7 --json reviews --jq ".reviews[] | \"\(.state) | \(.body | split(\"\n\")[0])\"" 2>/dev/null; gh pr view 7 --json reviews --jq ".reviews[-1].body" 2>/dev/null | grep -E "^\*\*(Sugerencia|Decisión)" | cut -c1-160; echo "--- sugerencias aplicadas en la misma rama:"; git log --oneline main..feature/filtro-productos; git show --format= HEAD | grep -E "^\+[^+]"; python tools/verificar_md.py fichas/propuesta_filtro_productos.md; gh pr checks 7 2>/dev/null
+COMMENTED | **Revisión técnica (rol: desarrollador, simulado; el repositorio no tiene otros colaboradores).**
+**Sugerencia 1 (concreta, archivo `fichas/propuesta_filtro_productos.md`, sección “Criterios de aceptación”):** falta definir qué pasa con un producto in
+**Sugerencia 2 (concreta, misma ficha, sección “Necesidad”):** enlazar la pregunta de origen (`fichas/ficha_gerencia.md`, pregunta 4) y el Issue #4, para q
+**Decisión:** aprobación fundamentada, condicionada a incorporar la sugerencia 1. Los 5 criterios del PR se cumplen; la propuesta no introduce código ni cifr
+--- sugerencias aplicadas en la misma rama:
+db08c08 docs: definir producto inexistente en la propuesta de filtro
+bac3c40 docs: proponer filtro por producto
++**Necesidad:** la gerencia quiere ver cuánto vendió cada sede de un producto concreto (por ejemplo, *Leche 1L*) sin abrir el CSV. Origen: pregunta 4 de `fichas/ficha_gerencia.md`; tarea: Issue #4.
++- `python src/resumen.py --producto "Pan"` (producto inexistente) muestra `Producto no encontrado: Pan` y termina con código de salida 1.
+pruebas	pass	7s	https://github.com/maxigva/andina-market-360/actions/runs/44404113600/job/135154635286	
+$ git show main:tools/verificar_md.py | python - fichas/propuesta_filtro_productos.md  # la rama es anterior al verificador: se usa la versión de main
+OK: 1 archivo(s) sin errores

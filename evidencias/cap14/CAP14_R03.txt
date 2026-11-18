@@ -1,0 +1,7 @@
+$ gh pr view 6 --json number,commits,reviews,comments --jq "\"PR #\(.number): \(.commits|length) commits | \(.reviews|length) revisión(es) | \(.comments|length) comentario(s) en el mismo hilo\", (.commits[] | \"  \(.oid[0:7]) \(.messageHeadline)\")" 2>/dev/null; echo "--- PR existentes (cada PR nuevo recibe otro número y su propio hilo):"; gh pr list --state all --json number,title,state --jq ".[] | \"#\(.number) [\(.state)] \(.title)\"" 2>/dev/null
+PR #6: 2 commits | 1 revisión(es) | 1 comentario(s) en el mismo hilo
+  61b2e9d feat: presentar sedes y origen ficticio en el tablero
+  56098bf feat: indicar período del informe en el tablero
+--- PR existentes (cada PR nuevo recibe otro número y su propio hilo):
+#7 [MERGED] docs: proponer filtro por producto
+#6 [MERGED] feat: presentar sedes y origen ficticio en el tablero

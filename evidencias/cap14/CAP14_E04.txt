@@ -1,0 +1,7 @@
+$ git branch --show-current; python "$HTML_OK" docs/index.html; node "$PRESENTACION"; python -m unittest discover -s tests 2>&1 | tail -n 1; GIT_AUTHOR_DATE="2026-11-18T09:27:40-05:00" GIT_COMMITTER_DATE="2026-11-18T09:27:40-05:00" git commit -q -am "feat: indicar período del informe en el tablero"; git push -q origin feature/ficha-sedes; git log --oneline main..feature/ficha-sedes
+feature/ficha-sedes
+HTML válido (etiquetas balanceadas): True | pendientes: [] | sobrantes: []
+#presentacion: Sedes: Lima, Ica y Arequipa · Período: 2026-01 a 2026-03 · Origen: datos ficticios de data/ventas.csv
+OK
+56098bf feat: indicar período del informe en el tablero
+61b2e9d feat: presentar sedes y origen ficticio en el tablero
