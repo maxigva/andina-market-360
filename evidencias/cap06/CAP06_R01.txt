@@ -1,0 +1,8 @@
+$ git --version; git --version --build-options | head -n 4; command -v git; git config --system --list --show-origin 2>/dev/null | grep -m1 -o "Program Files/Git" | sed "s/^/instalación: C:\//"
+git version 2.55.0.windows.4
+git version 2.55.0.windows.4
+cpu: x86_64
+built from commit: a93524749d7806870fd2b4b00a3812da1d6e5f4a
+sizeof-long: 4
+/mingw64/bin/git
+instalación: C:/Program Files/Git

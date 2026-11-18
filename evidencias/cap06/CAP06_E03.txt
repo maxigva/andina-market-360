@@ -1,0 +1,15 @@
+$ cd "$P/andina-market-360"; ls -A; test -d .git || echo "(sin carpeta .git: copia nueva del proyecto base)"; git init -b main; git status | head -n 4; git rev-parse --show-toplevel
+.github/
+.gitignore
+README.md
+data/
+docs/
+src/
+tests/
+(sin carpeta .git: copia nueva del proyecto base)
+Initialized empty Git repository in <TEMP>/practica/andina-market-360/.git/
+On branch main
+
+No commits yet
+
+<TEMP>/practica/andina-market-360

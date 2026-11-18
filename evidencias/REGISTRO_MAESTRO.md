@@ -7,3 +7,4 @@
 | 03 | Conociendo la interfaz de GitHub | ✓ | ✓ | 17/11 | [CAP03_registro.md](CAP03_registro.md) |
 | 04 | Creación y administración de repositorios | ✓ | ✓ | 17/11 | [CAP04_registro.md](CAP04_registro.md) |
 | 05 | Fundamentos del control de versiones | ✓ | ✓ | 17/11 | [CAP05_registro.md](CAP05_registro.md) |
+| 06 | Instalación y configuración de Git | ✓ | ✓ | 17/11 | [CAP06_registro.md](CAP06_registro.md) |

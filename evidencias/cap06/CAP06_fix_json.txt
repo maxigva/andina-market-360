@@ -1,0 +1,10 @@
+$ cat .gitattributes | grep -v "^#" | grep .; git ls-files --eol docs/data/resumen.json; python src/resumen.py --json docs/data/resumen.json | tail -n 1; python src/resumen.py --json docs/data/resumen.json | tail -n 1; git status --short; echo "estado tras regenerar dos veces: $(git status --porcelain | wc -l) cambios"
+* text=auto
+docs/data/*.json text eol=lf
+*.png binary
+*.pdf binary
+i/lf    w/lf    attr/text eol=lf      	docs/data/resumen.json
+JSON generado: docs/data/resumen.json
+JSON generado: docs/data/resumen.json
+?? evidencias/cap06/
+estado tras regenerar dos veces: 1 cambios

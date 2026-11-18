@@ -50,3 +50,15 @@ Guardar un archivo en el editor solo cambia el directorio de trabajo: Git **no**
     git commit ──▶ [ commit ]   existe en el historial (tiene hash) ← recién aquí es una versión
 ```
 Comprobado con `nota_temporal.txt`: aparece como `??`, luego como `A`, pero `git log -- nota_temporal.txt` devuelve 0 commits; se retiró con `git restore --staged` sin tocar el historial.
+
+## Entorno local (Capítulo 06)
+| Elemento | Valor |
+|---|---|
+| Git | `git version 2.55.0.windows.4` (Git for Windows, instalado en `C:\Program Files\Git`) |
+| Directorio de trabajo del caso | `C:\andina-market-360` (rama `main`, remoto `origin`) |
+| Identidad local del caso | `Estudiante` / `estudiante@example.com` (ficticia, solo `--local`) |
+| Copia de práctica para `git init -b main` | `<TEMP>\practica\andina-market-360` (carpeta temporal del sistema; se omite la parte de la ruta que contiene el usuario de Windows) |
+| Primer commit de la práctica | `d8db55b chore: iniciar caso Andina Market` |
+| Clon local de la práctica | `<TEMP>\practica\andina-market-copia` → mismo hash `d8db55b` |
+
+Cambio planificado n.º 1 **cumplido**: commit `902b0ac fix: escribir el JSON con finales de línea LF` (+ `.gitattributes`). Regenerar el JSON dos veces ya no produce cambios.

@@ -1,0 +1,4 @@
+$ git --version; echo "código de salida: $?"; git --version | grep -ciE "token|password|@" | sed "s/^/coincidencias con credenciales: /"
+git version 2.55.0.windows.4
+código de salida: 0
+coincidencias con credenciales: 0

@@ -1,0 +1,12 @@
+$ cd "$P"; git clone ./andina-market-360 ./andina-market-copia; cd andina-market-copia; git status | head -n 3; git log -1 --oneline; echo "--- original:"; git -C ../andina-market-360 log -1 --oneline; test "$(git rev-parse HEAD)" = "$(git -C ../andina-market-360 rev-parse HEAD)" && echo "historial inicial coincide (mismo hash)"; git remote -v
+Cloning into './andina-market-copia'...
+done.
+On branch main
+Your branch is up to date with 'origin/main'.
+
+d8db55b chore: iniciar caso Andina Market
+--- original:
+d8db55b chore: iniciar caso Andina Market
+historial inicial coincide (mismo hash)
+origin	<TEMP>/practica/./andina-market-360 (fetch)
+origin	<TEMP>/practica/./andina-market-360 (push)

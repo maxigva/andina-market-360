@@ -1,0 +1,14 @@
+$ cd "$P/andina-market-360"; cat .gitignore; git add README.md data/ src/ tests/ docs/ .gitignore; git status --short; GIT_AUTHOR_DATE="2026-11-17T22:12:30-05:00" GIT_COMMITTER_DATE="2026-11-17T22:12:30-05:00" git commit -q -m "chore: iniciar caso Andina Market"; git log -1 --oneline; echo "archivos no incluidos a propósito:"; git status --short
+__pycache__/
+*.pyc
+A  .gitignore
+A  README.md
+A  data/ventas.csv
+A  docs/data/resumen.json
+A  docs/index.html
+A  src/resumen.py
+A  tests/test_resumen.py
+?? .github/
+d8db55b chore: iniciar caso Andina Market
+archivos no incluidos a propósito:
+?? .github/

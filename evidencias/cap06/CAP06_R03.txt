@@ -1,0 +1,7 @@
+$ git clone -q /c/andina-market-360 "$P/andina-clon"; echo "original: $(git rev-parse --short HEAD) | commits: $(git rev-list --count HEAD)"; echo "clon:     $(git -C "$P/andina-clon" rev-parse --short HEAD) | commits: $(git -C "$P/andina-clon" rev-list --count HEAD)"; diff <(git log --format=%H) <(git -C "$P/andina-clon" log --format=%H) && echo "historiales idénticos commit a commit"; git -C "$P/andina-clon" log --oneline -3
+original: 902b0ac | commits: 17
+clon:     902b0ac | commits: 17
+historiales idénticos commit a commit
+902b0ac fix: escribir el JSON con finales de línea LF
+f20f681 docs: documentar capítulo 05
+3c9710d docs: precisar objetivo comercial

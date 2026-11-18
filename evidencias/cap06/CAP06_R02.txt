@@ -1,0 +1,6 @@
+$ cd "$P/andina-market-360"; git config --local user.name "Estudiante Práctica"; git config --local user.email "practica@example.com"; git config --local --list | grep ^user; git config user.email; echo "--- el repositorio del caso conserva su identidad:"; git -C /c/andina-market-360 config --local user.email
+user.name=Estudiante Práctica
+user.email=practica@example.com
+practica@example.com
+--- el repositorio del caso conserva su identidad:
+estudiante@example.com
