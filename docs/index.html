@@ -28,7 +28,8 @@ function grafico(datos) {
   const max = Math.max(...Object.values(datos));
   const barras = Object.entries(datos).map(([k, v]) =>
     `<div class="fila"><span class="etq">${k}</span><div class="barra" style="width:${(v / max * 100).toFixed(1)}%">S/ ${v.toFixed(2)}</div></div>`).join("");
-  return `<h2>Comparativo</h2>${barras}<p>Lima lidera con S/ 814.00.</p>`;
+  const [sede, monto] = Object.entries(datos).sort((a, b) => b[1] - a[1])[0];
+  return `<h2>Ventas por sede (S/, datos ficticios)</h2>${barras}<p>Sede líder: ${sede} con S/ ${monto.toFixed(2)}.</p>`;
 }
 fetch("data/resumen.json")
   .then(r => r.json())

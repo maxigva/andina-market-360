@@ -32,6 +32,13 @@ class TestResumen(unittest.TestCase):
         self.assertIn(resumen.texto(self.r), bloque)
 
 
+class TestTablero(unittest.TestCase):
+    def test_tablero_sin_cifras_escritas_a_mano(self):
+        """Las cifras de la web deben salir del JSON, no del HTML (revisión del PR #8)."""
+        html = (Path(__file__).resolve().parent.parent / "docs" / "index.html").read_text(encoding="utf-8")
+        self.assertNotRegex(html, r"S/ \d")
+
+
 class TestMuestra(unittest.TestCase):
     """Valida el cálculo con data/ventas_muestra.csv (4 ventas de totales conocidos)."""
 
