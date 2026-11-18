@@ -1,0 +1,9 @@
+# Normalizar texto a LF dentro del repositorio
+* text=auto
+
+# Archivos generados por src/resumen.py: siempre LF, igual en Windows y en GitHub Actions
+docs/data/*.json text eol=lf
+
+# Binarios: nunca convertir
+*.png binary
+*.pdf binary

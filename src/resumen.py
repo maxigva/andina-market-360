@@ -46,7 +46,8 @@ def main():
 
     if args.json:
         Path(args.json).parent.mkdir(parents=True, exist_ok=True)
-        Path(args.json).write_text(json.dumps(r, ensure_ascii=False, indent=2), encoding="utf-8")
+        texto = json.dumps(r, ensure_ascii=False, indent=2) + "\n"
+        Path(args.json).write_text(texto, encoding="utf-8", newline="\n")
         print(f"JSON generado: {args.json}")
 
 
