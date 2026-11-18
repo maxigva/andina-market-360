@@ -1,3 +1,20 @@
+# Python
 __pycache__/
 *.pyc
+.venv/
+venv/
+
+# Variables de entorno y secretos locales (nunca se suben)
+.env
+.env.*
+
+# Archivos temporales de editores y del sistema
+*.swp
+*~
+*.tmp
+.idea/
+.DS_Store
+Thumbs.db
+
+# Material del curso (PDF del cuaderno e instrucciones; no se publica)
 _material/
