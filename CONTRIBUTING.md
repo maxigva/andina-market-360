@@ -2,6 +2,16 @@
 
 Gracias por mejorar el caso. Antes de proponer un cambio, lea estas reglas.
 
+## Antes de empezar
+1. Busque o abra un **Issue** que describa el problema o la mejora, con **criterios de aceptación** verificables (entrada → cambio → prueba → resultado). Use las plantillas de `.github/ISSUE_TEMPLATE/`.
+2. Los PR de código solo se revisan si responden a un Issue con criterios. Si faltan, pídalos en el Issue antes de programar.
+3. Si trabaja desde un **fork**, mantenga `origin` (su copia) y agregue el original como `upstream`:
+   ```bash
+   git remote add upstream https://github.com/maxigva/andina-market-360.git
+   git fetch upstream
+   git switch -c docs/mi-cambio upstream/main
+   ```
+
 ## Reglas de datos y seguridad
 - **Solo datos ficticios.** No envíe ventas, clientes, nombres, documentos ni correos reales.
 - **Nunca suba secretos:** contraseñas, tokens, claves privadas o archivos `.env`. Si sube uno por error, avise de inmediato en un Issue sin copiar el secreto y revóquelo.
@@ -36,6 +46,17 @@ Las pruebas deben terminar en `OK`, y `git status` no debe mostrar cambios en el
 - Un PR por tema, con título en el formato de commit.
 - Describa qué cambia, por qué y cómo verificarlo; cite el Issue con `Closes #N`.
 - Si la revisión pide cambios, agréguelos **en la misma rama**: el PR se actualiza solo.
+- No amplíe el alcance: lo que no esté en los criterios del Issue va a otro Issue.
+
+## Revisión
+- Cada PR se revisa con la [guía de revisión](fichas/guia_revision.md), igual para todas las personas que contribuyen.
+- **Bloquean la fusión:** error de cálculo (por ejemplo, cifras escritas a mano), filtración de datos o secretos, y pruebas rotas. Lo demás son correcciones o sugerencias.
+- Solo se marcan como resueltas las conversaciones atendidas de verdad.
+
+## Licencia y conducta
+- Al contribuir, acepta que su aporte se publique bajo la licencia [MIT](LICENSE) del proyecto. No incluya código ni textos de terceros con licencias incompatibles.
+- Comente el cambio, no a la persona; las críticas deben ser específicas y reproducibles.
+- Vulnerabilidades o secretos expuestos: no los publique en un Issue abierto; avise a quien mantiene el proyecto por un canal privado.
 
 ## Comunicar errores en Issues
 1. Busque si ya existe un Issue igual.
