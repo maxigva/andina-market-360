@@ -1,0 +1,14 @@
+$ echo "== Windows (Git Bash), pasos del manual en una carpeta nueva =="; cd "$INST"; git --version; python --version; git clone -q https://github.com/maxigva/andina-market-360.git; cd andina-market-360; python -m unittest discover -s tests 2>&1 | tail -n 3; echo "== Linux: misma orden en el runner ubuntu-latest de GitHub Actions (último run de main) =="
+== Windows (Git Bash), pasos del manual en una carpeta nueva ==
+git version 2.55.0.windows.4
+Python 3.14.5
+Ran 5 tests in 0.023s
+
+OK
+== Linux: misma orden en el runner ubuntu-latest de GitHub Actions (último run de main) ==
+$ R=$(gh run list --branch main --limit 1 --json databaseId --jq ".[0].databaseId"); gh run view $R --log | grep -E "Set up job.* Ubuntu$|Included Software|Successfully set up CPython|Ran [0-9]+ tests|OK$" | cut -f2- | sed -E "s/[0-9-]+T[0-9:.]+Z //"
+Set up job	Ubuntu
+Set up job	Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.82/images/ubuntu/Ubuntu2604-Readme.md
+Run actions/setup-python@v5	Successfully set up CPython (3.12.16)
+Ejecutar pruebas	Ran 5 tests in 0.003s
+Ejecutar pruebas	OK

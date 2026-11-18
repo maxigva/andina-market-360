@@ -1,0 +1,7 @@
+$ python tools/verificar_md.py docs/manual.md; sed -n "/## Indicadores por sede/,/^> /p" docs/manual.md | grep -E "^\|" | awk -F"|" "{print NF-2 \" columnas: \" \$2}"
+OK: 1 archivo(s) sin errores
+4 columnas:  Sede 
+4 columnas: ---
+4 columnas:  Lima 
+4 columnas:  Ica 
+4 columnas:  Arequipa 

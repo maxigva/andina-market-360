@@ -13,3 +13,4 @@
 | 09 | Sincronización con repositorios remotos | ✓ | ✓ | 18/11 | [CAP09_registro.md](CAP09_registro.md) |
 | 10 | Resolución de conflictos e historial | ✓ | ✓ | 18/11 | [CAP10_registro.md](CAP10_registro.md) |
 | 11 | GitHub Desktop y Visual Studio Code | ✓ | ✓ | 18/11 | [CAP11_registro.md](CAP11_registro.md) |
+| 12 | Documentación con Markdown | ✓ | ✓ | 18/11 | [CAP12_registro.md](CAP12_registro.md) |

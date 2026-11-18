@@ -1,0 +1,12 @@
+$ python -m unittest discover -s tests -v
+test_totales_muestra (test_resumen.TestMuestra.test_totales_muestra) ... ok
+test_json_coincide_con_csv (test_resumen.TestResumen.test_json_coincide_con_csv) ... ok
+test_operaciones (test_resumen.TestResumen.test_operaciones) ... ok
+test_readme_muestra_cifras_calculadas (test_resumen.TestResumen.test_readme_muestra_cifras_calculadas) ... ok
+test_total_general (test_resumen.TestResumen.test_total_general) ... ok
+test_totales_por_sede (test_resumen.TestResumen.test_totales_por_sede) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.009s
+
+OK

@@ -1,0 +1,16 @@
+$ grep -nE "^## " README.md; echo "--- render de GitHub (API de Markdown), encabezados h2:"; gh api markdown -f mode=gfm -F text=@README.md | grep -oE "<h2[^>]*>.*</h2>" | sed -E "s/<[^>]+>//g" | tr "\n" "|"; echo; grep -n "ficticia\|Python estándar\|biblioteca estándar" README.md | head -n 3
+7:## Objetivo
+16:## Datos
+21:## Requisitos
+26:## Inicio rápido
+32:## Ejecución
+69:## Uso del tablero de ventas por sede
+73:## Estructura
+88:## Documentación
+93:## Uso responsable
+98:## Licencia
+--- render de GitHub (API de Markdown), encabezados h2:
+Objetivo|Datos|Requisitos|Inicio rápido|Ejecución|Uso del tablero de ventas por sede|Estructura|Documentación|Uso responsable|Licencia|
+3:Objetivo comercial: que la gerencia sepa **qué sede lidera las ventas ficticias** (Lima, Ica y Arequipa) con cifras calculadas por Python, probadas con `unittest` y mostradas en una página web estática.
+11:- Calcula totales por **sede**, **producto** y **mes** con Python estándar (sin paquetes externos).
+76:├── data/ventas.csv            Base ficticia de 12 ventas

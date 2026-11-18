@@ -1,0 +1,30 @@
+$ python tools/verificar_md.py fichas/reto12_3/README_prueba_errores.md; echo "código de salida: $?"; echo "--- versión corregida:"; python tools/verificar_md.py fichas/reto12_3/README_prueba_corregido.md; echo "código de salida: $?"; diff fichas/reto12_3/README_prueba_errores.md fichas/reto12_3/README_prueba_corregido.md
+fichas/reto12_3/README_prueba_errores.md:3: encabezado sin espacio después de #
+fichas/reto12_3/README_prueba_errores.md:4: enlace roto: ../../docs/manul.md
+fichas/reto12_3/README_prueba_errores.md:6: enlace a ruta local absoluta: C:\andina-market-360\data\ventas.csv
+fichas/reto12_3/README_prueba_errores.md:11: fila con 2 columnas (se esperaban 3)
+fichas/reto12_3/README_prueba_errores.md: bloque de código sin cerrar
+código de salida: 1
+--- versión corregida:
+OK: 1 archivo(s) sin errores
+código de salida: 0
+1c1
+< # README de prueba (con errores a propósito)
+---
+> # README de prueba (corregido)
+3,4c3,4
+< ##Instalación
+< Lea el [Manual](../../docs/manul.md) antes de empezar.
+---
+> ## Instalación
+> Lea el [Manual](../../docs/manual.md) antes de empezar.
+6c6
+< Los datos están en [ventas](C:\andina-market-360\data\ventas.csv).
+---
+> Los datos están en [ventas](../../data/ventas.csv).
+11c11
+< | Ica | resumen.json |
+---
+> | Ica | Ventas | resumen.json |
+14a15
+> ```

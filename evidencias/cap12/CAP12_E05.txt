@@ -1,0 +1,15 @@
+$ grep -n "CONTRIBUTING.md" README.md; grep -nE "^## " CONTRIBUTING.md; grep -n -i "datos reales\|secretos" CONTRIBUTING.md | head -n 3; sed -n "/## Comunicar errores en Issues/,\$p" CONTRIBUTING.md; python tools/verificar_md.py CONTRIBUTING.md
+90:- [Guía de contribución](CONTRIBUTING.md): ramas, mensajes de commit, pruebas y reporte de errores.
+5:## Reglas de datos y seguridad
+10:## Ramas
+20:## Mensajes de commit
+26:## Antes de abrir un pull request
+35:## Pull requests
+40:## Comunicar errores en Issues
+7:- **Nunca suba secretos:** contraseñas, tokens, claves privadas o archivos `.env`. Si sube uno por error, avise de inmediato en un Issue sin copiar el secreto y revóquelo.
+43:3. Adjunte el comando y su salida; no adjunte datos reales ni capturas con información personal.
+## Comunicar errores en Issues
+1. Busque si ya existe un Issue igual.
+2. Abra uno nuevo con la plantilla de error: datos de entrada (ficticios), pasos para reproducir, resultado observado y resultado esperado.
+3. Adjunte el comando y su salida; no adjunte datos reales ni capturas con información personal.
+OK: 1 archivo(s) sin errores

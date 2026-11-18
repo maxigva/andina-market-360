@@ -1,0 +1,14 @@
+$ sed -n "/## Inicio rápido/,/^\`\`\`\$/p" README.md; sed -n "/## Inicio rápido/,/^\`\`\`\$/p" README.md | python -c "import sys; t=sys.stdin.read(); print(\"caracteres no ASCII en el bloque:\", sum(1 for c in t if ord(c)>127 and c not in \"áéíóú\"))"; echo "--- ejecución de cada orden:"; python -m unittest discover -s tests 2>&1 | tail -n 1; python src/resumen.py
+## Inicio rápido
+```bash
+python -m unittest discover -s tests
+python src/resumen.py
+```
+caracteres no ASCII en el bloque: 0
+--- ejecución de cada orden:
+OK
+Operaciones: 12
+Lima       S/   814.00
+Ica        S/   555.00
+Arequipa   S/   476.00
+TOTAL      S/  1845.00

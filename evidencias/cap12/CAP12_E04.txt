@@ -1,0 +1,7 @@
+$ grep -n "docs/manual.md" README.md; grep -n "data/ventas.csv" docs/manual.md | head -n 2; python tools/verificar_md.py README.md docs/manual.md; echo "--- copia en otra carpeta/propietario (simula cambio de dueño del repositorio):"; mkdir -p "$OTRO"; cp -r README.md CONTRIBUTING.md LICENSE docs data capitulos "$OTRO/"; cd "$OTRO"; python /c/andina-market-360/tools/verificar_md.py README.md docs/manual.md
+19:- Columnas, indicadores y fórmulas: ver el [Manual](docs/manual.md).
+89:- [Manual](docs/manual.md): instalación, datos, indicadores y verificación.
+28:Fuente única: [`data/ventas.csv`](../data/ventas.csv). Este manual **no copia** sus filas: cualquier cifra se obtiene ejecutando `src/resumen.py`.
+OK: 2 archivo(s) sin errores
+--- copia en otra carpeta/propietario (simula cambio de dueño del repositorio):
+OK: 2 archivo(s) sin errores

@@ -1,0 +1,6 @@
+$ grep -cE "^\| (Ventas totales|Número de operaciones|Ticket promedio|Participación de una sede) \|" docs/manual.md | sed "s/^/KPI documentados: /"; python src/resumen.py | grep -E "Operaciones|TOTAL"; python -c "import json; d=json.load(open(\"docs/data/resumen.json\")); print(round(d[\"total\"]/d[\"operaciones\"], 2))"; python -c "import json; d=json.load(open(\"docs/data/resumen.json\")); print({k: round(v/d[\"total\"]*100, 2) for k, v in d[\"por_sede\"].items()})"
+KPI documentados: 4
+Operaciones: 12
+TOTAL      S/  1845.00
+153.75
+{'Lima': 44.12, 'Ica': 30.08, 'Arequipa': 25.8}
