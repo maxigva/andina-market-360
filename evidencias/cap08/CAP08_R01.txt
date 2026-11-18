@@ -1,0 +1,6 @@
+$ git branch --show-current; git log -1 --oneline; git show --stat --format= HEAD; git log --oneline main..feature/filtro-productos
+feature/filtro-productos
+bac3c40 docs: proponer filtro por producto
+ fichas/propuesta_filtro_productos.md | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+bac3c40 docs: proponer filtro por producto

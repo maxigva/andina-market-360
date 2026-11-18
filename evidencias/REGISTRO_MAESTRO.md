@@ -9,3 +9,4 @@
 | 05 | Fundamentos del control de versiones | ✓ | ✓ | 17/11 | [CAP05_registro.md](CAP05_registro.md) |
 | 06 | Instalación y configuración de Git | ✓ | ✓ | 17/11 | [CAP06_registro.md](CAP06_registro.md) |
 | 07 | Comandos fundamentales de Git | ✓ | ✓ | 17/11 | [CAP07_registro.md](CAP07_registro.md) |
+| 08 | Trabajo con ramas o branches | ✓ | ✓ | 17/11 | [CAP08_registro.md](CAP08_registro.md) |

@@ -1,0 +1,10 @@
+$ git log -1 --oneline; git diff --stat main..feature/resumen-sedes; echo "--- encabezado en la rama:"; grep "<h1>" docs/index.html; echo "--- encabezado en main (sin cambios):"; git show main:docs/index.html | grep "<h1>"; echo "--- CSV igual en ambas ramas: $(git diff --quiet main feature/resumen-sedes -- data/ && echo sí)"
+2e67da0 feat: nombrar tablero de sedes
+ README.md       | 1 +
+ docs/index.html | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+--- encabezado en la rama:
+<h1>Andina Market 360 · Tablero de ventas por sede</h1>
+--- encabezado en main (sin cambios):
+<h1>Andina Market 360</h1>
+--- CSV igual en ambas ramas: sí

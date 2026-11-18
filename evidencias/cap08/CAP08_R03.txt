@@ -1,0 +1,23 @@
+$ echo "== Caso A: archivo idéntico en ambas ramas (README.md) =="; echo "borrador sin confirmar" >> README.md; git status --short; git switch main; git status --short; echo "(la modificación viaja con el cambio de rama porque README.md es igual en ambas)"; git switch feature/filtro-productos; git restore README.md; echo; echo "== Caso B: archivo que solo existe en una rama =="; echo "nota sin confirmar" >> fichas/propuesta_filtro_productos.md; git switch main; echo "código de salida: $?"; git branch --show-current; git restore fichas/propuesta_filtro_productos.md; git status --short; echo "(árbol limpio de nuevo)"
+== Caso A: archivo idéntico en ambas ramas (README.md) ==
+ M README.md
+?? evidencias/cap08/
+Switched to branch 'main'
+M	README.md
+Your branch is ahead of 'origin/main' by 14 commits.
+  (use "git push" to publish your local commits)
+ M README.md
+?? evidencias/cap08/
+(la modificación viaja con el cambio de rama porque README.md es igual en ambas)
+Switched to branch 'feature/filtro-productos'
+M	README.md
+
+== Caso B: archivo que solo existe en una rama ==
+error: Your local changes to the following files would be overwritten by checkout:
+	fichas/propuesta_filtro_productos.md
+Please commit your changes or stash them before you switch branches.
+Aborting
+código de salida: 1
+feature/filtro-productos
+?? evidencias/cap08/
+(árbol limpio de nuevo)

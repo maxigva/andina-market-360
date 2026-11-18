@@ -64,3 +64,5 @@ Comprobado con `nota_temporal.txt`: aparece como `??`, luego como `A`, pero `git
 Cambio planificado n.º 1 **cumplido**: commit `902b0ac fix: escribir el JSON con finales de línea LF` (+ `.gitattributes`). Regenerar el JSON dos veces ya no produce cambios.
 
 Cambios planificados n.º 2 y 3 **cumplidos** (Cap. 07): `778f942` (datos) y `be19b40` (prueba). Las pruebas pasan de 4 a **5**.
+
+Cambio planificado n.º 4 **cumplido** (Cap. 08): `2e67da0 feat: nombrar tablero de sedes` en `feature/resumen-sedes`, integrado con `2ca7096`.

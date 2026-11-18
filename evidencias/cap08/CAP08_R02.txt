@@ -1,0 +1,16 @@
+$ git log --oneline --graph -9; echo "--- el commit de la corrección sigue identificable en main:"; git log --oneline main | grep "fix: corregir encabezado"
+*   ff14b35 Merge branch 'fix/encabezado-tablero'
+|\  
+| * f70b537 fix: corregir encabezado del tablero en README
+|/  
+*   2ca7096 Merge branch 'feature/resumen-sedes'
+|\  
+| * 2e67da0 feat: nombrar tablero de sedes
+| * 5920dd3 docs: describir informe de ventas por sede
+|/  
+* 53f7fd3 docs: documentar capítulo 07
+* be19b40 test: validar el resumen con el CSV de muestra
+* b3fe748 docs: explicar uso de Python y del CSV de muestra
+* 778f942 feat: agregar CSV de muestra para pruebas
+--- el commit de la corrección sigue identificable en main:
+f70b537 fix: corregir encabezado del tablero en README

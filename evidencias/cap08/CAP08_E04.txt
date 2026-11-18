@@ -1,0 +1,11 @@
+$ git log -1 --oneline fix/encabezado-tablero; git diff main fix/encabezado-tablero | grep -E "^[-+]#"; GIT_AUTHOR_DATE="2026-11-17T23:44:30-05:00" GIT_COMMITTER_DATE="2026-11-17T23:44:30-05:00" git merge --no-ff --no-edit fix/encabezado-tablero; python -m unittest discover -s tests 2>&1 | tail -n 3; python src/resumen.py | tail -n 1
+f70b537 fix: corregir encabezado del tablero en README
+-## Uso del tablero
++## Uso del tablero de ventas por sede
+Merge made by the 'ort' strategy.
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Ran 5 tests in 0.008s
+
+OK
+TOTAL      S/  1845.00

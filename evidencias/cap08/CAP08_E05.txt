@@ -1,0 +1,8 @@
+$ git branch --merged main; git branch -d feature/resumen-sedes; echo "--- ramas restantes:"; git branch
+  feature/resumen-sedes
+  fix/encabezado-tablero
+* main
+Deleted branch feature/resumen-sedes (was 2e67da0).
+--- ramas restantes:
+  fix/encabezado-tablero
+* main

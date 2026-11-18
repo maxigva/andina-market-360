@@ -1,0 +1,18 @@
+$ git switch main; GIT_AUTHOR_DATE="2026-11-17T23:33:40-05:00" GIT_COMMITTER_DATE="2026-11-17T23:33:40-05:00" git merge --no-ff --no-edit feature/resumen-sedes; git log --oneline --graph -5; echo "--- nueva información en main:"; grep "<h1>" docs/index.html; grep -c "ventas por sede" README.md
+Already on 'main'
+Your branch is ahead of 'origin/main' by 9 commits.
+  (use "git push" to publish your local commits)
+Merge made by the 'ort' strategy.
+ README.md       | 1 +
+ docs/index.html | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+*   2ca7096 Merge branch 'feature/resumen-sedes'
+|\  
+| * 2e67da0 feat: nombrar tablero de sedes
+| * 5920dd3 docs: describir informe de ventas por sede
+|/  
+* 53f7fd3 docs: documentar capítulo 07
+* be19b40 test: validar el resumen con el CSV de muestra
+--- nueva información en main:
+<h1>Andina Market 360 · Tablero de ventas por sede</h1>
+1

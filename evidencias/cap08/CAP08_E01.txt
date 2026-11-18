@@ -1,0 +1,5 @@
+$ git branch --show-current; git log -1 --oneline; git show --stat --format= HEAD
+feature/resumen-sedes
+5920dd3 docs: describir informe de ventas por sede
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
