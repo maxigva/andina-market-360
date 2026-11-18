@@ -1,0 +1,17 @@
+$ cd "$D"; git init -q --bare -b main compartido.git; git clone -q compartido.git ana; git clone -q compartido.git beto 2>/dev/null; cd ana; git config user.name Ana; git config user.email ana@example.com; echo base > notas.txt; git add notas.txt; git commit -qm "chore: base"; git push -q origin main; cd ../beto; git config user.name Beto; git config user.email beto@example.com; git pull -q origin main; cd ../ana; echo "aporte de Ana" >> notas.txt; git commit -qam "docs: aporte de Ana"; git push -q origin main; cd ../beto; echo "aporte de Beto" > beto.txt; git add beto.txt; git commit -qm "docs: aporte de Beto"; echo "--- push normal de Beto (desactualizado):"; git push origin main; echo "--- si Beto forzara el push:"; git push --force origin main 2>&1 | tail -n 1; echo "--- historial del remoto compartido tras el push forzado:"; git --git-dir=../compartido.git log --format="%s (%an)" main; echo "¿sigue el aporte de Ana en el remoto? $(git --git-dir=../compartido.git log --format=%s main | grep -c "aporte de Ana")"
+warning: You appear to have cloned an empty repository.
+--- push normal de Beto (desactualizado):
+To <TEMP>/forzado/compartido.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to '<TEMP>/forzado/compartido.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+--- si Beto forzara el push:
+ + cf8bcd1...48be1cb main -> main (forced update)
+--- historial del remoto compartido tras el push forzado:
+docs: aporte de Beto (Beto)
+chore: base (Ana)
+¿sigue el aporte de Ana en el remoto? 0

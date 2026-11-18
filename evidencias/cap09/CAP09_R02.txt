@@ -1,0 +1,7 @@
+$ echo "== Movimientos de origin/main (fetch) =="; git reflog -2 --format="%h %gs" refs/remotes/origin/main; echo "== Movimientos de main local (pull) =="; git reflog -2 --format="%h %gs" refs/heads/main
+== Movimientos de origin/main (fetch) ==
+bd60f73 fetch origin: fast-forward
+fb37469 update by push
+== Movimientos de main local (pull) ==
+bd60f73 pull --ff-only origin main: Fast-forward
+fb37469 commit: docs: documentar capítulo 08

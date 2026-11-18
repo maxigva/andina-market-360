@@ -1,0 +1,8 @@
+$ git status --short | grep -v "^?? evidencias/cap09/"; echo "README antes de fetch: $(git hash-object README.md | cut -c1-12)"; git fetch origin; git log --oneline HEAD..origin/main; echo "README después de fetch: $(git hash-object README.md | cut -c1-12)"; git log -1 --format="main local sigue en: %h" main; git status -sb | head -n 1
+README antes de fetch: 10d35b5a0487
+From https://github.com/maxigva/andina-market-360
+   fb37469..bd60f73  main       -> origin/main
+bd60f73 docs: aclarar que GitHub solo aloja el proyecto
+README después de fetch: 10d35b5a0487
+main local sigue en: fb37469
+## main...origin/main [behind 1]

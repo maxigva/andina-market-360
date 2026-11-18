@@ -1,0 +1,6 @@
+$ git remote get-url origin; git remote add origin https://github.com/maxigva/andina-market-360.git; echo "código de salida: $? (origin ya existe; no se duplica)"; git remote; echo "remotos configurados: $(git remote | wc -l)"
+https://github.com/maxigva/andina-market-360.git
+error: remote origin already exists.
+código de salida: 3 (origin ya existe; no se duplica)
+origin
+remotos configurados: 1

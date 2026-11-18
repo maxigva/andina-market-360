@@ -1,0 +1,7 @@
+$ cd "$P/andina-market-360"; git remote -v | wc -l | sed "s/^/remotos antes: /"; git remote add origin https://github.com/maxigva/andina-market-360.git; git remote -v; echo "credenciales en la URL: $(git remote get-url origin | grep -cE "://[^/]*@|gh[po]_")"; git ls-remote --heads origin | cut -c1-7,41-
+remotos antes: 0
+origin	https://github.com/maxigva/andina-market-360.git (fetch)
+origin	https://github.com/maxigva/andina-market-360.git (push)
+credenciales en la URL: 0
+bac3c40	refs/heads/feature/filtro-productos
+bd60f73	refs/heads/main

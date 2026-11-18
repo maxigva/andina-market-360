@@ -1,0 +1,17 @@
+$ git branch --show-current; git status --short | grep -v "^?? evidencias/cap09/"; echo "(árbol limpio, salvo esta evidencia en escritura)"; git push -u origin main; git push -u origin feature/filtro-productos; echo "--- publicado:"; git log -1 --format="hash: %H | fecha del commit: %ci | %s" origin/main; git ls-remote --heads origin
+main
+(árbol limpio, salvo esta evidencia en escritura)
+To https://github.com/maxigva/andina-market-360.git
+   44f5f4f..fb37469  main -> main
+branch 'main' set up to track 'origin/main'.
+remote: 
+remote: Create a pull request for 'feature/filtro-productos' on GitHub by visiting:        
+remote:      https://github.com/maxigva/andina-market-360/pull/new/feature/filtro-productos        
+remote: 
+To https://github.com/maxigva/andina-market-360.git
+ * [new branch]      feature/filtro-productos -> feature/filtro-productos
+branch 'feature/filtro-productos' set up to track 'origin/feature/filtro-productos'.
+--- publicado:
+hash: fb37469a25003cd6afac3c79acf03b8f821408a9 | fecha del commit: 2026-11-17 23:58:35 -0500 | docs: documentar capítulo 08
+bac3c40dcb502764d2e4880a1d67fb39c25d83b5	refs/heads/feature/filtro-productos
+fb37469a25003cd6afac3c79acf03b8f821408a9	refs/heads/main

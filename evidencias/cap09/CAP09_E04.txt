@@ -1,0 +1,14 @@
+$ git pull --ff-only origin main; git log -2 --oneline; echo "--- README local vs. GitHub:"; grep -n "GitHub solo aloja" README.md
+From https://github.com/maxigva/andina-market-360
+ * branch            main       -> FETCH_HEAD
+Updating fb37469..bd60f73
+Fast-forward
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+bd60f73 docs: aclarar que GitHub solo aloja el proyecto
+fb37469 docs: documentar capítulo 08
+--- README local vs. GitHub:
+78:- El proyecto no se conecta automáticamente a servicios externos; GitHub solo aloja el código, las pruebas automáticas y la web.
+$ [ "$(git rev-parse HEAD:README.md)" = "$(gh api "repos/maxigva/andina-market-360/contents/README.md?ref=main" --jq .sha)" ] && echo "blob local (HEAD:README.md) = blob en GitHub: README idéntico"; git rev-parse HEAD:README.md
+blob local (HEAD:README.md) = blob en GitHub: README idéntico
+b28d3f9e797bc81a00e2816553fae83d07642f42

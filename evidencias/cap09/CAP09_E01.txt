@@ -1,0 +1,5 @@
+$ git remote -v; echo "credenciales en la URL (usuario:clave@ o token): $(git remote get-url origin | grep -cE "://[^/]*@|gh[po]_")"; git ls-remote --heads origin
+origin	https://github.com/maxigva/andina-market-360.git (fetch)
+origin	https://github.com/maxigva/andina-market-360.git (push)
+credenciales en la URL (usuario:clave@ o token): 0
+44f5f4fcadc54ad52d15fc88dc56857430140cf0	refs/heads/main

@@ -10,3 +10,4 @@
 | 06 | Instalación y configuración de Git | ✓ | ✓ | 17/11 | [CAP06_registro.md](CAP06_registro.md) |
 | 07 | Comandos fundamentales de Git | ✓ | ✓ | 17/11 | [CAP07_registro.md](CAP07_registro.md) |
 | 08 | Trabajo con ramas o branches | ✓ | ✓ | 17/11 | [CAP08_registro.md](CAP08_registro.md) |
+| 09 | Sincronización con repositorios remotos | ✓ | ✓ | 18/11 | [CAP09_registro.md](CAP09_registro.md) |
