@@ -75,7 +75,7 @@ Resultado esperado del paso 2: `Ran 5 tests` y `OK` (4 pruebas sobre la base de 
 ## Uso responsable
 - Datos exclusivamente simulados: sin nombres, documentos ni correos de clientes.
 - No se guardan contraseñas, tokens ni claves en el repositorio.
-- El proyecto no se conecta automáticamente a servicios externos.
+- El proyecto no se conecta automáticamente a servicios externos; GitHub solo aloja el código, las pruebas automáticas y la web.
 
 ## Licencia
 El código y la documentación propia se publican bajo la licencia [MIT](LICENSE).
