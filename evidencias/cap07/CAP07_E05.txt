@@ -1,0 +1,5 @@
+$ git diff -- README.md | grep -E "^\+[^+]"; git diff --cached --quiet && echo "(el cambio no está preparado)"; git restore README.md; git status --short README.md; echo "README limpio: $(git status --porcelain README.md | wc -l) cambios"; git log -1 --format="HEAD intacto: %h %s"
++TEMPORAL: nota de prueba que no se debe conservar
+(el cambio no está preparado)
+README limpio: 0 cambios
+HEAD intacto: b3fe748 docs: explicar uso de Python y del CSV de muestra

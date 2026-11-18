@@ -69,7 +69,7 @@ Arequipa   S/   476.00
 TOTAL      S/  1845.00
 ```
 
-Resultado esperado del paso 2: todas las pruebas terminan en `OK`. Si el paso 3 no cambia `docs/data/resumen.json` (`git status` limpio), la web ya muestra las cifras vigentes.
+Resultado esperado del paso 2: `Ran 5 tests` y `OK` (4 pruebas sobre la base de 12 ventas y 1 sobre la muestra). Si el paso 3 no cambia `docs/data/resumen.json` (`git status` limpio), la web ya muestra las cifras vigentes.
 
 ## Uso responsable
 - Datos exclusivamente simulados: sin nombres, documentos ni correos de clientes.

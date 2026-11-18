@@ -1,0 +1,13 @@
+$ GIT_AUTHOR_DATE="2026-11-17T22:36:10-05:00" GIT_COMMITTER_DATE="2026-11-17T22:36:10-05:00" git commit -q -m "docs: aclarar uso del tablero"; git log -3 --oneline; git show --stat HEAD; git log -1 --format=%s | grep -ciE "token|password|clave|secret" | sed "s/^/palabras sensibles en el mensaje: /"
+4a0bc2d docs: aclarar uso del tablero
+0419d53 docs: documentar capítulo 06
+902b0ac fix: escribir el JSON con finales de línea LF
+commit 4a0bc2dc430c5620f732c1563f4282ca37a33bbe
+Author: Estudiante <estudiante@example.com>
+Date:   Tue Nov 17 22:36:10 2026 -0500
+
+    docs: aclarar uso del tablero
+
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)
+palabras sensibles en el mensaje: 0

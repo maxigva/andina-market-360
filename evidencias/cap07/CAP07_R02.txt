@@ -1,0 +1,17 @@
+$ git diff --stat; git diff -- README.md | grep -vE "^(\+\+\+|---)" | grep -E "^[-+]"; echo "--- comprobación del comando nuevo antes de confirmar:"; python src/resumen.py --csv data/ventas_muestra.csv
+ README.md | 8 ++++++++
+ 1 file changed, 8 insertions(+)
++├── data/ventas_muestra.csv    Muestra de 4 ventas para pruebas
++- Compruebe su versión con `python --version` (en algunos sistemas el comando es `python3`).
++Para probar con otro archivo, indique su ruta con `--csv`; por ejemplo, la muestra de 4 ventas:
++
++```bash
++python src/resumen.py --csv data/ventas_muestra.csv
++```
++
+--- comprobación del comando nuevo antes de confirmar:
+Operaciones: 4
+Lima       S/    80.00
+Ica        S/    40.00
+Arequipa   S/    38.00
+TOTAL      S/   158.00

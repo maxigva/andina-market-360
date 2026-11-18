@@ -1,0 +1,13 @@
+$ git log --format="%h %s" --stat -4 | grep -v "^$"
+be19b40 test: validar el resumen con el CSV de muestra
+ tests/test_resumen.py | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+b3fe748 docs: explicar uso de Python y del CSV de muestra
+ README.md | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+778f942 feat: agregar CSV de muestra para pruebas
+ data/ventas_muestra.csv | 5 +++++
+ 1 file changed, 5 insertions(+)
+4a0bc2d docs: aclarar uso del tablero
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)

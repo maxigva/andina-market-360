@@ -1,0 +1,14 @@
+$ git diff HEAD -- README.md; echo "líneas agregadas: $(git diff HEAD -- README.md | grep -c "^+[^+]") | quitadas: $(git diff HEAD -- README.md | grep -c "^-[^-]")"
+diff --git a/README.md b/README.md
+index 200193a..7f48210 100644
+--- a/README.md
++++ b/README.md
+@@ -33,6 +33,7 @@ andina-market-360/
+ ## Requisitos
+ - Python 3 (probado con 3.12 en GitHub Actions y 3.14 en local); no requiere instalar paquetes.
+ - Git, para clonar y versionar.
++- Compruebe su versión con `python --version` (en algunos sistemas el comando es `python3`).
+ 
+ ## Cómo ejecutar el análisis
+ Desde la raíz del repositorio:
+líneas agregadas: 1 | quitadas: 0

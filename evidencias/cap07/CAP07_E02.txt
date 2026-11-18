@@ -1,0 +1,5 @@
+$ git add README.md; git diff --cached -- README.md | grep -E "^[-+][^-+]"; git status --short
++## Uso del tablero
++El tablero (`docs/index.html`) permite que cada jefe de sede compare sus ventas con las de las otras dos sedes sin abrir el CSV.
+M  README.md
+?? evidencias/cap07/

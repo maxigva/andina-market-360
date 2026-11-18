@@ -1,0 +1,11 @@
+$ cd "$P/andina-market-360"; echo "Nota de práctica: revisar totales de abril" >> README.md; git status --short; git diff > ../respaldo_cambio.patch; echo "respaldo del cambio no confirmado: $(grep -c "^+[^+]" ../respaldo_cambio.patch) línea(s) en respaldo_cambio.patch"; git restore README.md; git status --short; echo "(árbol limpio)"; git apply ../respaldo_cambio.patch; git status --short; tail -n 1 README.md; echo "(modificación recuperada desde el parche, sin commits)"; git log --oneline | wc -l
+ M README.md
+?? .github/
+respaldo del cambio no confirmado: 1 línea(s) en respaldo_cambio.patch
+?? .github/
+(árbol limpio)
+ M README.md
+?? .github/
+Nota de práctica: revisar totales de abril
+(modificación recuperada desde el parche, sin commits)
+1
