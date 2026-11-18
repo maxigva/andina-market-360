@@ -1,6 +1,5 @@
 import json
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -22,10 +21,10 @@ class TestResumen(unittest.TestCase):
         self.assertEqual(self.r["por_sede"], {"Lima": 814.00, "Ica": 555.00, "Arequipa": 476.00})
 
     def test_json_coincide_con_csv(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            salida = Path(tmp) / "resumen.json"
-            salida.write_text(json.dumps(self.r), encoding="utf-8")
-            self.assertEqual(json.loads(salida.read_text(encoding="utf-8"))["total"], 1845.00)
+        """El JSON publicado para la web debe ser el resumen vigente del CSV (Issue #2)."""
+        publicado = Path(__file__).resolve().parent.parent / "docs" / "data" / "resumen.json"
+        self.assertEqual(json.loads(publicado.read_text(encoding="utf-8")), self.r,
+                         "docs/data/resumen.json está desactualizado: ejecute python src/resumen.py --json docs/data/resumen.json")
 
     def test_readme_muestra_cifras_calculadas(self):
         readme = (Path(__file__).resolve().parent.parent / "README.md").read_text(encoding="utf-8")
