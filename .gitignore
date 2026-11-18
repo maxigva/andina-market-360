@@ -16,5 +16,8 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Paquetes generados por tools/empaquetar.py (se adjuntan a la Release, no se versionan)
+dist/
+
 # Material del curso (PDF del cuaderno e instrucciones; no se publica)
 _material/

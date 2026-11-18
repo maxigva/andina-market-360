@@ -78,6 +78,7 @@ andina-market-360/
 ├── src/resumen.py             Cálculo de totales (solo biblioteca estándar)
 ├── tests/test_resumen.py      Pruebas unitarias
 ├── tools/verificar_md.py      Verificación de enlaces y formato Markdown
+├── tools/empaquetar.py        Paquete ZIP de una versión etiquetada (en dist/, no versionado)
 ├── docs/                      Sitio estático publicado con Pages (index.html, productos.html, style.css, data/resumen.json, manual.md)
 ├── .github/workflows/ci.yml   Integración continua
 ├── capitulos/                 Desarrollo de cada capítulo del cuaderno
