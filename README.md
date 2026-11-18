@@ -16,6 +16,7 @@ Las sedes consolidaban sus ventas editando informes a mano, lo que producía err
 
 ## Uso del tablero
 El tablero (`docs/index.html`) permite que cada jefe de sede compare sus ventas con las de las otras dos sedes sin abrir el CSV.
+El informe muestra primero las **ventas por sede** (Lima, Ica y Arequipa) con su total; después, las ventas por producto y por mes.
 
 ## Estructura
 ```
