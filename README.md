@@ -80,5 +80,3 @@ Resultado esperado del paso 2: `Ran 5 tests` y `OK` (4 pruebas sobre la base de 
 ## Licencia
 El código y la documentación propia se publican bajo la licencia [MIT](LICENSE).
 El cuaderno de prácticas que guía los capítulos es material de su autor; **no se incluye en este repositorio** ni queda cubierto por esta licencia.
-
-> Nota temporal de laboratorio: esta frase se revertirá en el Capítulo 10.
