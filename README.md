@@ -8,7 +8,7 @@ Caso único del **Cuaderno de prácticas Git y GitHub (36 capítulos)**. Nunca c
 Las sedes consolidaban sus ventas editando informes a mano, lo que producía errores y demoras. Este repositorio calcula los totales directamente desde el CSV, de modo que cada cifra publicada se puede volver a obtener con un comando.
 
 ## Funcionalidades
-- Lee `data/ventas.csv` (12 transacciones simuladas).
+- Lee `data/ventas.csv` (12 transacciones simuladas). **Procedencia:** el CSV fue creado para el curso con valores inventados; no proviene de ningún sistema de ventas real.
 - Calcula totales por **sede**, **producto** y **mes**.
 - Genera `docs/data/resumen.json` para la web.
 - Muestra el resumen en `docs/index.html`, que lee el JSON generado (no cifras escritas a mano).
