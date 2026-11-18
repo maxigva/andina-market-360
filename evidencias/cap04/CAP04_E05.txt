@@ -1,0 +1,9 @@
+$ head -n 3 LICENSE; grep -n -A3 "^## Licencia" README.md; git ls-files LICENSE _material; echo "archivos de _material versionados: $(git log --all --format= --name-only -- _material | wc -l)"
+MIT License
+
+Copyright (c) 2026 Estudiante
+68:## Licencia
+69-El código y la documentación propia se publican bajo la licencia [MIT](LICENSE).
+70-El cuaderno de prácticas que guía los capítulos es material de su autor; **no se incluye en este repositorio** ni queda cubierto por esta licencia.
+LICENSE
+archivos de _material versionados: 0

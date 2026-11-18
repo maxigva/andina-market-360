@@ -1,0 +1,12 @@
+$ gh repo view --json visibility --jq .visibility; echo "--- correos de autor en todo el historial:"; git log --all --format="%ae" | sort | uniq -c; echo "--- secretos en todo el historial (diffs):"; git log --all -p | grep -cE "gh[po]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}|-----BEGIN [A-Z ]*PRIVATE KEY|AKIA[0-9A-Z]{16}"; echo "--- archivos sensibles alguna vez versionados (.env, .pem, .key, _material):"; git log --all --format= --name-only | sort -u | grep -ciE "\.env$|\.pem$|\.key$|^_material/"; echo "--- columnas del CSV (sin datos personales):"; head -n 1 data/ventas.csv; echo "--- licencia presente:"; ls LICENSE
+PUBLIC
+--- correos de autor en todo el historial:
+     13 estudiante@example.com
+--- secretos en todo el historial (diffs):
+0
+--- archivos sensibles alguna vez versionados (.env, .pem, .key, _material):
+0
+--- columnas del CSV (sin datos personales):
+id,fecha,sede,producto,cantidad,precio_unitario
+--- licencia presente:
+LICENSE

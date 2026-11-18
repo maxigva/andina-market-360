@@ -1,0 +1,17 @@
+$ git ls-files | grep / | cut -d/ -f1 | sort -u; echo "--- carpetas del proyecto y su contenido versionado:"; for d in data src tests docs .github; do echo "$d/: $(git ls-files $d | tr "\n" " ")"; done; echo "--- carpetas vacías (necesitarían placeholder):"; find . -path ./.git -prune -o -path ./_material -prune -o -type d -empty -print | wc -l
+.github
+capitulos
+data
+docs
+evidencias
+fichas
+src
+tests
+--- carpetas del proyecto y su contenido versionado:
+data/: data/ventas.csv 
+src/: src/resumen.py 
+tests/: tests/test_resumen.py 
+docs/: docs/data/resumen.json docs/index.html 
+.github/: .github/workflows/ci.yml 
+--- carpetas vacías (necesitarían placeholder):
+0

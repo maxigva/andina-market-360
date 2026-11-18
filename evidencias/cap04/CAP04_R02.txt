@@ -1,0 +1,19 @@
+$ python src/resumen.py; python -m unittest discover -s tests 2>&1 | tail -n 3; python src/resumen.py --json docs/data/resumen.json; git status --short docs/; echo "JSON sin cambios: $(git diff --quiet docs/data/resumen.json && echo sí)"; (python -m http.server 8000 --directory docs >/dev/null 2>&1 &) ; sleep 2; curl -s -o /dev/null -w "GET / -> HTTP %{http_code}\n" http://localhost:8000/; curl -s http://localhost:8000/data/resumen.json | python -c "import json,sys; d=json.load(sys.stdin); print(\"JSON servido: operaciones\", d[\"operaciones\"], \"total\", d[\"total\"])"
+Operaciones: 12
+Lima       S/   814.00
+Ica        S/   555.00
+Arequipa   S/   476.00
+TOTAL      S/  1845.00
+Ran 4 tests in 0.019s
+
+OK
+Operaciones: 12
+Lima       S/   814.00
+Ica        S/   555.00
+Arequipa   S/   476.00
+TOTAL      S/  1845.00
+JSON generado: docs/data/resumen.json
+ M docs/data/resumen.json
+JSON sin cambios: sí
+GET / -> HTTP 200
+JSON servido: operaciones 12 total 1845.0

@@ -1,0 +1,27 @@
+$ grep -nE "^#{1,2} |^\`\`\`" README.md; echo "--- render con la API de Markdown de GitHub (encabezados h2):"; gh api markdown -f mode=gfm -F text=@README.md | grep -oE "<h2[^>]*>.*</h2>" | sed -E "s/<[^>]+>//g"
+1:# Andina Market 360
+7:## Problema
+10:## Funcionalidades
+17:## Estructura
+18:```
+28:```
+30:## Requisitos
+34:## Cómo ejecutar el análisis
+37:```bash
+38:# 1. Ver el resumen por sede en la terminal
+41:# 2. Ejecutar las pruebas
+44:# 3. Regenerar el JSON que usa la web
+47:# 4. Ver la web en http://localhost:8000 (detener con Ctrl+C)
+49:```
+53:```
+59:```
+63:## Uso responsable
+68:## Licencia
+--- render con la API de Markdown de GitHub (encabezados h2):
+Problema
+Funcionalidades
+Estructura
+Requisitos
+Cómo ejecutar el análisis
+Uso responsable
+Licencia

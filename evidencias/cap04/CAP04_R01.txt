@@ -1,0 +1,7 @@
+$ grep -cE "^\| \`[a-z]+/\` \|" fichas/diseno_tienda.md; grep -E "^\| \`[a-z]+/\` \|" fichas/diseno_tienda.md | cut -d"|" -f2,3
+5
+ `data/` | Entradas del análisis 
+ `src/` | Lógica de cálculo 
+ `tests/` | Pruebas automáticas 
+ `reportes/` | Resultados generados por `src/` 
+ `docs/` | Presentación web 

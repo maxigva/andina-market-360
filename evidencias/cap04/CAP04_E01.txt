@@ -1,0 +1,9 @@
+$ gh repo view maxigva/andina-market-360 --json name,url,visibility,description,createdAt --jq "\"nombre: \(.name)\nurl: \(.url)\nvisibilidad: \(.visibility)\ndescripción: \(if .description == \"\" then \"(vacía)\" else .description end)\ncreado: \(.createdAt)\""; gh repo list maxigva --limit 100 --json name --jq ".[].name" | grep -x andina-market-360; git remote -v
+nombre: andina-market-360
+url: https://github.com/maxigva/andina-market-360
+visibilidad: PUBLIC
+descripción: (vacía)
+creado: 2026-11-18T00:45:22Z
+andina-market-360
+origin	https://github.com/maxigva/andina-market-360.git (fetch)
+origin	https://github.com/maxigva/andina-market-360.git (push)
