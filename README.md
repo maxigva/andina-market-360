@@ -14,7 +14,7 @@ Las sedes consolidaban sus ventas editando informes a mano, lo que producía err
 - Muestra el resumen en `docs/index.html`, que lee el JSON generado (no cifras escritas a mano).
 - Ejecuta las pruebas automáticamente en GitHub Actions en cada push y pull request.
 
-## Uso del tablero
+## Uso del tablero de ventas por sede
 El tablero (`docs/index.html`) permite que cada jefe de sede compare sus ventas con las de las otras dos sedes sin abrir el CSV.
 El informe muestra primero las **ventas por sede** (Lima, Ica y Arequipa) con su total; después, las ventas por producto y por mes.
 
