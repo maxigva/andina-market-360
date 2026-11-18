@@ -1,0 +1,4 @@
+$ git log --format="%h %ad %s" --date=short -- data/ventas.csv; echo "(historial del CSV: muestra quién y cuándo lo cambió)"; git show HEAD~1:data/ventas.csv | tail -n +2 | wc -l
+a336325 2026-11-10 chore: iniciar caso Andina Market
+(historial del CSV: muestra quién y cuándo lo cambió)
+12

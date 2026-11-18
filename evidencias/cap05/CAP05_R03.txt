@@ -1,0 +1,7 @@
+$ echo "Cambio temporal" > nota_temporal.txt; git status --short nota_temporal.txt; echo "(existe en el directorio de trabajo, fuera del historial)"; git add nota_temporal.txt; git status --short nota_temporal.txt; echo "(preparado, todavía fuera del historial)"; git log --oneline -1 -- nota_temporal.txt; echo "commits que contienen el archivo: $(git log --oneline -- nota_temporal.txt | wc -l)"; git restore --staged nota_temporal.txt; rm nota_temporal.txt; git status --short nota_temporal.txt; echo "(se retiró sin tocar el historial)"
+?? nota_temporal.txt
+(existe en el directorio de trabajo, fuera del historial)
+A  nota_temporal.txt
+(preparado, todavía fuera del historial)
+commits que contienen el archivo: 0
+(se retiró sin tocar el historial)

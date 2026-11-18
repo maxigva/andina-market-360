@@ -1,0 +1,10 @@
+$ git status --short; git diff --stat; git diff -U0 -- README.md | grep -E "^[-+][^-+]"
+ M README.md
+?? evidencias/CAP02_2FA.png
+?? evidencias/cap05/
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+-Resumen verificable de ventas **ficticias** por sede (Lima, Ica y Arequipa), calculado con Python, probado con `unittest` y mostrado en una página web estática.
++Objetivo comercial: que la gerencia sepa **qué sede lidera las ventas ficticias** (Lima, Ica y Arequipa) con cifras calculadas por Python, probadas con `unittest` y mostradas en una página web estática.

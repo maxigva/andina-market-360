@@ -19,12 +19,13 @@
 - **Comprobación:** solo se registra *si pude acceder*. → `CAP02_E02.txt`
 
 ### 2.3 · Preparar la autenticación reforzada
-- **Simulación local documentada.** La activación de 2FA es una acción de seguridad de la cuenta que hace la persona titular, no un script:
+- **Qué se hizo (acción real en GitHub):** la persona titular activó la autenticación de dos factores:
   1. Settings → Password and authentication → *Enable two-factor authentication*.
-  2. Elegir app autenticadora (o llave de seguridad) y escanear el código QR.
-  3. Descargar los códigos de recuperación y guardarlos en un gestor de contraseñas, **fuera** de `andina-market-360`.
-- **Comprobación (real):** búsqueda de archivos y patrones secretos en el repositorio.
-- **Resultado observado:** `archivos sospechosos: 0`, `secretos encontrados: 0`. → `CAP02_E03.txt`
+  2. Método principal: **app autenticadora** (estado *Configured*).
+  3. Códigos de recuperación consultados (estado *Viewed*) y guardados en un gestor seguro, **fuera** de `andina-market-360`.
+- **Evidencia:** captura `evidencias/CAP02_2FA.png` (sección *Two-factor methods* y *Recovery options*; no muestra códigos).
+- **Comprobación (real):** búsqueda de archivos y patrones secretos en el repositorio → `archivos sospechosos: 0`, `secretos encontrados: 0`. → `CAP02_E03.txt`
+- **Actualización (Cap. 05):** este ejemplo se documentó primero como simulación; se reemplazó por la activación real y su captura.
 
 ### 2.4 · Configurar notificaciones útiles
 - **Qué se hizo:** ficha con avisos de Issues, Pull Requests, seguridad y Actions, y el procedimiento para silenciar un repositorio (Watch → Ignore).

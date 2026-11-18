@@ -1,0 +1,10 @@
+$ cp data/ventas.csv "$RESPALDO/ventas.csv"; echo "respaldo creado fuera del repositorio (\$RESPALDO = carpeta temporal local)"; echo "registros sin encabezado: $(tail -n +2 data/ventas.csv | wc -l)"; sha256sum data/ventas.csv | cut -c1-16; echo "--- simulación de daño: se borra la última fila"; sed -i "\$d" data/ventas.csv; echo "registros tras el daño: $(tail -n +2 data/ventas.csv | wc -l)"; echo "--- restauración desde el respaldo local (sin GitHub)"; cp "$RESPALDO/ventas.csv" data/ventas.csv; echo "registros restaurados: $(tail -n +2 data/ventas.csv | wc -l)"; sha256sum data/ventas.csv | cut -c1-16; cmp data/ventas.csv "$RESPALDO/ventas.csv" && echo "idéntico al respaldo"; git status --short data/
+respaldo creado fuera del repositorio ($RESPALDO = carpeta temporal local)
+registros sin encabezado: 12
+12e705a345082a1b
+--- simulación de daño: se borra la última fila
+registros tras el daño: 11
+--- restauración desde el respaldo local (sin GitHub)
+registros restaurados: 12
+12e705a345082a1b
+idéntico al respaldo

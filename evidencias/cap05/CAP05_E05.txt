@@ -1,0 +1,9 @@
+$ cp README.md "$RESPALDO/README_respaldo.md"; cp README.md "$RESPALDO/README_copia.md"; sed -i "1s/.*/# Andina Market 360 – BORRADOR/" "$RESPALDO/README_copia.md"; echo "--- comparación copia vs. respaldo:"; diff "$RESPALDO/README_respaldo.md" "$RESPALDO/README_copia.md"; echo "--- se conserva el título original; se restituye desde el respaldo:"; head -n 1 "$RESPALDO/README_respaldo.md" > "$RESPALDO/titulo.txt"; sed -i "1s/.*/$(cat "$RESPALDO/titulo.txt")/" "$RESPALDO/README_copia.md"; diff "$RESPALDO/README_respaldo.md" "$RESPALDO/README_copia.md" && echo "sin diferencias: la copia coincide con la versión deseada"; cmp "$RESPALDO/README_copia.md" README.md && echo "y coincide con README.md del repositorio"
+--- comparación copia vs. respaldo:
+1c1
+< # Andina Market 360
+---
+> # Andina Market 360 – BORRADOR
+--- se conserva el título original; se restituye desde el respaldo:
+sin diferencias: la copia coincide con la versión deseada
+y coincide con README.md del repositorio

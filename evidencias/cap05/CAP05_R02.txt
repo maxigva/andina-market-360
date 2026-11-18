@@ -1,0 +1,5 @@
+$ grep -E "^\| [1-4] \|" fichas/bitacora.md | cut -d"|" -f2,3,5
+ 1 | Escribir el JSON con finales de línea LF | Regenerar el JSON en Windows deja `git status` limpio 
+ 2 | Agregar un CSV de muestra pequeño | Mismas 6 columnas, solo datos ficticios, ≤ 5 filas 
+ 3 | Probar el resumen con la muestra | La nueva prueba pasa y las 4 anteriores siguen en OK 
+ 4 | Nombrar el tablero de sedes en la web | El encabezado aparece en `docs/index.html` y las cifras siguen saliendo del JSON 

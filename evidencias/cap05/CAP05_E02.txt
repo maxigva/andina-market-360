@@ -1,0 +1,7 @@
+$ git log -1 --format="HEAD antes: %h %s"; echo "Línea de prueba escrita en el editor" >> README.md; echo "--- archivo escrito, sin git add ni git commit:"; git status --short README.md; git diff --cached --stat README.md; echo "(preparación vacía)"; git log -1 --format="HEAD después: %h %s"; git restore README.md; git status --short README.md; echo "(README restaurado; ningún commit automático)"
+HEAD antes: 44f5f4f docs: documentar capítulo 04
+--- archivo escrito, sin git add ni git commit:
+ M README.md
+(preparación vacía)
+HEAD después: 44f5f4f docs: documentar capítulo 04
+(README restaurado; ningún commit automático)

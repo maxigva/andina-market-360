@@ -1,0 +1,6 @@
+$ head -n 3 fichas/tabla_cambios.md | tail -n 1; grep -c "^| 17/11\|^| Planificado" fichas/tabla_cambios.md; git log -1 --format="%h %s" -- README.md; git show --stat --format= HEAD
+| Fecha | Motivo | Archivo | Responsable | Prueba | Commit | Impacto en el caso |
+2
+3c9710d docs: precisar objetivo comercial
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
