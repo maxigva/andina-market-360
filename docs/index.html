@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1>Andina Market 360 · Tablero de ventas por sede</h1>
+<p id="presentacion"></p>
 <p>Resumen generado por <code>src/resumen.py</code> a partir de <code>data/ventas.csv</code> (datos ficticios).</p>
 <div id="contenido">Cargando...</div>
 <script>
@@ -23,6 +24,9 @@ function tabla(titulo, datos, total) {
 fetch("data/resumen.json")
   .then(r => r.json())
   .then(d => {
+    const sedes = Object.keys(d.por_sede);
+    document.getElementById("presentacion").innerHTML =
+      `<b>Sedes:</b> ${sedes.slice(0, -1).join(", ")} y ${sedes.at(-1)} · <b>Origen:</b> datos ficticios de <code>data/ventas.csv</code>`;
     document.getElementById("contenido").innerHTML =
       `<p><b>Operaciones:</b> ${d.operaciones}</p>` +
       tabla("Ventas por sede", d.por_sede, d.total) +
