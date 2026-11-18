@@ -1,0 +1,6 @@
+$ gh issue view 14814 -R cli/cli --json title,state,stateReason,createdAt,closedAt,labels,url --jq ".url, .title, \"estado: \(.state) (\(.stateReason)) | abierto: \(.createdAt[0:10]) | cerrado: \(.closedAt[0:10]) | etiquetas: \([.labels[].name]|join(\", \"))\""; gh issue view 14814 -R cli/cli --json comments --jq ".comments[] | \"comentario: \" + .createdAt[0:10]"; gh pr view 14815 -R cli/cli --json title,state,mergedAt --jq "\"PR #14815: \(.title) | \(.state) | fusionado: \(.mergedAt[0:10])\""
+https://github.com/cli/cli/issues/14814
+`gh auth status --no-refresh` shows a misleading error for expired tokens
+estado: CLOSED (COMPLETED) | abierto: 2026-10-24 | cerrado: 2026-10-26 | etiquetas: bug, priority-3, gh-auth
+comentario: 2026-10-24
+PR #14815: fix(gh auth status): explain expired expiring tokens with `--no-refresh` | MERGED | fusionado: 2026-10-26

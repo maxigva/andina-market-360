@@ -1,0 +1,7 @@
+$ for r in github/docs git/git-scm.com; do gh repo view $r --json nameWithOwner,licenseInfo --jq "\"\(.nameWithOwner) | licencia: \(.licenseInfo.name)\""; gh api repos/$r/readme --jq "\"  README: \(.name) (\(.size) bytes)\""; echo "  páginas de commits (1 por página): $(gh api "repos/$r/commits?per_page=1" -i | grep -i "^link:" | grep -oE "page=[0-9]+>; rel=.last." | grep -oE "[0-9]+")"; done
+github/docs | licencia: Creative Commons Attribution 4.0 International
+  README: README.md (2329 bytes)
+  páginas de commits (1 por página): 63336
+git/git-scm.com | licencia: MIT License
+  README: README.md (14406 bytes)
+  páginas de commits (1 por página): 3854

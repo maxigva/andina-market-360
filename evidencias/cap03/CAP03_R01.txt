@@ -1,0 +1,8 @@
+$ gh browse -n; gh browse -n --projects; gh browse -n --settings; gh browse -n --actions; echo https://github.com/maxigva/andina-market-360/issues; echo https://github.com/maxigva/andina-market-360/pulls; grep -c "^| [1-6] |" fichas/mapa_github.md
+https://github.com/maxigva/andina-market-360
+https://github.com/maxigva/andina-market-360/projects
+https://github.com/maxigva/andina-market-360/settings
+https://github.com/maxigva/andina-market-360/actions
+https://github.com/maxigva/andina-market-360/issues
+https://github.com/maxigva/andina-market-360/pulls
+6

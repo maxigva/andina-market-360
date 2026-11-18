@@ -1,0 +1,4 @@
+$ for s in 8ad5fb5 f219d43 b13e6c6; do gh api repos/cli/cli/commits/$s --jq "\"\(.sha[0:7]) | \(.commit.author.date[0:10]) | \(.author.login) | \(.commit.message|split(\"\n\")[0]) | \([.files[].filename]|join(\", \"))\""; done
+8ad5fb5 | 2026-11-16 | babakks | Fix workflow log truncation after long lines | pkg/cmd/run/view/view.go, pkg/cmd/run/view/view_test.go
+f219d43 | 2026-11-13 | BagToad | Make triage formatting checks nonblocking | .github/scripts/issue-triage-report.cjs, .github/scripts/issue-triage-report.test.cjs, .github/workflows/issue-triage.lock.yml, .github/workflows/issue-triage.md, docs/issue-triage.md
+b13e6c6 | 2026-11-13 | dependabot[bot] | chore(deps): Bump golang.org/x/text from 0.43.0 to 0.44.0 | go.mod, go.sum

@@ -42,7 +42,7 @@
 
 ### Reto 2.1 · Biografía de 250 caracteres para soporte técnico
 - **Resultado obtenido:** biografía de 235 caracteres (sección “Reto 2.1” de `fichas/perfil.md`) y una versión corta de 98 caracteres para el campo *Bio*.
-- **Cómo lo comprobé:** conteo con Python → `bio larga: 235 ... True`. Corrección: la primera versión no mencionaba el tipo de puesto; se agregó “soporte técnico” al inicio. → `CAP02_R01.txt`
+- **Cómo lo comprobé:** conteo con Python → `bio larga: 235 ... True`. Corrección: la biografía del ejemplo 2.1 estaba orientada al análisis de datos; para el reto se reescribió hacia soporte técnico y se añadió una versión corta. → `CAP02_R01.txt`
 
 ### Reto 2.2 · Lista de seguridad con cinco comprobaciones
 - **Resultado obtenido:** [fichas/seguridad_cuenta.md](../fichas/seguridad_cuenta.md) con 5 controles (2FA, códigos de recuperación, correo privado, sesiones/apps, secretos en el repo), cada uno con su forma de verificación.

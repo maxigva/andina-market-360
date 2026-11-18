@@ -1,0 +1,5 @@
+$ gh issue view 14692 -R cli/cli --json url,title,state,stateReason,createdAt,closedAt,labels --jq ".url, .title, \"estado: \(.state) (\(.stateReason)) | abierto: \(.createdAt[0:10]) | cerrado: \(.closedAt[0:10]) | etiquetas: \([.labels[].name]|join(\", \"))\""; gh issue view 14692 -R cli/cli --json comments --jq ".comments[-1].body"
+https://github.com/cli/cli/issues/14692
+gh issue view --comments omits the issue body when stdout is not a TTY
+estado: CLOSED (COMPLETED) | abierto: 2026-10-14 | cerrado: 2026-10-16 | etiquetas: bug, priority-3, help wanted, gh-issue
+Fixed by https://github.com/cli/cli/pull/14714

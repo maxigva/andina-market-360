@@ -1,0 +1,5 @@
+$ gh browse -n; gh browse -n --projects; gh browse -n --settings; gh api user --jq .html_url
+https://github.com/maxigva/andina-market-360
+https://github.com/maxigva/andina-market-360/projects
+https://github.com/maxigva/andina-market-360/settings
+https://github.com/maxigva

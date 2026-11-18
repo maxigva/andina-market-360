@@ -1,0 +1,8 @@
+$ gh repo view github/docs --json nameWithOwner,description,hasIssuesEnabled,viewerPermission --jq "{repo:.nameWithOwner, descripcion:.description, issues:.hasIssuesEnabled, mi_permiso:.viewerPermission}"; gh workflow list -R github/docs --limit 5; gh api repos/github/docs/actions/workflows --jq "\"workflows totales: \" + (.total_count|tostring)"
+{"descripcion":"The open-source repo for docs.github.com","issues":true,"mi_permiso":"READ","repo":"github/docs"}
+Repo Sync	active	187901
+Add persona-labeled issues and PRs to Docs Content Review Board	active	377672337
+All documents script	active	98413732
+Check article-api docs	active	149415263
+Auto-add ready-for-doc-review label	active	204994078
+workflows totales: 123

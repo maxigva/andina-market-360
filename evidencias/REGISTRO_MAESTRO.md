@@ -4,3 +4,4 @@
 |---|---|---|---|---|---|
 | 01 | Introducción a GitHub | ✓ | ✓ | 11/11 – 17/11 | [CAP01_registro.md](CAP01_registro.md) |
 | 02 | Creación y configuración de una cuenta | ✓ | ✓ | 17/11 | [CAP02_registro.md](CAP02_registro.md) |
+| 03 | Conociendo la interfaz de GitHub | ✓ | ✓ | 17/11 | [CAP03_registro.md](CAP03_registro.md) |

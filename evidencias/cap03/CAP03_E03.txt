@@ -1,0 +1,6 @@
+$ gh search repos "sales dashboard" --topic python --limit 5 --json fullName,language,license,updatedAt --jq ".[] | \"\(.fullName) | lenguaje: \(.language) | licencia: \(.license.name) | actualizado: \(.updatedAt[0:10])\""
+tushar2704/Superstore-Sales-Dashboard-with-Streamlit | lenguaje:  | licencia:  | actualizado: 2026-11-06
+yesdeepakmittal/Business_Dashboard | lenguaje: Python | licencia: MIT License | actualizado: 2026-02-07
+wasim-builds/ecommerce-sales-dashboard | lenguaje: Python | licencia: MIT License | actualizado: 2026-07-15
+HadiaMubashar/GlobalCarSales-Dashboard | lenguaje: Python | licencia:  | actualizado: 2026-06-22
+SubashSK777/End-to-End-Sales-Dashboard-and-SQL-Analysis | lenguaje: Python | licencia:  | actualizado: 2026-09-10
