@@ -1,6 +1,6 @@
 # Manual de Andina Market 360
 
-Guía de instalación, datos e indicadores del tablero. Volver al [README](../README.md).
+Guía de instalación, datos e indicadores del tablero. Volver al [README](https://github.com/maxigva/andina-market-360#readme) · [Tablero publicado](index.html).
 
 ## Instalación verificable
 
@@ -25,7 +25,7 @@ python3 -m unittest discover -s tests
 La instalación es correcta si el último comando termina en `OK`. No hace falta `pip install`: el proyecto solo usa la biblioteca estándar.
 
 ## Datos
-Fuente única: [`data/ventas.csv`](../data/ventas.csv). Este manual **no copia** sus filas: cualquier cifra se obtiene ejecutando `src/resumen.py`.
+Fuente única: [`data/ventas.csv`](https://github.com/maxigva/andina-market-360/blob/main/data/ventas.csv). Este manual **no copia** sus filas: cualquier cifra se obtiene ejecutando `src/resumen.py`.
 
 | Columna | Tipo | Descripción |
 |---|---|---|
@@ -59,4 +59,4 @@ Los valores **no se escriben aquí**: los calcula `src/resumen.py` y se publican
 ```bash
 python tools/verificar_md.py README.md CONTRIBUTING.md docs/manual.md
 ```
-Revisa que los enlaces relativos existan, que los encabezados lleven espacio después de `#`, que los bloques de código estén cerrados y que las filas de cada tabla tengan las mismas columnas. Los enlaces son relativos, así que siguen funcionando si el repositorio cambia de propietario o de nombre de cuenta.
+Revisa que los enlaces relativos existan, que los encabezados lleven espacio después de `#`, que los bloques de código estén cerrados y que las filas de cada tabla tengan las mismas columnas. Los enlaces a archivos dentro de `docs/` son relativos (funcionan en GitHub y en Pages, aunque cambie el propietario). Los que apuntan **fuera** de `docs/` (README, CSV) usan la URL de GitHub, porque Pages solo publica `docs/`; si el repositorio cambia de dueño, hay que actualizar esos dos enlaces.
