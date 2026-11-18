@@ -1,0 +1,23 @@
+$ grep -nE "^(dist/|\.venv/|\.env|\*\.tmp)" .gitignore; mkdir -p dist; echo prueba > dist/prueba.tmp; git status --short; echo "(dist/ no aparece como cambio nuevo)"; git check-ignore -v dist/prueba.tmp; echo "--- las exclusiones no ocultan pruebas ni documentación:"; for f in tests/test_resumen.py docs/index.html docs/manual.md README.md data/ventas.csv tools/verificar_md.py; do git check-ignore -q $f && echo "IGNORADO: $f" || echo "versionable: $f"; done; echo "--- todo lo ignorado en la carpeta de trabajo:"; git status --short --ignored | grep "^!!"; rm -rf dist
+4:.venv/
+8:.env
+9:.env.*
+14:*.tmp
+20:dist/
+ M .gitignore
+?? evidencias/cap20/
+?? tools/empaquetar.py
+(dist/ no aparece como cambio nuevo)
+.gitignore:20:dist/	dist/prueba.tmp
+--- las exclusiones no ocultan pruebas ni documentación:
+versionable: tests/test_resumen.py
+versionable: docs/index.html
+versionable: docs/manual.md
+versionable: README.md
+versionable: data/ventas.csv
+versionable: tools/verificar_md.py
+--- todo lo ignorado en la carpeta de trabajo:
+!! _material/
+!! dist/
+!! src/__pycache__/
+!! tests/__pycache__/

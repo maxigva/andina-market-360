@@ -1,0 +1,6 @@
+$ git lfs version; echo "--- patrones seguidos por LFS (git lfs track sin argumentos solo lista):"; git lfs track; echo "--- archivos gestionados por LFS: $(git lfs ls-files | wc -l)"; echo "--- filtros lfs en .gitattributes: $(grep -c "filter=lfs" .gitattributes)"; git status --short .gitattributes | wc -l | sed "s/^/cambios en .gitattributes: /"
+git-lfs/3.7.1 (GitHub; windows amd64; go 1.25.1; git b84b3384)
+--- patrones seguidos por LFS (git lfs track sin argumentos solo lista):
+--- archivos gestionados por LFS: 0
+--- filtros lfs en .gitattributes: 0
+cambios en .gitattributes: 0

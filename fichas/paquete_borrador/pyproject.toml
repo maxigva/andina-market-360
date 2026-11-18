@@ -1,0 +1,17 @@
+# BORRADOR de diseño (Capítulo 20): no publicado en ningún registro.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "andina-resumen"
+version = "0.1.0"
+description = "Resumen de ventas por sede, producto y mes desde un CSV (caso didáctico con datos ficticios)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Estudiante" }]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/maxigva/andina-market-360"

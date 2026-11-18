@@ -1,0 +1,15 @@
+$ find fichas/paquete_borrador -type f | sort; echo "--- la API del borrador da el mismo resultado que src/resumen.py (sin instalar ni publicar):"; PYTHONPATH=fichas/paquete_borrador python -c "import sys, json; sys.path.insert(0, \"src\"); import andina_resumen as a, resumen as o; r=a.resumir(a.leer_ventas(\"data/ventas.csv\")); print(\"versión:\", a.__version__, \"| API:\", a.__all__); print(\"igual a src/resumen.py:\", r == o.resumir(o.leer_ventas())); print(a.texto(r))"; echo "--- rutas locales absolutas en el borrador: $(grep -rnE "[A-Za-z]:\\|/c/|/home/|/Users/" fichas/paquete_borrador fichas/paquete.md | wc -l)"; echo "--- publicado en PyPI: no (sin comandos de publicación ni credenciales)"; python -c "import tomllib; d=tomllib.load(open(\"fichas/paquete_borrador/pyproject.toml\",\"rb\"))[\"project\"]; print(\"metadatos:\", {k: d[k] for k in (\"name\",\"version\",\"requires-python\",\"license\",\"dependencies\")})"
+fichas/paquete_borrador/README.md
+fichas/paquete_borrador/andina_resumen/__init__.py
+fichas/paquete_borrador/pyproject.toml
+--- la API del borrador da el mismo resultado que src/resumen.py (sin instalar ni publicar):
+versión: 0.1.0 | API: ['leer_ventas', 'sumar_por', 'resumir', 'texto']
+igual a src/resumen.py: True
+Operaciones: 12
+Lima       S/   814.00
+Ica        S/   555.00
+Arequipa   S/   476.00
+TOTAL      S/  1845.00
+--- rutas locales absolutas en el borrador: 0
+--- publicado en PyPI: no (sin comandos de publicación ni credenciales)
+metadatos: {'name': 'andina-resumen', 'version': '0.1.0', 'requires-python': '>=3.10', 'license': 'MIT', 'dependencies': []}

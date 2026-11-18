@@ -1,0 +1,6 @@
+$ python tools/empaquetar.py v1.0.0; sha256sum dist/andina-market-360-v1.0.0.zip | cut -c1-16 | sed "s/^/sha256 (16): /"; gh release upload v1.0.0 dist/andina-market-360-v1.0.0.zip 2>/dev/null && echo "adjuntado a la Release v1.0.0"; gh release view v1.0.0 --json assets --jq ".assets[] | \"asset: \(.name) | \(.size) bytes | descargas: \(.downloadCount)\"" 2>/dev/null; git status --short dist; echo "(dist/ sigue fuera de Git)"
+dist\andina-market-360-v1.0.0.zip: 6 archivos + CONTENIDO.txt, 7656 bytes
+sha256 (16): 0fed5c166c130d10
+adjuntado a la Release v1.0.0
+asset: andina-market-360-v1.0.0.zip | 7656 bytes | descargas: 0
+(dist/ sigue fuera de Git)

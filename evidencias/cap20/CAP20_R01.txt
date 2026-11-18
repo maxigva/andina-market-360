@@ -1,0 +1,26 @@
+$ echo "== Prohibidos: deben quedar ignorados =="; for f in .env .env.local clave.pem .venv/x venv/x src/__pycache__/a.pyc dist/a.zip notas.tmp a.swp .DS_Store _material/cuaderno.pdf; do r=$(git check-ignore -v "$f" | cut -f1); echo "$f -> ${r:-NO IGNORADO}"; done; echo "== Permitidos: deben ser versionables =="; for f in src/resumen.py tests/test_resumen.py data/ventas.csv docs/data/resumen.json docs/style.css evidencias/CAP02_2FA.png .github/CODEOWNERS; do git check-ignore -q "$f" && echo "$f -> IGNORADO" || echo "$f -> versionable"; done
+== Prohibidos: deben quedar ignorados ==
+.env -> .gitignore:8:.env
+.env.local -> .gitignore:9:.env.*
+clave.pem -> NO IGNORADO
+.venv/x -> .gitignore:4:.venv/
+venv/x -> .gitignore:5:venv/
+src/__pycache__/a.pyc -> .gitignore:2:__pycache__/
+dist/a.zip -> .gitignore:20:dist/
+notas.tmp -> .gitignore:14:*.tmp
+a.swp -> .gitignore:12:*.swp
+.DS_Store -> .gitignore:16:.DS_Store
+_material/cuaderno.pdf -> .gitignore:23:_material/
+== Permitidos: deben ser versionables ==
+src/resumen.py -> versionable
+tests/test_resumen.py -> versionable
+data/ventas.csv -> versionable
+docs/data/resumen.json -> versionable
+docs/style.css -> versionable
+evidencias/CAP02_2FA.png -> versionable
+.github/CODEOWNERS -> versionable
+
+# Corrección: la política prohíbe claves privadas, pero *.pem no estaba en .gitignore.
+$ for f in clave.pem privada.key; do r=$(git check-ignore -v "$f" | cut -f1); echo "$f -> ${r:-NO IGNORADO}"; done  # tras agregar *.pem y *.key
+clave.pem -> .gitignore:10:*.pem
+privada.key -> .gitignore:11:*.key

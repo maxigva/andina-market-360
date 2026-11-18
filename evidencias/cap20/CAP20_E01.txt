@@ -1,0 +1,25 @@
+$ echo "== Tamaño por carpeta (archivos versionados) =="; for d in data docs src tests evidencias fichas capitulos .github; do printf "%-12s %8s bytes\n" "$d/" "$(git ls-files -z $d | xargs -0 cat | wc -c)"; done; echo "== Los cinco archivos versionados más grandes =="; git ls-files -z | xargs -0 ls -l | sort -k5 -n -r | head -n 5 | awk "{printf \"%8d bytes  %s\n\", \$5, \$9}"; echo "== Datos didácticos =="; ls -l data/ | awk "NR>1{printf \"%6d bytes  %s\n\", \$5, \$9}"; echo "tamaño total del repositorio (.git): $(git count-objects -vH | grep size-pack)"; echo "exportaciones existentes (dist/, *.zip): $(ls -d dist 2>/dev/null | wc -l) carpeta(s), $(git ls-files "*.zip" | wc -l) zip versionados"
+== Tamaño por carpeta (archivos versionados) ==
+data/             688 bytes
+docs/           11414 bytes
+src/             2510 bytes
+tests/           2430 bytes
+evidencias/   1604095 bytes
+fichas/         50532 bytes
+capitulos/      99874 bytes
+.github/         4650 bytes
+== Los cinco archivos versionados más grandes ==
+  216580 bytes  evidencias/CAP01_E04.png
+  199016 bytes  evidencias/CAP01_E05.png
+  141828 bytes  evidencias/CAP01_R01.png
+  113562 bytes  evidencias/CAP01_github.png
+  105873 bytes  evidencias/CAP02_2FA.png
+== Datos didácticos ==
+   495 bytes  ventas.csv
+   193 bytes  ventas_muestra.csv
+tamaño total del repositorio (.git): size-pack: 11.95 KiB
+exportaciones existentes (dist/, *.zip): 0 carpeta(s), 0 zip versionados
+$ git count-objects -vH | grep -E "^size"  # size = objetos sueltos, size-pack = empaquetados
+size: 1.64 MiB
+size-pack: 11.95 KiB
+size-garbage: 0 bytes

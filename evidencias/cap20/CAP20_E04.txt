@@ -1,0 +1,26 @@
+$ python tools/empaquetar.py v1.0.0; python -c "import zipfile,sys; z=zipfile.ZipFile(sys.argv[1]); z.extractall(sys.argv[2]); n=z.namelist(); [print(x) for x in n]; print(\"sospechosos (.git, .env, temporales, cachés):\", [x for x in n if any(k in x for k in (\".git/\",\".env\",\".tmp\",\"__pycache__\",\"_material\"))] or \"ninguno\")" dist/andina-market-360-v1.0.0.zip "$X"; echo "--- hoja de contenido:"; cat "$X"/andina-market-360-v1.0.0/CONTENIDO.txt; echo "--- uso sin internet desde la carpeta extraída:"; (python -m http.server 8003 --directory "$X/andina-market-360-v1.0.0/docs" >/dev/null 2>&1 &); for i in $(seq 1 30); do curl -s -o /dev/null http://localhost:8003/ && break; done; "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=5000 --dump-dom http://localhost:8003/ 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 330
+dist\andina-market-360-v1.0.0.zip: 6 archivos + CONTENIDO.txt, 7656 bytes
+andina-market-360-v1.0.0/README.md
+andina-market-360-v1.0.0/LICENSE
+andina-market-360-v1.0.0/CHANGELOG.md
+andina-market-360-v1.0.0/VERSIONES.md
+andina-market-360-v1.0.0/docs/index.html
+andina-market-360-v1.0.0/docs/data/resumen.json
+andina-market-360-v1.0.0/CONTENIDO.txt
+sospechosos (.git, .env, temporales, cachés): ninguno
+--- hoja de contenido:
+Andina Market 360 v1.0.0
+Licencia: MIT (ver LICENSE). Datos ficticios.
+Uso sin internet: python -m http.server 8000 --directory docs  ->  http://localhost:8000
+
+Archivo | bytes | sha256
+README.md | 4608 | 87119a9eca9177f8
+LICENSE | 1067 | b4f8fd4574736dc7
+CHANGELOG.md | 2046 | 3849da803d12a154
+VERSIONES.md | 1637 | 84fcaa0b7cf21710
+docs/index.html | 2640 | f9fac9ab4416e2cf
+docs/data/resumen.json | 328 | 806f30be71bf030f
+--- uso sin internet desde la carpeta extraída:
+Andina Market 360 - Tablero de ventas por sede body { font-family: Calibri, Arial, sans-serif; max-width: 640px; margin: 40px auto; } table { border-collapse: collapse; width: 100%; margin-bottom: 24px; } th, td { border: 1px solid #000; padding: 6px 10px; text-align: left; } td.n { text-align: right; } .fila { display: flex; al
+$ "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=5000 --dump-dom http://localhost:8003/ 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 5000 | grep -oE "Sedes: Lima.*TOTAL S/ [0-9.]+"  # contenido del tablero v1.0.0 servido desde la carpeta extraída
+Sedes: Lima, Ica y Arequipa · Período: 2026-01 a 2026-03 · Origen: datos ficticios de data/ventas.csv Resumen generado por src/resumen.py a partir de data/ventas.csv (datos ficticios). Operaciones: 12 Ventas por sede (S/, datos ficticios) Lima S/ 814.00 Ica S/ 555.00 Arequipa S/ 476.00 Sede líder: Lima con S/ 814.00. Ventas por sede sede Ventas Lima S/ 814.00 Ica S/ 555.00 Arequipa S/ 476.00 TOTAL S/ 1845.00
