@@ -1,4 +1,4 @@
-# Andina Market 360
+# Andina Market 360 · Resumen de ventas por sede
 
 Objetivo comercial: que la gerencia sepa **qué sede lidera las ventas ficticias** (Lima, Ica y Arequipa) con cifras calculadas por Python, probadas con `unittest` y mostradas en una página web estática.
 
