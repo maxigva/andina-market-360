@@ -1,0 +1,10 @@
+$ git log --oneline main..laboratorio/revertir; echo "--- diferencia neta entre main y la rama: $(git diff main laboratorio/revertir --stat | wc -l) archivos"; git show --stat --format="%h %s%n%b" HEAD | head -n 6
+51c8258 Revert "docs: agregar frase temporal de laboratorio"
+87d8676 docs: agregar frase temporal de laboratorio
+--- diferencia neta entre main y la rama: 0 archivos
+51c8258 Revert "docs: agregar frase temporal de laboratorio"
+This reverts commit 87d867649e5baa43bf5cc91fff1f43ad3af6184b.
+
+
+ README.md | 2 --
+ 1 file changed, 2 deletions(-)

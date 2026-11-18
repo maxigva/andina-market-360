@@ -1,0 +1,12 @@
+$ git reflog -6 main --format="%h %gd %gs"; echo "--- estado anterior al pull del Cap. 09 (main@{...} antes de bd60f73):"; git show --no-patch --format="%h %s" fb37469; git show fb37469:README.md | grep -c "GitHub solo aloja" | sed "s/^/frase de GitHub en ese estado: /"; echo "--- se ubica sin comandos destructivos; HEAD sigue en:"; git log -1 --oneline
+c2d9f70 main@{0} commit: docs: documentar capítulo 09
+bd60f73 main@{1} pull --ff-only origin main: Fast-forward
+fb37469 main@{2} commit: docs: documentar capítulo 08
+ff14b35 main@{3} merge fix/encabezado-tablero: Merge made by the 'ort' strategy.
+2ca7096 main@{4} merge feature/resumen-sedes: Merge made by the 'ort' strategy.
+53f7fd3 main@{5} commit: docs: documentar capítulo 07
+--- estado anterior al pull del Cap. 09 (main@{...} antes de bd60f73):
+fb37469 docs: documentar capítulo 08
+frase de GitHub en ese estado: 0
+--- se ubica sin comandos destructivos; HEAD sigue en:
+c2d9f70 docs: documentar capítulo 09

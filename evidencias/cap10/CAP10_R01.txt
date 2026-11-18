@@ -1,0 +1,13 @@
+$ git log --oneline --graph -4 prueba/alternativa-b; echo "--- mensajes de ambas ramas conservados:"; git log --format=%s prueba/alternativa-b | grep -E "tablero comercial|resumen de ventas por sede"; echo "--- título final:"; git show prueba/alternativa-b:README.md | head -n 1; python -m unittest discover -s tests 2>&1 | tail -n 1
+*   15e7efb Merge branch 'prueba/alternativa-a' into prueba/alternativa-b
+|\  
+| * 203f759 docs: titular README como tablero comercial
+* | 6141206 docs: titular README como resumen de ventas por sede
+|/  
+* c2d9f70 docs: documentar capítulo 09
+--- mensajes de ambas ramas conservados:
+docs: titular README como resumen de ventas por sede
+docs: titular README como tablero comercial
+--- título final:
+# Andina Market 360 · Tablero comercial de ventas por sede
+OK

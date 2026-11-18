@@ -1,0 +1,18 @@
+$ git switch laboratorio/revertir; git log -2 --format="%h %s"; git reflog -5; echo "--- inspección sin modificar nada:"; git show --stat --format="%h %ad %s" --date=iso 87d8676; git status --short | grep -v evidencias/ | wc -l | sed "s/^/cambios en el árbol tras inspeccionar: /"; git switch main
+Switched to branch 'laboratorio/revertir'
+51c8258 Revert "docs: agregar frase temporal de laboratorio"
+87d8676 docs: agregar frase temporal de laboratorio
+51c8258 HEAD@{0}: checkout: moving from main to laboratorio/revertir
+c2d9f70 HEAD@{1}: checkout: moving from laboratorio/revertir to main
+51c8258 HEAD@{2}: checkout: moving from main to laboratorio/revertir
+c2d9f70 HEAD@{3}: checkout: moving from laboratorio/revertir to main
+51c8258 HEAD@{4}: revert: Revert "docs: agregar frase temporal de laboratorio"
+--- inspección sin modificar nada:
+87d8676 2026-11-18 00:43:10 -0500 docs: agregar frase temporal de laboratorio
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+cambios en el árbol tras inspeccionar: 0
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)

@@ -1,0 +1,27 @@
+$ git status --short README.md; git stash push -m "borrador de notas" -- README.md; git status --short README.md; echo "(estado limpio: se puede cambiar de rama)"; git switch laboratorio/revertir; git switch main; git stash list; git stash pop; echo "código de stash pop: $? (0 = sin conflicto)"; tail -n 1 README.md; git stash list | wc -l | sed "s/^/stashes restantes: /"
+ M README.md
+Saved working directory and index state On main: borrador de notas
+(estado limpio: se puede cambiar de rama)
+Switched to branch 'laboratorio/revertir'
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+stash@{0}: On main: borrador de notas
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	evidencias/cap10/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (5ad641620a2fa8675d9b38686b02f1be42b93c73)
+código de stash pop: 0 (0 = sin conflicto)
+Borrador de notas: revisar el total de marzo con gerencia.
+stashes restantes: 0

@@ -1,0 +1,5 @@
+$ head -n 1 README.md; echo "marcadores restantes: $(grep -cE "^(<<<<<<<|=======|>>>>>>>)" README.md)"; git add README.md; GIT_AUTHOR_DATE="2026-11-18T00:38:30-05:00" GIT_COMMITTER_DATE="2026-11-18T00:38:30-05:00" git commit -q --no-edit; git status --short; git log -1 --oneline
+# Andina Market 360 · Tablero comercial de ventas por sede
+marcadores restantes: 0
+?? evidencias/cap10/
+15e7efb Merge branch 'prueba/alternativa-a' into prueba/alternativa-b

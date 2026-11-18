@@ -1,0 +1,11 @@
+$ git log -2 --oneline; H=$(git log -1 --format=%h --grep="frase temporal"); echo "commit temporal: $H"; GIT_AUTHOR_DATE="2026-11-18T00:46:55-05:00" GIT_COMMITTER_DATE="2026-11-18T00:46:55-05:00" git revert --no-edit $H; git log -3 --oneline; echo "frase temporal en README: $(grep -c "Nota temporal" README.md)"
+87d8676 docs: agregar frase temporal de laboratorio
+c2d9f70 docs: documentar capítulo 09
+commit temporal: 87d8676
+[laboratorio/revertir 51c8258] Revert "docs: agregar frase temporal de laboratorio"
+ Date: Wed Nov 18 00:46:55 2026 -0500
+ 1 file changed, 2 deletions(-)
+51c8258 Revert "docs: agregar frase temporal de laboratorio"
+87d8676 docs: agregar frase temporal de laboratorio
+c2d9f70 docs: documentar capítulo 09
+frase temporal en README: 0

@@ -1,0 +1,15 @@
+$ git branch --show-current; git merge-base --short prueba/alternativa-a prueba/alternativa-b 2>/dev/null || git rev-parse --short $(git merge-base prueba/alternativa-a prueba/alternativa-b); git merge prueba/alternativa-a; echo "código de salida: $?"; git status --short; echo "--- contenido conflictivo (ningún texto se borra):"; sed -n "1,5p" README.md
+prueba/alternativa-b
+c2d9f70
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+código de salida: 1
+UU README.md
+?? evidencias/cap10/
+--- contenido conflictivo (ningún texto se borra):
+<<<<<<< HEAD
+# Andina Market 360 · Resumen de ventas por sede
+=======
+# Andina Market 360 · Tablero comercial
+>>>>>>> prueba/alternativa-a
