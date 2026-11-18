@@ -1,0 +1,13 @@
+$ git status --short; git diff --stat; echo "--- se localiza la edición no deseada en la vista de diferencias y se revierte solo ese archivo:"; git restore docs/index.html; git status --short; echo "--- la otra edición también se descarta tras revisarla:"; git diff -- fichas/ficha_gerencia.md | grep -E "^\+[^+]"; git restore fichas/ficha_gerencia.md; git status --short | grep -v evidencias/ | wc -l | sed "s/^/cambios restantes: /"
+ M docs/index.html
+ M fichas/ficha_gerencia.md
+?? evidencias/cap11/
+ docs/index.html          | 1 +
+ fichas/ficha_gerencia.md | 1 +
+ 2 files changed, 2 insertions(+)
+--- se localiza la edición no deseada en la vista de diferencias y se revierte solo ese archivo:
+ M fichas/ficha_gerencia.md
+?? evidencias/cap11/
+--- la otra edición también se descarta tras revisarla:
++línea accidental
+cambios restantes: 0

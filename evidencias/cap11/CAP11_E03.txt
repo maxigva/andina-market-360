@@ -1,0 +1,12 @@
+$ git log --oneline -1 feature/ficha-gerencia; git log --oneline main..feature/ficha-gerencia; git merge --ff-only feature/ficha-gerencia; git branch -d feature/ficha-gerencia; git log --oneline -3
+d6f5ec2 docs: agregar pregunta para gerencia
+d6f5ec2 docs: agregar pregunta para gerencia
+Updating 91920bd..d6f5ec2
+Fast-forward
+ fichas/ficha_gerencia.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+ create mode 100644 fichas/ficha_gerencia.md
+Deleted branch feature/ficha-gerencia (was d6f5ec2).
+d6f5ec2 docs: agregar pregunta para gerencia
+91920bd docs: explicar procedencia ficticia
+e088583 docs: documentar capítulo 10

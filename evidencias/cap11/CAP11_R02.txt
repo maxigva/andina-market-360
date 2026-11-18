@@ -1,0 +1,9 @@
+$ git branch --list "feature/*"; git switch feature/ficha-gerencia; git branch --show-current; git log -1 --oneline; git switch main
+  feature/ficha-gerencia
+  feature/filtro-productos
+Switched to branch 'feature/ficha-gerencia'
+feature/ficha-gerencia
+d6f5ec2 docs: agregar pregunta para gerencia
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)

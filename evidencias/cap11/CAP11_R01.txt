@@ -1,0 +1,15 @@
+$ for c in 91920bd d6f5ec2; do echo "== $c =="; git cat-file -p $c | sed -E "s/^(tree|parent) ([0-9a-f]{7})[0-9a-f]+/\1 \2…/"; done
+== 91920bd ==
+tree 2afb281…
+parent e088583…
+author Estudiante <estudiante@example.com> 1794982600 -0500
+committer Estudiante <estudiante@example.com> 1794982600 -0500
+
+docs: explicar procedencia ficticia
+== d6f5ec2 ==
+tree 08b4268…
+parent 91920bd…
+author Estudiante <estudiante@example.com> 1794982975 -0500
+committer Estudiante <estudiante@example.com> 1794982975 -0500
+
+docs: agregar pregunta para gerencia

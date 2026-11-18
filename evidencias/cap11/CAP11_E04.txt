@@ -1,0 +1,8 @@
+$ git status --short docs/; git diff -- docs/index.html | grep -E "^[-+]<"; python "$HTML_OK" docs/index.html; echo "--- decisión: descartar (Discard Changes en Source Control = git restore)"; git restore docs/index.html; git status --short docs/; python "$HTML_OK" docs/index.html
+# ($HTML_OK = script auxiliar local que verifica que las etiquetas HTML estén balanceadas, con html.parser de la biblioteca estándar)
+ M docs/index.html
+-<p>Resumen generado por <code>src/resumen.py</code> a partir de <code>data/ventas.csv</code> (datos ficticios).</p>
++<p>Resumen generado automáticamente por <code>src/resumen.py</code> a partir de <code>data/ventas.csv</code> (datos ficticios).</p>
+HTML válido (etiquetas balanceadas): True | pendientes: [] | sobrantes: []
+--- decisión: descartar (Discard Changes en Source Control = git restore)
+HTML válido (etiquetas balanceadas): True | pendientes: [] | sobrantes: []

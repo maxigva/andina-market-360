@@ -1,0 +1,7 @@
+$ git rev-parse --show-toplevel; git branch --show-current; git status --short; echo "--- (equivale a la lista de la pestaña Changes de GitHub Desktop)"; git status --porcelain=v1 | wc -l | sed "s/^/archivos con cambios: /"
+C:/andina-market-360
+main
+?? evidencias/cap11/
+?? nota_prueba.txt
+--- (equivale a la lista de la pestaña Changes de GitHub Desktop)
+archivos con cambios: 2

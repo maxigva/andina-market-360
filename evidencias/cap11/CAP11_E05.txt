@@ -1,0 +1,8 @@
+$ git log --oneline -3; git status -sb | head -n 1; git fetch --dry-run origin 2>&1 | wc -l | sed "s/^/novedades remotas (fetch --dry-run): /"; code --version | head -n 1 | sed "s/^/VS Code: /"; git config --get core.editor || echo "core.editor: (por defecto)"
+d6f5ec2 docs: agregar pregunta para gerencia
+91920bd docs: explicar procedencia ficticia
+e088583 docs: documentar capítulo 10
+## main...origin/main [ahead 2]
+novedades remotas (fetch --dry-run): 0
+VS Code: 1.146.0
+"C:\Users\<USUARIO>\AppData\Local\Programs\Microsoft VS Code\bin\code" --wait

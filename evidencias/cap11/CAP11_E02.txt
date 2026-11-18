@@ -1,0 +1,7 @@
+$ git diff -- README.md | grep -E "^[-+][^-+]"; git add README.md; GIT_AUTHOR_DATE="2026-11-18T01:16:40-05:00" GIT_COMMITTER_DATE="2026-11-18T01:16:40-05:00" git commit -q -m "docs: explicar procedencia ficticia"; echo "--- History:"; git log -2 --format="%h %an %ad %s" --date=format:"%d/%m/%Y %H:%M"
+--- History:
+91920bd Estudiante 18/11/2026 01:16 docs: explicar procedencia ficticia
+e088583 Estudiante 18/11/2026 00:58 docs: documentar capítulo 10
+$ git show --format= HEAD -- README.md | grep -vE "^(\+\+\+|---)" | grep -E "^[-+]"
+-- Lee `data/ventas.csv` (12 transacciones simuladas).
++- Lee `data/ventas.csv` (12 transacciones simuladas). **Procedencia:** el CSV fue creado para el curso con valores inventados; no proviene de ningún sistema de ventas real.
