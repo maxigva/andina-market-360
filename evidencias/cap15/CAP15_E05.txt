@@ -1,0 +1,14 @@
+$ gh api graphql -f query="{repository(owner:\"maxigva\",name:\"andina-market-360\"){pullRequest(number:8){reviewThreads(first:10){nodes{isResolved comments(first:1){nodes{body}}}}}}}" --jq ".data.repository.pullRequest.reviewThreads.nodes[] | \"resuelta: \(.isResolved) | \(.comments.nodes[0].body | split(\".\")[0])\"" 2>/dev/null; gh pr checks 8 2>/dev/null; gh pr view 8 --json mergeable,commits --jq "\"mergeable: \(.mergeable) | commits: \(.commits|length)\"" 2>/dev/null; git switch -q main; GIT_AUTHOR_DATE="2026-11-18T10:16:30-05:00" GIT_COMMITTER_DATE="2026-11-18T10:16:30-05:00" git merge --no-ff -q feature/grafico-sedes -m "Merge pull request #8 from maxigva/feature/grafico-sedes" -m "feat: graficar ventas por sede (atiende #1)"; python -m unittest discover -s tests 2>&1 | tail -n 1; git push -q origin main; git log --oneline --graph -4
+resuelta: true | **Corrección solicitada: título ambiguo
+resuelta: true | **Bloqueo (error de cálculo: cifra fija)
+resuelta: false | **Sugerencia (no bloqueante):** mostrar también el porcentaje de participación en cada barra (`v / total`)
+pruebas	pass	9s	https://github.com/maxigva/andina-market-360/actions/runs/44404826589/job/135157137736	
+mergeable: MERGEABLE | commits: 2
+OK
+*   d5a5935 Merge pull request #8 from maxigva/feature/grafico-sedes
+|\  
+| * 11dda2e fix: precisar título del gráfico y calcular la sede líder
+| * 4120a55 feat: graficar ventas por sede
+|/  
+* 0e8c25b docs: documentar capítulo 14
+PR 8: MERGED

@@ -1,0 +1,20 @@
+$ echo "== versión revisada (4120a55) con la nueva prueba =="; ( cd "$C2"; git checkout -q -- data docs; cp /c/andina-market-360/tests/test_resumen.py tests/; python -m unittest tests.test_resumen.TestTablero 2>&1 | grep -E "^(FAIL|AssertionError|OK|FAILED)" ); echo "== versión corregida =="; python "$HTML_OK" docs/index.html; node "$GRAFICO"; grep -cE "S/ [0-9]" docs/index.html | sed "s/^/cifras fijas en el HTML: /"; python -m unittest discover -s tests 2>&1 | tail -n 3; echo "== corrección con el CSV modificado (fila 1 = 200 unidades) =="; ( cd "$C2"; cp /c/andina-market-360/docs/index.html docs/; sed -i "2s/,10,25.00/,200,25.00/" data/ventas.csv; python src/resumen.py --json docs/data/resumen.json > /dev/null; node "$GRAFICO" | grep -E "título|Lima|nota" )
+== versión revisada (4120a55) con la nueva prueba ==
+FAIL: test_tablero_sin_cifras_escritas_a_mano (tests.test_resumen.TestTablero.test_tablero_sin_cifras_escritas_a_mano)
+AssertionError: Regex matched: 'S/ 8' matches 'S/ \\d' in '<!DOCTYPE html>\n<html lang="es … (HTML completo omitido)
+FAILED (failures=1)
+== versión corregida ==
+HTML válido (etiquetas balanceadas): True | pendientes: [] | sobrantes: []
+título: Ventas por sede (S/, datos ficticios)
+barra Lima: ancho 100.0% | S/ 814.00
+barra Ica: ancho 68.2% | S/ 555.00
+barra Arequipa: ancho 58.5% | S/ 476.00
+nota: Sede líder: Lima con S/ 814.00.
+cifras fijas en el HTML: 0
+Ran 7 tests in 0.004s
+
+OK
+== corrección con el CSV modificado (fila 1 = 200 unidades) ==
+título: Ventas por sede (S/, datos ficticios)
+barra Lima: ancho 100.0% | S/ 5564.00
+nota: Sede líder: Lima con S/ 5564.00.

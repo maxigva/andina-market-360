@@ -1,0 +1,8 @@
+$ git branch --show-current; git log -1 --oneline; python -m unittest discover -s tests 2>&1 | tail -n 3; echo "pruebas ejecutadas: $(python -m unittest discover -s tests 2>&1 | grep -oE "Ran [0-9]+" | grep -oE "[0-9]+") | fallidas: $(python -m unittest discover -s tests 2>&1 | grep -c "^FAIL\|^ERROR")"; gh pr checks 8 2>/dev/null
+feature/grafico-sedes
+4120a55 feat: graficar ventas por sede
+Ran 6 tests in 0.002s
+
+OK
+pruebas ejecutadas: 6 | fallidas: 0
+pruebas	pass	5s	https://github.com/maxigva/andina-market-360/actions/runs/44404628376/job/135156447754	

@@ -1,0 +1,10 @@
+$ cd "$C2"; echo "Cambio revisado (commit 4120a55):"; git show --format= HEAD | grep -E "^\+.*S/ [0-9]"; echo "--- reproducción: fila 1 de 10 a 200 unidades y JSON regenerado"; sed -i "2s/,10,25.00/,200,25.00/" data/ventas.csv; python src/resumen.py --json docs/data/resumen.json | grep -E "Lima|TOTAL"; node "$GRAFICO" | grep -E "Lima|nota"; echo "--- líneas con cifras fijas en el HTML:"; grep -nE "S/ [0-9]" docs/index.html
+Cambio revisado (commit 4120a55):
++  return `<h2>Comparativo</h2>${barras}<p>Lima lidera con S/ 814.00.</p>`;
+--- reproducción: fila 1 de 10 a 200 unidades y JSON regenerado
+Lima       S/  5564.00
+TOTAL      S/  6595.00
+barra Lima: ancho 100.0% | S/ 5564.00
+nota: Lima lidera con S/ 814.00.
+--- líneas con cifras fijas en el HTML:
+31:  return `<h2>Comparativo</h2>${barras}<p>Lima lidera con S/ 814.00.</p>`;

@@ -1,0 +1,4 @@
+$ gh api repos/maxigva/andina-market-360/pulls/8/comments --jq ".[] | \"línea \(.line) | \(.body | split(\"\n\")[0] | .[0:150])\"" 2>/dev/null
+línea 31 | **Corrección solicitada: título ambiguo.** “Comparativo” no dice qué se compara ni en qué unidad. Propuesta para `docs/index.html`, función `grafico()
+línea 31 | **Bloqueo (error de cálculo: cifra fija).** `Lima lidera con S/ 814.00.` está escrito a mano. Si cambia `data/ventas.csv`, las barras se actualizan pe
+línea 29 | **Sugerencia (no bloqueante):** mostrar también el porcentaje de participación en cada barra (`v / total`). Ayudaría a gerencia, pero puede ir en otro

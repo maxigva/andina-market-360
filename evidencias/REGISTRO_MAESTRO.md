@@ -16,3 +16,4 @@
 | 12 | Documentación con Markdown | ✓ | ✓ | 18/11 | [CAP12_registro.md](CAP12_registro.md) |
 | 13 | Gestión de tareas con GitHub Issues y Projects | ✓ | ✓ | 18/11 | [CAP13_registro.md](CAP13_registro.md) |
 | 14 | Pull Requests y colaboración | ✓ | ✓ | 18/11 | [CAP14_registro.md](CAP14_registro.md) |
+| 15 | Revisión profesional de código | ✓ | ✓ | 18/11 | [CAP15_registro.md](CAP15_registro.md) |

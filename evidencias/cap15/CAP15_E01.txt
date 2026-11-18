@@ -1,0 +1,21 @@
+$ git diff --stat main...feature/grafico-sedes; echo "--- clasificación de líneas cambiadas:"; git diff -U0 main...feature/grafico-sedes | grep -E "^\+[^+]" | awk "{ if (\$0 ~ /^\+ *\./) c=\"estilo (presentación)\"; else if (\$0 ~ /S\/ [0-9]/) c=\"DATOS (cifra escrita)\"; else c=\"código\"; print c \": \" substr(\$0,1,110) }"; echo "--- datos: $(git diff --stat main...feature/grafico-sedes -- data | wc -l) | pruebas: $(git diff --stat main...feature/grafico-sedes -- tests | wc -l) | documentación: $(git diff --stat main...feature/grafico-sedes -- "*.md" | wc -l) archivos"; echo "--- resultado del gráfico con el JSON publicado:"; node "$GRAFICO"
+ docs/index.html | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+--- clasificación de líneas cambiadas:
+estilo (presentación): +  .fila { display: flex; align-items: center; margin: 4px 0; }
+estilo (presentación): +  .etq { width: 90px; }
+estilo (presentación): +  .barra { background: #1f5f99; color: #fff; padding: 3px 6px; white-space: nowrap; }
+código: +function grafico(datos) {
+código: +  const max = Math.max(...Object.values(datos));
+código: +  const barras = Object.entries(datos).map(([k, v]) =>
+código: +    `<div class="fila"><span class="etq">${k}</span><div class="barra" style="width:${(v / max * 100).toFixed
+DATOS (cifra escrita): +  return `<h2>Comparativo</h2>${barras}<p>Lima lidera con S/ 814.00.</p>`;
+código: +}
+código: +      grafico(d.por_sede) +
+--- datos: 0 | pruebas: 0 | documentación: 0 archivos
+--- resultado del gráfico con el JSON publicado:
+título: Comparativo
+barra Lima: ancho 100.0% | S/ 814.00
+barra Ica: ancho 68.2% | S/ 555.00
+barra Arequipa: ancho 58.5% | S/ 476.00
+nota: Lima lidera con S/ 814.00.
