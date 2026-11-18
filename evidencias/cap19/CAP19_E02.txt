@@ -1,0 +1,6 @@
+$ python src/resumen.py --json docs/data/resumen.json | tail -n 1; python -c "import json; d=json.load(open(\"docs/data/resumen.json\",encoding=\"utf-8\")); print(\"claves del JSON:\", list(d)); print(\"¿contiene registros individuales (id, fecha, cantidad)?\", any(k in json.dumps(d) for k in (\"\\\"id\\\"\", \"\\\"fecha\\\"\", \"\\\"cantidad\\\"\")))"; git status --short docs/data; echo "--- nota visible en la página (servidor local):"; "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=4000 --dump-dom http://localhost:8000/index.html 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 3000 | grep -oE "Resumen generado.*"
+JSON generado: docs/data/resumen.json
+claves del JSON: ['operaciones', 'total', 'por_sede', 'por_producto', 'por_mes']
+¿contiene registros individuales (id, fecha, cantidad)? False
+--- nota visible en la página (servidor local):
+Resumen generado por src/resumen.py a partir de data/ventas.csv (datos ficticios). Archivo de datos actualizado: 18/11/2026, 4:27:09 p. m.

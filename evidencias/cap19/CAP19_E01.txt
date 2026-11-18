@@ -1,0 +1,12 @@
+$ python "$HTML_OK" docs/index.html; grep -nE "<link rel=\"stylesheet\"|<h1>|lang=" docs/index.html; echo "recursos externos (http/https) en HTML y CSS: $(grep -cE "(src|href)=\"https?://|url\(https?://" docs/index.html docs/style.css | awk -F: "{s+=\$2} END{print s}")"; echo "--- abierto con file:// (sin servidor):"; "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=3000 --dump-dom "file:///C:/andina-market-360/docs/index.html" 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 300; echo "--- con el servidor local (python -m http.server, sin internet):"; "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=4000 --dump-dom http://localhost:8000/index.html 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 420
+HTML válido (etiquetas balanceadas): True | pendientes: [] | sobrantes: []
+2:<html lang="es">
+7:<link rel="stylesheet" href="style.css">
+11:  <h1>Andina Market 360 · Tablero de ventas por sede</h1>
+recursos externos (http/https) en HTML y CSS: 0
+--- abierto con file:// (sin servidor):
+Andina Market 360 - Tablero de ventas por sede Andina Market 360 · Tablero de ventas por sede Sedes Productos Datos (JSON) No se encontró data/resumen.json. Ejecute: python src/resumen.py --json docs/data/resumen.json Resumen generado por src/resumen.py a partir de data/ventas.csv (datos ficticios).
+--- con el servidor local (python -m http.server, sin internet):
+Andina Market 360 - Tablero de ventas por sede Andina Market 360 · Tablero de ventas por sede Sedes: Lima, Ica y Arequipa · Período: 2026-01 a 2026-03 · Origen: datos ficticios de data/ventas.csv Sedes Productos Datos (JSON) Operaciones: 12 Lima S/ 814.00 44.1 % de las ventas Ica S/ 555.00 30.1 % de las ventas Arequipa S/ 476.00 25.8 % de las ventas Ventas por sede (S/, datos ficticios) Lima S/ 814.00 Ica S/ 555.00 A
+$ "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=3000 --dump-dom "file:///C:/andina-market-360/docs/index.html" 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 420  # tras corregir el mensaje
+Andina Market 360 - Tablero de ventas por sede Andina Market 360 · Tablero de ventas por sede Sedes Productos Datos (JSON) No se pudo leer data/resumen.json. Si abrió la página con doble clic (file://), el navegador bloquea la lectura: sírvala con python -m http.server 8000 --directory docs y abra http://localhost:8000. Si el archivo no existe, genérelo con python src/resumen.py --json docs/data/resumen.json Resumen 

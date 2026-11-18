@@ -78,7 +78,7 @@ andina-market-360/
 ├── src/resumen.py             Cálculo de totales (solo biblioteca estándar)
 ├── tests/test_resumen.py      Pruebas unitarias
 ├── tools/verificar_md.py      Verificación de enlaces y formato Markdown
-├── docs/                      Sitio estático (index.html, data/resumen.json, manual.md)
+├── docs/                      Sitio estático publicado con Pages (index.html, productos.html, style.css, data/resumen.json, manual.md)
 ├── .github/workflows/ci.yml   Integración continua
 ├── capitulos/                 Desarrollo de cada capítulo del cuaderno
 ├── fichas/                    Fichas de trabajo (perfil, observaciones, diseño)
@@ -86,6 +86,7 @@ andina-market-360/
 ```
 
 ## Documentación
+- [Tablero publicado](https://maxigva.github.io/andina-market-360/) (GitHub Pages desde `main` + `/docs`).
 - [Manual](docs/manual.md): instalación, datos, indicadores y verificación.
 - [Guía de contribución](CONTRIBUTING.md): ramas, mensajes de commit, pruebas y reporte de errores.
 - [Capítulos del cuaderno](capitulos/): evidencias de cada práctica.

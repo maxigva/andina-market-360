@@ -20,3 +20,4 @@
 | 16 | Participación en proyectos de código abierto | ✓ | ✓ | 18/11 | [CAP16_registro.md](CAP16_registro.md) |
 | 17 | Administración de repositorios | ✓ | ✓ | 18/11 | [CAP17_registro.md](CAP17_registro.md) |
 | 18 | Versiones, etiquetas y lanzamientos | ✓ | ✓ | 18/11 | [CAP18_registro.md](CAP18_registro.md) |
+| 19 | Publicación de sitios con GitHub Pages | ✓ | ✓ | 18/11 | [CAP19_registro.md](CAP19_registro.md) |

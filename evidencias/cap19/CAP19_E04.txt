@@ -1,0 +1,14 @@
+$ gh api repos/maxigva/andina-market-360/pages --jq "\"url: \(.html_url)\norigen: rama \(.source.branch), carpeta \(.source.path)\nestado: \(.status) | https forzado: \(.https_enforced)\"" 2>/dev/null; gh api repos/maxigva/andina-market-360/pages/builds/latest --jq "\"último build: \(.status) | commit \(.commit[0:7])\"" 2>/dev/null; U=https://maxigva.github.io/andina-market-360; for p in "" index.html style.css productos.html data/resumen.json manual.html; do echo "$U/$p -> HTTP $(curl -s -o /dev/null -w "%{http_code} %{content_type}" $U/$p)"; done; echo "--- el sitio solo sirve archivos estáticos: src/resumen.py no está publicado → HTTP $(curl -s -o /dev/null -w "%{http_code}" $U/../src/resumen.py; curl -s -o /dev/null -w "%{http_code}" https://maxigva.github.io/andina-market-360/src/resumen.py)"; echo "--- página publicada renderizada (Edge sin interfaz):"; "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=6000 --dump-dom $U/ 2>/dev/null > "$DOM"; python "$TXT" "$DOM" 520
+url: https://maxigva.github.io/andina-market-360/
+origen: rama main, carpeta /docs
+estado: built | https forzado: true
+último build: built | commit a7d9a93
+https://maxigva.github.io/andina-market-360/ -> HTTP 200 text/html; charset=utf-8
+https://maxigva.github.io/andina-market-360/index.html -> HTTP 200 text/html; charset=utf-8
+https://maxigva.github.io/andina-market-360/style.css -> HTTP 200 text/css; charset=utf-8
+https://maxigva.github.io/andina-market-360/productos.html -> HTTP 200 text/html; charset=utf-8
+https://maxigva.github.io/andina-market-360/data/resumen.json -> HTTP 200 application/json; charset=utf-8
+https://maxigva.github.io/andina-market-360/manual.html -> HTTP 200 text/html; charset=utf-8
+--- el sitio solo sirve archivos estáticos: src/resumen.py no está publicado → HTTP 404404
+--- página publicada renderizada (Edge sin interfaz):
+Andina Market 360 - Tablero de ventas por sede Andina Market 360 · Tablero de ventas por sede Sedes: Lima, Ica y Arequipa · Período: 2026-01 a 2026-03 · Origen: datos ficticios de data/ventas.csv Sedes Productos Datos (JSON) Operaciones: 12 Lima S/ 814.00 44.1 % de las ventas Ica S/ 555.00 30.1 % de las ventas Arequipa S/ 476.00 25.8 % de las ventas Ventas por sede (S/, datos ficticios) Lima S/ 814.00 Ica S/ 555.00 Arequipa S/ 476.00 Sede líder: Lima con S/ 814.00. Ventas por sede Sede Ventas Lima S/ 814.00 Ica S/ 

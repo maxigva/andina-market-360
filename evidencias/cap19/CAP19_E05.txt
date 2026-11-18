@@ -1,0 +1,28 @@
+$ echo "== Prueba de ruta: absoluta vs. relativa en el sitio de proyecto =="; echo "/data/resumen.json (absoluta) -> https://maxigva.github.io/data/resumen.json -> HTTP $(curl -s -o /dev/null -w "%{http_code}" https://maxigva.github.io/data/resumen.json)"; echo "./data/resumen.json (relativa) -> https://maxigva.github.io/andina-market-360/data/resumen.json -> HTTP $(curl -s -o /dev/null -w "%{http_code}" https://maxigva.github.io/andina-market-360/data/resumen.json)"; echo "== Enlaces de la portada publicada =="; python "$ENLACES" https://maxigva.github.io/andina-market-360/; echo "== Enlaces del manual publicado (manual.md → manual.html) =="; python "$ENLACES" https://maxigva.github.io/andina-market-360/manual.html
+# ($ENLACES = script auxiliar: resuelve cada href como el navegador y consulta el destino en Pages)
+== Prueba de ruta: absoluta vs. relativa en el sitio de proyecto ==
+/data/resumen.json (absoluta) -> https://maxigva.github.io/data/resumen.json -> HTTP 404
+./data/resumen.json (relativa) -> https://maxigva.github.io/andina-market-360/data/resumen.json -> HTTP 200
+== Enlaces de la portada publicada ==
+./data/resumen.json          -> https://maxigva.github.io/andina-market-360/data/resumen.json -> HTTP 200
+./index.html                 -> https://maxigva.github.io/andina-market-360/index.html -> HTTP 200
+./productos.html             -> https://maxigva.github.io/andina-market-360/productos.html -> HTTP 200
+style.css                    -> https://maxigva.github.io/andina-market-360/style.css -> HTTP 200
+== Enlaces del manual publicado (manual.md → manual.html) ==
+../README.md                 -> https://maxigva.github.io/README.md -> HTTP 404
+../data/ventas.csv           -> https://maxigva.github.io/data/ventas.csv -> HTTP 404
+/andina-market-360/assets/css/style.css?v=a7d9a9388a62fc2da66aa28e9130ab744f58e0e9 -> https://maxigva.github.io/andina-market-360/assets/css/style.css?v=a7d9a9388a62fc2da66aa28e9130ab744f58e0e9 -> HTTP 200
+/andina-market-360/data/resumen.json -> https://maxigva.github.io/andina-market-360/data/resumen.json -> HTTP 200
+/andina-market-360/favicon.ico -> https://maxigva.github.io/andina-market-360/favicon.ico -> HTTP 404
+https://maxigva.github.io/andina-market-360/ -> https://maxigva.github.io/andina-market-360/ -> HTTP 200
+https://maxigva.github.io/andina-market-360/manual.html -> https://maxigva.github.io/andina-market-360/manual.html -> HTTP 200
+
+# Corrección: los enlaces a README y CSV apuntaban fuera de docs/ (Pages solo publica docs/); se cambiaron por URL de GitHub.
+$ python "$ENLACES" https://maxigva.github.io/andina-market-360/manual.html | grep -vE "assets/css|favicon"  # tras el commit 0d1521b
+/andina-market-360/data/resumen.json -> https://maxigva.github.io/andina-market-360/data/resumen.json -> HTTP 200
+/andina-market-360/index.html -> https://maxigva.github.io/andina-market-360/index.html -> HTTP 200
+https://maxigva.github.io/andina-market-360/ -> https://maxigva.github.io/andina-market-360/ -> HTTP 200
+https://maxigva.github.io/andina-market-360/manual.html -> https://maxigva.github.io/andina-market-360/manual.html -> HTTP 200
+$ for u in "https://github.com/maxigva/andina-market-360#readme" "https://github.com/maxigva/andina-market-360/blob/main/data/ventas.csv"; do echo "$u -> HTTP $(curl -s -o /dev/null -w "%{http_code}" "$u")"; done
+https://github.com/maxigva/andina-market-360#readme -> HTTP 200
+https://github.com/maxigva/andina-market-360/blob/main/data/ventas.csv -> HTTP 200

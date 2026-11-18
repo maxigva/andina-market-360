@@ -1,0 +1,16 @@
+$ echo "== Control 1: contraste de color (WCAG AA) =="; python "$CONTRASTE"; echo "== Controles 2 y 3: estructura semántica y adaptación a 375 px, medidos en Microsoft Edge (sin interfaz) =="; "$EDGE" --headless=new --disable-gpu --user-data-dir="$PROF" --virtual-time-budget=8000 --dump-dom http://localhost:8002/medir.html 2>/dev/null > "$DOM"; python -c "import re,sys,html; t=open(sys.argv[1],encoding=\"utf-8\").read(); print(html.unescape(re.search(r\"<pre id=.r.>(.*?)</pre>\", t, re.S).group(1)))" "$DOM"
+# ($CONTRASTE = fórmula WCAG sobre style.css; medir.html = página auxiliar local que carga index.html en un marco de 375 px y mide el DOM; el ancho visible es 360 px porque la barra de desplazamiento vertical ocupa 15 px)
+== Control 1: contraste de color (WCAG AA) ==
+texto normal                           #1a1a1a sobre #ffffff: 17.40:1  cumple AA (≥ 4.5:1)
+notas                                  #4a4a4a sobre #ffffff:  8.86:1  cumple AA (≥ 4.5:1)
+detalle en tarjeta                     #4a4a4a sobre #f3f6f9:  8.17:1  cumple AA (≥ 4.5:1)
+texto en tarjeta/encabezado de tabla   #1a1a1a sobre #f3f6f9: 16.05:1  cumple AA (≥ 4.5:1)
+enlaces                                #1f5f99 sobre #ffffff:  6.66:1  cumple AA (≥ 4.5:1)
+texto blanco sobre barra               #ffffff sobre #1f5f99:  6.66:1  cumple AA (≥ 4.5:1)
+== Controles 2 y 3: estructura semántica y adaptación a 375 px, medidos en Microsoft Edge (sin interfaz) ==
+lang=es
+h1=1 | orden de encabezados: H1 H2 H2 H2 H2 H2 H2
+th con scope=4 de 4 encabezados de columna
+nav con aria-label: sí | enlace actual marcado: sí
+ancho visible=360px | ancho del contenido=360px | desplazamiento horizontal: no
+tamaño de fuente del cuerpo=16px
