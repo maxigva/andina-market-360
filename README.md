@@ -21,6 +21,7 @@ El tablero (`docs/index.html`) permite que cada jefe de sede compare sus ventas 
 ```
 andina-market-360/
 ├── data/ventas.csv            Base ficticia de 12 ventas
+├── data/ventas_muestra.csv    Muestra de 4 ventas para pruebas
 ├── src/resumen.py             Cálculo de totales (solo biblioteca estándar)
 ├── tests/test_resumen.py      Pruebas unitarias
 ├── docs/                      Sitio estático (index.html + data/resumen.json)
@@ -33,6 +34,7 @@ andina-market-360/
 ## Requisitos
 - Python 3 (probado con 3.12 en GitHub Actions y 3.14 en local); no requiere instalar paquetes.
 - Git, para clonar y versionar.
+- Compruebe su versión con `python --version` (en algunos sistemas el comando es `python3`).
 
 ## Cómo ejecutar el análisis
 Desde la raíz del repositorio:
@@ -49,6 +51,12 @@ python src/resumen.py --json docs/data/resumen.json
 
 # 4. Ver la web en http://localhost:8000 (detener con Ctrl+C)
 python -m http.server 8000 --directory docs
+```
+
+Para probar con otro archivo, indique su ruta con `--csv`; por ejemplo, la muestra de 4 ventas:
+
+```bash
+python src/resumen.py --csv data/ventas_muestra.csv
 ```
 
 Resultado esperado del paso 1 (salida real de `python src/resumen.py`):
