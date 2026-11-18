@@ -34,6 +34,9 @@ Pegue la salida exacta del comando (por ejemplo, `python src/resumen.py`):
 ## Resultado esperado
 Cifra o comportamiento correcto y cómo se calculó (fórmula o fila del CSV).
 
+## Evidencia
+Captura del tablero o salida del comando, solo con datos ficticios. Si no sabe usar la terminal, describa con sus palabras qué cifra vio y en qué página.
+
 ## Impacto para la empresa
 ¿Qué decisión de gerencia se vería afectada? ¿Qué sede?
 

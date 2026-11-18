@@ -1,0 +1,11 @@
+# Responsables por área (la última regla que coincide gana).
+# El repositorio tiene una sola cuenta con acceso real; los roles ficticios del
+# borrador están en fichas/administracion_repo.md y se reemplazarán por cuentas
+# reales solo cuando esas personas tengan acceso al repositorio.
+
+*                       @maxigva
+/docs/                  @maxigva
+/src/                   @maxigva
+/tests/                 @maxigva
+/data/                  @maxigva
+/.github/               @maxigva
