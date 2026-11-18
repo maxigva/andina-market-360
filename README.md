@@ -14,6 +14,9 @@ Las sedes consolidaban sus ventas editando informes a mano, lo que producía err
 - Muestra el resumen en `docs/index.html`, que lee el JSON generado (no cifras escritas a mano).
 - Ejecuta las pruebas automáticamente en GitHub Actions en cada push y pull request.
 
+## Uso del tablero
+El tablero (`docs/index.html`) permite que cada jefe de sede compare sus ventas con las de las otras dos sedes sin abrir el CSV.
+
 ## Estructura
 ```
 andina-market-360/
