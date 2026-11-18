@@ -1,0 +1,9 @@
+$ cd "$F"; echo "(simulación local: upstream-publico.git = repositorio público original; el fork se crea como copia bare con historia completa, igual que el botón Fork)"; git clone -q --bare upstream-publico.git fork-estudiante.git; git clone -q fork-estudiante.git trabajo; cd trabajo; git remote add upstream ../upstream-publico.git; git remote -v; git fetch -q upstream; git log --oneline -1 upstream/main; git log --oneline -1 origin/main; echo "mismo commit de partida: $([ "$(git rev-parse upstream/main)" = "$(git rev-parse origin/main)" ] && echo sí)"
+(simulación local: upstream-publico.git = repositorio público original; el fork se crea como copia bare con historia completa, igual que el botón Fork)
+origin	<TEMP>/opensource/fork-estudiante.git (fetch)
+origin	<TEMP>/opensource/fork-estudiante.git (push)
+upstream	../upstream-publico.git (fetch)
+upstream	../upstream-publico.git (push)
+ca2cda8 docs: publicar guía inicial
+ca2cda8 docs: publicar guía inicial
+mismo commit de partida: sí

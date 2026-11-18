@@ -1,0 +1,15 @@
+$ cd "$F/trabajo"; git config user.name Estudiante; git config user.email estudiante@example.com; git switch -c docs/mejora-uso; echo "--- instrucción actual (imprecisa):"; grep -n "reporte.py" README.md; python reporte.py 2>&1 | tail -n 1; sed -i "s#Ejecute \`python reporte.py\`#Ejecute \`python src/reporte.py\` desde la raíz del proyecto#" README.md; echo "--- verificación de la instrucción corregida:"; python src/reporte.py; git diff --stat; git diff | grep -E "^[-+][^-+]"; git add README.md; GIT_AUTHOR_DATE="2026-11-18T10:40:20-05:00" GIT_COMMITTER_DATE="2026-11-18T10:40:20-05:00" git commit -qm "docs: corregir la ruta del script en el README"; git log --oneline -2; git diff --stat upstream/main...docs/mejora-uso
+Switched to a new branch 'docs/mejora-uso'
+--- instrucción actual (imprecisa):
+5:2. Ejecute `python reporte.py` para ver el inventario.
+C:\Python314\python.exe: can't open file '<TEMP>\\opensource\\trabajo\\reporte.py': [Errno 2] No such file or directory
+--- verificación de la instrucción corregida:
+inventario
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+-2. Ejecute `python reporte.py` para ver el inventario.
++2. Ejecute `python src/reporte.py` desde la raíz del proyecto para ver el inventario.
+654e23d docs: corregir la ruta del script en el README
+ca2cda8 docs: publicar guía inicial
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)

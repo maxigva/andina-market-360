@@ -1,0 +1,17 @@
+$ gh api repos/cli/cli/contents/.github/CONTRIBUTING.md --jq .content 2>/dev/null | python -c "import sys,base64; print(base64.b64decode(sys.stdin.read()).decode())" | grep -nE "help wanted.*Acceptance|Check issues|do NOT|scope|core|go test|checkout -b|add tests|released|Code of Conduct" | cut -c1-170; gh api "repos/cli/cli/commits?path=.github/CONTRIBUTING.md&per_page=1" --jq ".[0] | \"versión revisada: \(.sha[0:7]) del \(.commit.author.date[0:10])\"" 2>/dev/null
+5:We accept external pull requests only for issues labelled `help wanted` with explicit Acceptance Criteria. We encourage issues and discussion posts for all other contri
+9:* Check issues to verify that a [bug][bug issues] or [feature request][feature request issues] issue does not already exist for the same problem or feature
+15:* Open a pull request for an issue labelled [`help wanted`][hw] with explicit Acceptance Criteria. Issues labelled [`good first issue`][gfi] must also meet these requi
+17:### Please _do NOT_:
+19:* Open a pull request for issues without the `help wanted` label or explicit Acceptance Criteria
+20:* Expand pull request scope to include changes that are not described in the issue's Acceptance Criteria
+21:* Open pull requests for any issue marked `core`. These issues require additional context from
+22:  the core CLI team at GitHub and any external pull requests will not be accepted
+37:Run tests with: `go test ./...`
+43:1. Create a new branch: `git checkout -b my-branch-name`
+44:1. Make your change, add tests, and ensure tests pass
+47:Contributions to this project are [released][legal] to the public under the [project's open source license][license].
+49:Please note that this project adheres to a [Contributor Code of Conduct][code-of-conduct]. By participating in this project you agree to abide by its terms.
+67:### (core team only) Reviewing a design
+69:A member of the core team will [triage](../docs/triage.md) the design proposal. Once a member of the core team has reviewed the design, they may add the [`help wanted`
+versión revisada: d6cbbe9 del 2026-09-08

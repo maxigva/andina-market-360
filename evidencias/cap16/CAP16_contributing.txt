@@ -1,0 +1,14 @@
+$ git diff --stat CONTRIBUTING.md; grep -nE "^## " CONTRIBUTING.md; python tools/verificar_md.py CONTRIBUTING.md fichas/contribucion_open_source.md; python -m unittest discover -s tests 2>&1 | tail -n 1
+ CONTRIBUTING.md | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+5:## Antes de empezar
+15:## Reglas de datos y seguridad
+20:## Ramas
+30:## Mensajes de commit
+36:## Antes de abrir un pull request
+45:## Pull requests
+51:## Revisión
+56:## Licencia y conducta
+61:## Comunicar errores en Issues
+OK: 2 archivo(s) sin errores
+OK

@@ -1,0 +1,15 @@
+$ python -m unittest discover -s tests -v
+test_totales_muestra (test_resumen.TestMuestra.test_totales_muestra) ... ok
+test_json_coincide_con_csv (test_resumen.TestResumen.test_json_coincide_con_csv)
+El JSON publicado para la web debe ser el resumen vigente del CSV (Issue #2). ... ok
+test_operaciones (test_resumen.TestResumen.test_operaciones) ... ok
+test_readme_muestra_cifras_calculadas (test_resumen.TestResumen.test_readme_muestra_cifras_calculadas) ... ok
+test_total_general (test_resumen.TestResumen.test_total_general) ... ok
+test_totales_por_sede (test_resumen.TestResumen.test_totales_por_sede) ... ok
+test_tablero_sin_cifras_escritas_a_mano (test_resumen.TestTablero.test_tablero_sin_cifras_escritas_a_mano)
+Las cifras de la web deben salir del JSON, no del HTML (revisión del PR #8). ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.006s
+
+OK

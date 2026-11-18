@@ -1,0 +1,6 @@
+$ gh issue list -R cli/cli --label "good first issue" --state open --limit 5 2>/dev/null | wc -l | sed "s/^/issues abiertos con good first issue: /"; gh issue view 9789 -R cli/cli --json number,title,state,labels,assignees,comments --jq "\"#\(.number) \(.title) | \(.state) | \([.labels[].name]|join(\", \")) | asignados: \(.assignees|length)\", (.comments[] | \"comentario \(.createdAt[0:10]): \(.body | split(\"\n\")[0] | .[0:110])\")" 2>/dev/null
+issues abiertos con good first issue: 0
+#9789 `gh auth login --with-token` hangs | OPEN | bug, priority-3, help wanted, gh-auth | asignados: 0
+comentario 2024-10-21: > However, if I don't provide a token file using the redirect operator, the command gh auth login --with-token
+comentario 2026-10-05: Thanks for digging into this, @williammartin, and thanks to @vladkens for bringing it back to our attention an
+comentario 2026-11-06: @babakks is this still under review or the feature is left out on purpose? I just had the same issue and figur

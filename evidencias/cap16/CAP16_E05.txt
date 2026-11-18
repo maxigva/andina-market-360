@@ -1,0 +1,9 @@
+$ cd "$F/trabajo"; echo "(simulación: la persona mantenedora pide indicar python3 para Linux; el ajuste va en la MISMA rama)"; sed -i "s#1. Instale Python.#1. Instale Python 3 (en Linux el comando puede ser \`python3\`).#" README.md; git diff | grep -E "^[-+][^-+]"; git commit -qam "docs: indicar el comando python3 para Linux" --date "2026-11-18T10:44:00-05:00"; git log --oneline upstream/main..docs/mejora-uso; git push -q -u origin docs/mejora-uso; git ls-remote --heads origin
+(simulación: la persona mantenedora pide indicar python3 para Linux; el ajuste va en la MISMA rama)
+-1. Instale Python.
++1. Instale Python 3 (en Linux el comando puede ser `python3`).
+51a0640 docs: indicar el comando python3 para Linux
+654e23d docs: corregir la ruta del script en el README
+51a06409f74609565e9c75a41eb5c09aefc6c25a	refs/heads/docs/mejora-uso
+ca2cda83a0d0778c3c2ff6f17fd4fb1e2b3238f5	refs/heads/main
+# Nota posterior: en el repositorio de práctica (no en el caso) el commit 51a0640 se volvió a fechar con --amend (la opción --date solo fija la fecha de autor) y quedó como 889cdfb; la rama del fork se actualizó con push forzado, permitido allí por ser un repositorio local descartable.
