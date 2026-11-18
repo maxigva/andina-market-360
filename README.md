@@ -47,8 +47,8 @@ python src/resumen.py
 # 2. Ejecutar las pruebas
 python -m unittest discover -s tests -v
 
-# 3. Regenerar el JSON que usa la web
-python src/resumen.py --json docs/data/resumen.json
+# 3. Regenerar el JSON de la web y el bloque de cifras de este README
+python src/resumen.py --json docs/data/resumen.json --readme README.md
 
 # 4. Ver la web en http://localhost:8000 (detener con Ctrl+C)
 python -m http.server 8000 --directory docs
@@ -60,8 +60,9 @@ Para probar con otro archivo, indique su ruta con `--csv`; por ejemplo, la muest
 python src/resumen.py --csv data/ventas_muestra.csv
 ```
 
-Resultado esperado del paso 1 (salida real de `python src/resumen.py`):
+Resultado del paso 1. Este bloque lo escribe `src/resumen.py --readme`; una prueba falla si deja de coincidir con el CSV:
 
+<!-- resumen:inicio -->
 ```
 Operaciones: 12
 Lima       S/   814.00
@@ -69,8 +70,9 @@ Ica        S/   555.00
 Arequipa   S/   476.00
 TOTAL      S/  1845.00
 ```
+<!-- resumen:fin -->
 
-Resultado esperado del paso 2: `Ran 5 tests` y `OK` (4 pruebas sobre la base de 12 ventas y 1 sobre la muestra). Si el paso 3 no cambia `docs/data/resumen.json` (`git status` limpio), la web ya muestra las cifras vigentes.
+Resultado esperado del paso 2: `Ran 6 tests` y `OK`. Si el paso 3 no cambia `docs/data/resumen.json` (`git status` limpio), la web ya muestra las cifras vigentes.
 
 ## Uso responsable
 - Datos exclusivamente simulados: sin nombres, documentos ni correos de clientes.

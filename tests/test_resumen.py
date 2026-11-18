@@ -27,6 +27,10 @@ class TestResumen(unittest.TestCase):
             salida.write_text(json.dumps(self.r), encoding="utf-8")
             self.assertEqual(json.loads(salida.read_text(encoding="utf-8"))["total"], 1845.00)
 
+    def test_readme_muestra_cifras_calculadas(self):
+        readme = (Path(__file__).resolve().parent.parent / "README.md").read_text(encoding="utf-8")
+        bloque = readme.split(resumen.INICIO)[1].split(resumen.FIN)[0]
+        self.assertIn(resumen.texto(self.r), bloque)
 
 
 class TestMuestra(unittest.TestCase):

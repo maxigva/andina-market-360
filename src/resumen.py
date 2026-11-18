@@ -32,22 +32,43 @@ def resumir(ventas):
     }
 
 
+INICIO, FIN = "<!-- resumen:inicio -->", "<!-- resumen:fin -->"
+
+
+def texto(r):
+    lineas = [f"Operaciones: {r['operaciones']}"]
+    lineas += [f"{sede:<10} S/ {total:>8.2f}" for sede, total in r["por_sede"].items()]
+    lineas.append(f"{'TOTAL':<10} S/ {r['total']:>8.2f}")
+    return "\n".join(lineas)
+
+
+def actualizar_readme(ruta, r):
+    """Reemplaza el bloque entre INICIO y FIN con la salida calculada."""
+    t = Path(ruta).read_text(encoding="utf-8")
+    antes, resto = t.split(INICIO)
+    despues = resto.split(FIN)[1]
+    nuevo = f"{antes}{INICIO}\n```\n{texto(r)}\n```\n{FIN}{despues}"
+    Path(ruta).write_text(nuevo, encoding="utf-8", newline="\n")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Resumen de ventas por sede")
     parser.add_argument("--csv", default=CSV_POR_DEFECTO, help="ruta del CSV")
     parser.add_argument("--json", help="ruta del JSON de salida")
+    parser.add_argument("--readme", help="README cuyo bloque de cifras se actualiza")
     args = parser.parse_args()
 
     r = resumir(leer_ventas(args.csv))
-    print(f"Operaciones: {r['operaciones']}")
-    for sede, total in r["por_sede"].items():
-        print(f"{sede:<10} S/ {total:>8.2f}")
-    print(f"{'TOTAL':<10} S/ {r['total']:>8.2f}")
+    print(texto(r))
+
+    if args.readme:
+        actualizar_readme(args.readme, r)
+        print(f"README actualizado: {args.readme}")
 
     if args.json:
         Path(args.json).parent.mkdir(parents=True, exist_ok=True)
-        texto = json.dumps(r, ensure_ascii=False, indent=2) + "\n"
-        Path(args.json).write_text(texto, encoding="utf-8", newline="\n")
+        contenido = json.dumps(r, ensure_ascii=False, indent=2) + "\n"
+        Path(args.json).write_text(contenido, encoding="utf-8", newline="\n")
         print(f"JSON generado: {args.json}")
 
 
