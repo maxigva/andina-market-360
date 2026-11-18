@@ -7,6 +7,8 @@ venv/
 # Variables de entorno y secretos locales (nunca se suben)
 .env
 .env.*
+*.pem
+*.key
 
 # Archivos temporales de editores y del sistema
 *.swp
