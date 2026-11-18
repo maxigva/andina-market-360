@@ -1,4 +1,4 @@
-# Andina Market 360
+# Andina Market 360 · Tablero comercial
 
 Objetivo comercial: que la gerencia sepa **qué sede lidera las ventas ficticias** (Lima, Ica y Arequipa) con cifras calculadas por Python, probadas con `unittest` y mostradas en una página web estática.
 
