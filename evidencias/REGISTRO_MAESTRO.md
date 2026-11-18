@@ -18,3 +18,4 @@
 | 14 | Pull Requests y colaboración | ✓ | ✓ | 18/11 | [CAP14_registro.md](CAP14_registro.md) |
 | 15 | Revisión profesional de código | ✓ | ✓ | 18/11 | [CAP15_registro.md](CAP15_registro.md) |
 | 16 | Participación en proyectos de código abierto | ✓ | ✓ | 18/11 | [CAP16_registro.md](CAP16_registro.md) |
+| 17 | Administración de repositorios | ✓ | ✓ | 18/11 | [CAP17_registro.md](CAP17_registro.md) |

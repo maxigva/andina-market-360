@@ -1,0 +1,4 @@
+$ gh repo view --json description,repositoryTopics --jq "\"antes: descripción=\(.description|if .==\"\" then \"(vacía)\" else . end) | topics=\(.repositoryTopics)\"" 2>/dev/null; gh repo edit maxigva/andina-market-360 --description "Caso didáctico: resumen verificable de ventas ficticias por sede con Python, pruebas y tablero web estático." --add-topic git,github,python,github-actions,github-pages,dashboard,datos-ficticios,curso 2>/dev/null; gh repo view --json description,repositoryTopics --jq "\"después: descripción=\(.description)\", \"topics: \([.repositoryTopics[].name]|join(\", \"))\"" 2>/dev/null
+antes: descripción=(vacía) | topics=null
+después: descripción=Caso didáctico: resumen verificable de ventas ficticias por sede con Python, pruebas y tablero web estático.
+topics: curso, dashboard, datos-ficticios, git, github, github-actions, github-pages, python

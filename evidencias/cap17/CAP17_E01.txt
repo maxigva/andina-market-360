@@ -1,0 +1,6 @@
+$ gh api repos/maxigva/andina-market-360/rulesets --jq ".[] | \"\(.id) | \(.name) | \(.enforcement) | destino: \(.target)\"" 2>/dev/null; echo "--- reglas activas que GitHub aplica a la rama main:"; gh api repos/maxigva/andina-market-360/rules/branches/main --jq ".[] | \"- \(.type)\"" 2>/dev/null; echo "--- ¿exige PR o revisiones? $(gh api repos/maxigva/andina-market-360/rules/branches/main --jq "[.[].type] | map(select(. == \"pull_request\" or . == \"required_status_checks\")) | length" 2>/dev/null) reglas de ese tipo"
+27590266 | proteger-main | active | destino: branch
+--- reglas activas que GitHub aplica a la rama main:
+- non_fast_forward
+- deletion
+--- ¿exige PR o revisiones? 0 reglas de ese tipo

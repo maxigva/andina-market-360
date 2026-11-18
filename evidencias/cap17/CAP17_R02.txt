@@ -1,0 +1,8 @@
+$ echo "Comandos de la plantilla de calidad de datos, ejecutados sobre el CSV actual:"; echo "filas: $(tail -n +2 data/ventas.csv | wc -l)"; python src/resumen.py | grep TOTAL; python -c "import json; print(\"sedes:\", len(json.load(open(\"docs/data/resumen.json\"))[\"por_sede\"]))"; python -c "import csv; f=list(csv.DictReader(open(\"data/ventas.csv\",encoding=\"utf-8\"))); print(\"filas con cantidad o precio <= 0:\", sum(1 for r in f if int(r[\"cantidad\"])<=0 or float(r[\"precio_unitario\"])<=0)); print(\"ids repetidos:\", len(f)-len({r[\"id\"] for r in f})); print(\"columnas:\", \",\".join(f[0].keys()))"
+Comandos de la plantilla de calidad de datos, ejecutados sobre el CSV actual:
+filas: 12
+TOTAL      S/  1845.00
+sedes: 3
+filas con cantidad o precio <= 0: 0
+ids repetidos: 0
+columnas: id,fecha,sede,producto,cantidad,precio_unitario

@@ -1,0 +1,14 @@
+$ grep -v "^#" .github/CODEOWNERS | grep .; echo "--- errores de sintaxis según GitHub:"; gh api "repos/maxigva/andina-market-360/codeowners/errors?ref=main" 2>/dev/null; echo; echo "--- ejemplo de cambio en docs/ (la última regla que coincide gana):"; python "$OWNERS" docs/index.html src/resumen.py README.md
+# ($OWNERS = script auxiliar que aplica la regla de CODEOWNERS "gana la última coincidencia")
+*                       @maxigva
+/docs/                  @maxigva
+/src/                   @maxigva
+/tests/                 @maxigva
+/data/                  @maxigva
+/.github/               @maxigva
+--- errores de sintaxis según GitHub:
+{"errors":[]}
+--- ejemplo de cambio en docs/ (la última regla que coincide gana):
+docs/index.html -> regla /docs/ -> @maxigva
+src/resumen.py -> regla /src/ -> @maxigva
+README.md -> regla * -> @maxigva

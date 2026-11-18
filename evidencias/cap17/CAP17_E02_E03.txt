@@ -1,0 +1,11 @@
+$ for f in .github/ISSUE_TEMPLATE/bug_report.md .github/pull_request_template.md .github/PULL_REQUEST_TEMPLATE/calidad_datos.md; do echo "== $f"; grep -E "^## " $f | tr "\n" "|"; echo; echo "campos que piden datos personales (nombre, correo, teléfono, DNI, dirección): $(grep -ciE "su (nombre|correo|teléfono|dni|dirección)|e-?mail:" $f)"; done; gh api repos/maxigva/andina-market-360/contents/.github --jq ".[].name" 2>/dev/null | tr "\n" " "
+== .github/ISSUE_TEMPLATE/bug_report.md
+## ¿Dónde aparece el error?|## Datos de entrada (muestra ficticia mínima)|## Pasos para reproducir|## Resultado observado|## Resultado esperado|## Evidencia|## Impacto para la empresa|## Entorno|## Criterio de cierre|
+campos que piden datos personales (nombre, correo, teléfono, DNI, dirección): 0
+== .github/pull_request_template.md
+## Resumen|## Cómo verificarlo|## Lista de comprobación|
+campos que piden datos personales (nombre, correo, teléfono, DNI, dirección): 0
+== .github/PULL_REQUEST_TEMPLATE/calidad_datos.md
+## Cambio en los datos|## Calidad de datos|## Lista de comprobación|
+campos que piden datos personales (nombre, correo, teléfono, DNI, dirección): 0
+CODEOWNERS ISSUE_TEMPLATE PULL_REQUEST_TEMPLATE pull_request_template.md workflows 
