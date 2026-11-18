@@ -1,0 +1,63 @@
+/* Estilos del tablero Andina Market 360: legibles, con contraste AA y adaptables a pantallas pequeñas. */
+:root {
+  --texto: #1a1a1a;
+  --suave: #4a4a4a;
+  --fondo: #ffffff;
+  --panel: #f3f6f9;
+  --borde: #8a99a8;
+  --acento: #1f5f99;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Calibri, Arial, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+h1 { font-size: 1.6rem; margin: 0 0 4px; }
+h2 { font-size: 1.25rem; margin: 28px 0 8px; }
+a { color: var(--acento); }
+a:focus, a:hover { outline: 2px solid var(--acento); outline-offset: 2px; }
+
+nav { margin: 8px 0 16px; }
+nav a { margin-right: 16px; }
+
+.nota { color: var(--suave); font-size: 0.95rem; }
+
+/* Tarjetas de indicadores por sede */
+.tarjetas { display: flex; flex-wrap: wrap; gap: 12px; }
+.tarjeta {
+  flex: 1 1 200px;
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+.tarjeta h2 { margin: 0 0 4px; font-size: 1.1rem; }
+.tarjeta .monto { font-size: 1.4rem; font-weight: 700; margin: 0; }
+.tarjeta .detalle { margin: 0; color: var(--suave); }
+
+/* Gráfico de barras */
+.fila { display: flex; align-items: center; margin: 6px 0; }
+.etq { width: 90px; flex-shrink: 0; }
+.barra { background: var(--acento); color: #ffffff; padding: 4px 8px; white-space: nowrap; border-radius: 3px; }
+
+/* Tablas de sedes, productos y meses */
+.tabla-sedes { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
+.tabla-sedes th, .tabla-sedes td { border: 1px solid var(--borde); padding: 8px 10px; text-align: left; }
+.tabla-sedes th { background: var(--panel); }
+.tabla-sedes td.n, .tabla-sedes th.n { text-align: right; }
+
+@media (max-width: 480px) {
+  body { font-size: 1rem; padding: 16px 12px 32px; }
+  h1 { font-size: 1.35rem; }
+  .etq { width: 70px; }
+  .barra { font-size: 0.9rem; }
+}

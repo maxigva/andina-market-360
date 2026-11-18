@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andina Market 360 - Ventas por producto</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Andina Market 360 · Ventas por producto</h1>
+  <nav aria-label="Páginas del tablero">
+    <a href="./index.html">Sedes</a>
+    <a href="./productos.html" aria-current="page">Productos</a>
+    <a href="./data/resumen.json">Datos (JSON)</a>
+  </nav>
+</header>
+<main id="contenido">Cargando...</main>
+<footer>
+  <p class="nota">Cifras leídas de <code>data/resumen.json</code>, generado por <code>src/resumen.py</code> a partir de datos ficticios.</p>
+</footer>
+<script>
+function soles(v) { return `S/ ${v.toFixed(2)}`; }
+fetch("./data/resumen.json")
+  .then(r => r.json())
+  .then(d => {
+    const productos = Object.entries(d.por_producto).sort((a, b) => b[1] - a[1]);
+    const max = productos[0][1];
+    const barras = productos.map(([p, v]) =>
+      `<div class="fila"><span class="etq">${p}</span><div class="barra" style="width:${(v / max * 100).toFixed(1)}%">${soles(v)}</div></div>`).join("");
+    const filas = productos.map(([p, v]) =>
+      `<tr><td>${p}</td><td class="n">${soles(v)}</td><td class="n">${(v / d.total * 100).toFixed(1)} %</td></tr>`).join("");
+    document.getElementById("contenido").innerHTML =
+      `<h2>Ventas por producto (S/, datos ficticios)</h2>${barras}` +
+      `<table class="tabla-sedes"><tr><th scope="col">Producto</th><th scope="col" class="n">Ventas</th><th scope="col" class="n">Participación</th></tr>${filas}` +
+      `<tr><th>TOTAL</th><th class="n">${soles(d.total)}</th><th class="n">100.0 %</th></tr></table>`;
+  })
+  .catch(() => {
+    document.getElementById("contenido").textContent = "No se pudo leer data/resumen.json. Si abrió la página con doble clic (file://), el navegador bloquea la lectura: sírvala con python -m http.server 8000 --directory docs y abra http://localhost:8000. Si el archivo no existe, genérelo con python src/resumen.py --json docs/data/resumen.json";
+  });
+</script>
+</body>
+</html>

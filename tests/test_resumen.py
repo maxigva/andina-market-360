@@ -35,8 +35,11 @@ class TestResumen(unittest.TestCase):
 class TestTablero(unittest.TestCase):
     def test_tablero_sin_cifras_escritas_a_mano(self):
         """Las cifras de la web deben salir del JSON, no del HTML (revisión del PR #8)."""
-        html = (Path(__file__).resolve().parent.parent / "docs" / "index.html").read_text(encoding="utf-8")
-        self.assertNotRegex(html, r"S/ \d")
+        paginas = sorted((Path(__file__).resolve().parent.parent / "docs").glob("*.html"))
+        self.assertGreaterEqual(len(paginas), 1)
+        for pagina in paginas:
+            with self.subTest(pagina=pagina.name):
+                self.assertNotRegex(pagina.read_text(encoding="utf-8"), r"S/ \d")
 
 
 class TestMuestra(unittest.TestCase):

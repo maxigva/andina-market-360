@@ -2,37 +2,50 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Andina Market 360 - Tablero de ventas por sede</title>
-<style>
-  body { font-family: Calibri, Arial, sans-serif; max-width: 640px; margin: 40px auto; }
-  table { border-collapse: collapse; width: 100%; margin-bottom: 24px; }
-  th, td { border: 1px solid #000; padding: 6px 10px; text-align: left; }
-  td.n { text-align: right; }
-  .fila { display: flex; align-items: center; margin: 4px 0; }
-  .etq { width: 90px; }
-  .barra { background: #1f5f99; color: #fff; padding: 3px 6px; white-space: nowrap; }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Andina Market 360 · Tablero de ventas por sede</h1>
-<p id="presentacion"></p>
-<p>Resumen generado por <code>src/resumen.py</code> a partir de <code>data/ventas.csv</code> (datos ficticios).</p>
-<div id="contenido">Cargando...</div>
+<header>
+  <h1>Andina Market 360 · Tablero de ventas por sede</h1>
+  <p id="presentacion"></p>
+  <nav aria-label="Páginas del tablero">
+    <a href="./index.html" aria-current="page">Sedes</a>
+    <a href="./productos.html">Productos</a>
+    <a href="./data/resumen.json">Datos (JSON)</a>
+  </nav>
+</header>
+<main id="contenido">Cargando...</main>
+<footer>
+  <p class="nota" id="nota-datos">Resumen generado por <code>src/resumen.py</code> a partir de <code>data/ventas.csv</code> (datos ficticios).</p>
+</footer>
 <script>
+function soles(v) { return `S/ ${v.toFixed(2)}`; }
 function tabla(titulo, datos, total) {
-  let filas = Object.entries(datos).map(([k, v]) => `<tr><td>${k}</td><td class="n">S/ ${v.toFixed(2)}</td></tr>`).join("");
-  if (total !== undefined) filas += `<tr><th>TOTAL</th><th class="n">S/ ${total.toFixed(2)}</th></tr>`;
-  return `<h2>${titulo}</h2><table><tr><th>${titulo.split(" ").pop()}</th><th>Ventas</th></tr>${filas}</table>`;
+  let filas = Object.entries(datos).map(([k, v]) => `<tr><td>${k}</td><td class="n">${soles(v)}</td></tr>`).join("");
+  if (total !== undefined) filas += `<tr><th>TOTAL</th><th class="n">${soles(total)}</th></tr>`;
+  return `<h2>${titulo}</h2><table class="tabla-sedes"><tr><th scope="col">${titulo.split(" ").pop().replace(/^./, l => l.toUpperCase())}</th><th scope="col" class="n">Ventas</th></tr>${filas}</table>`;
+}
+function tarjetas(d) {
+  return `<section aria-label="Indicadores por sede" class="tarjetas">` + Object.entries(d.por_sede).map(([sede, v]) =>
+    `<article class="tarjeta" id="sede-${sede.toLowerCase()}"><h2>${sede}</h2><p class="monto">${soles(v)}</p>` +
+    `<p class="detalle">${(v / d.total * 100).toFixed(1)} % de las ventas</p></article>`).join("") + `</section>`;
 }
 function grafico(datos) {
   const max = Math.max(...Object.values(datos));
   const barras = Object.entries(datos).map(([k, v]) =>
-    `<div class="fila"><span class="etq">${k}</span><div class="barra" style="width:${(v / max * 100).toFixed(1)}%">S/ ${v.toFixed(2)}</div></div>`).join("");
+    `<div class="fila"><span class="etq">${k}</span><div class="barra" style="width:${(v / max * 100).toFixed(1)}%">${soles(v)}</div></div>`).join("");
   const [sede, monto] = Object.entries(datos).sort((a, b) => b[1] - a[1])[0];
-  return `<h2>Ventas por sede (S/, datos ficticios)</h2>${barras}<p>Sede líder: ${sede} con S/ ${monto.toFixed(2)}.</p>`;
+  return `<h2>Ventas por sede (S/, datos ficticios)</h2>${barras}<p>Sede líder: ${sede} con ${soles(monto)}.</p>`;
 }
-fetch("data/resumen.json")
-  .then(r => r.json())
+fetch("./data/resumen.json")
+  .then(r => {
+    const fecha = r.headers.get("Last-Modified");
+    if (fecha) document.getElementById("nota-datos").innerHTML +=
+      ` Archivo de datos actualizado: ${new Date(fecha).toLocaleString("es-PE")}`;
+    return r.json();
+  })
   .then(d => {
     const sedes = Object.keys(d.por_sede);
     const meses = Object.keys(d.por_mes).sort();
@@ -42,14 +55,14 @@ fetch("data/resumen.json")
       `<b>Origen:</b> datos ficticios de <code>data/ventas.csv</code>`;
     document.getElementById("contenido").innerHTML =
       `<p><b>Operaciones:</b> ${d.operaciones}</p>` +
+      tarjetas(d) +
       grafico(d.por_sede) +
       tabla("Ventas por sede", d.por_sede, d.total) +
-      tabla("Ventas por producto", d.por_producto) +
       tabla("Ventas por mes", d.por_mes);
   })
   .catch(() => {
     document.getElementById("contenido").textContent =
-      "No se encontró data/resumen.json. Ejecute: python src/resumen.py --json docs/data/resumen.json";
+      "No se pudo leer data/resumen.json. Si abrió la página con doble clic (file://), el navegador bloquea la lectura: sírvala con python -m http.server 8000 --directory docs y abra http://localhost:8000. Si el archivo no existe, genérelo con python src/resumen.py --json docs/data/resumen.json";
   });
 </script>
 </body>
