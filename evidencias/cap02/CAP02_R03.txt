@@ -1,0 +1,5 @@
+$ grep -n "^### " fichas/README_perfil.md; grep -n "Enlace" fichas/README_perfil.md
+7:### 1. Andina Market 360
+12:### 2. Inventario Escolar (proyecto de práctica, en preparación)
+10:- Enlace: `<ENLACE_AL_REPOSITORIO_ANDINA>`
+15:- Enlace: `<ENLACE_PENDIENTE>`

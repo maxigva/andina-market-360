@@ -1,0 +1,4 @@
+$ grep -c "^| [0-9] |" fichas/seguridad_cuenta.md; git grep --untracked -nIE "gh[po]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{22,}|-----BEGIN [A-Z ]*PRIVATE KEY"; echo "salida del control 5: $? (1 = sin coincidencias)"; git ls-files --others --cached --exclude-standard | grep -ci recovery
+5
+salida del control 5: 1 (1 = sin coincidencias)
+0

@@ -1,0 +1,6 @@
+$ gh auth status 2>&1 | grep -v -i token; gh api user --jq "\"login: \" + .login + \" | creada: \" + .created_at"
+github.com
+  ✓ Logged in to github.com account maxigva (keyring)
+  - Active account: true
+  - Git operations protocol: https
+login: maxigva | creada: 2025-06-22T00:49:23Z

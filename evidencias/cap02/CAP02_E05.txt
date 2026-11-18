@@ -1,0 +1,11 @@
+$ grep -nE "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}|[0-9]{9}|DNI" fichas/perfil_publico.md; echo "datos privados: $(grep -cE "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}|[0-9]{9}|DNI" fichas/perfil_publico.md)"; grep -n "<ENLACE" fichas/perfil_publico.md; grep -n "^## " fichas/perfil_publico.md
+datos privados: 0
+20:- Repositorio del caso: `<ENLACE_AL_REPOSITORIO>`
+21:- Página publicada: `<ENLACE_A_GITHUB_PAGES>`
+22:- Portafolio: `<ENLACE_PENDIENTE>`
+3:## Sobre mí
+6:## Proyecto destacado: Andina Market 360
+11:## Objetivos
+16:## Tecnologías
+19:## Enlaces
+24:## Protección de datos y compromiso ético

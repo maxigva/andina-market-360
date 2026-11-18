@@ -1,0 +1,7 @@
+$ grep -n -A2 "## Biografía" fichas/perfil.md; grep -n -A2 "a quién ayuda" -i fichas/perfil.md
+13:## Biografía profesional
+14-Analizo ventas simuladas con Python y Git. Mantengo **Andina Market 360**, un caso ficticio que convierte un CSV de 12 ventas en un resumen por sede probado y publicado en una web estática.
+15-
+16:## ¿A quién ayuda el repositorio?
+17-Lectura en voz alta y respuesta: ayuda a **la gerencia comercial y a los jefes de sede (ficticios)** que necesitan totales por sede sin editar informes a mano, y a **estudiantes** que quieren ver un flujo completo Git → GitHub → pruebas → web.
+18-

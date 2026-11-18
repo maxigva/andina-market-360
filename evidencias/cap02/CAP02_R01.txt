@@ -1,0 +1,3 @@
+$ python -c "from pathlib import Path; l=Path('fichas/perfil.md').read_text(encoding='utf-8').splitlines(); i=l.index('## Biografía para un puesto de soporte técnico (Reto 2.1)'); b=l[i+1]; c=l[i+4]; print('bio larga:', len(b), 'caracteres (meta <= 250):', len(b)<=250); print('bio corta:', len(c), 'caracteres (<= 160):', len(c)<=160)"
+bio larga: 235 caracteres (meta <= 250): True
+bio corta: 98 caracteres (<= 160): True
