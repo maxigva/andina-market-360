@@ -25,8 +25,11 @@ fetch("data/resumen.json")
   .then(r => r.json())
   .then(d => {
     const sedes = Object.keys(d.por_sede);
+    const meses = Object.keys(d.por_mes).sort();
     document.getElementById("presentacion").innerHTML =
-      `<b>Sedes:</b> ${sedes.slice(0, -1).join(", ")} y ${sedes.at(-1)} · <b>Origen:</b> datos ficticios de <code>data/ventas.csv</code>`;
+      `<b>Sedes:</b> ${sedes.slice(0, -1).join(", ")} y ${sedes.at(-1)} · ` +
+      `<b>Período:</b> ${meses[0]} a ${meses.at(-1)} · ` +
+      `<b>Origen:</b> datos ficticios de <code>data/ventas.csv</code>`;
     document.getElementById("contenido").innerHTML =
       `<p><b>Operaciones:</b> ${d.operaciones}</p>` +
       tabla("Ventas por sede", d.por_sede, d.total) +
