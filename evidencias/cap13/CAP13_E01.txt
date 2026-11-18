@@ -1,0 +1,7 @@
+$ gh issue view 1 --json number,title,labels,body --jq "\"#\(.number) \(.title) | etiquetas: \([.labels[].name]|join(\", \"))\", (.body | split(\"\n\") | map(select(startswith(\"- [\"))) | .[])"
+#1 feat: gráfico de ventas por sede | etiquetas: mejora
+- [ ] El gráfico muestra exactamente **3 barras**: Lima, Ica y Arequipa.
+- [ ] Cada barra muestra el monto leído de `por_sede` en `docs/data/resumen.json` (cifras del CSV, ninguna escrita a mano).
+- [ ] La barra más larga corresponde a la sede con mayor venta y su ancho es 100 %; las demás son proporcionales (± 1 %).
+- [ ] El título del gráfico es legible y dice qué se mide y en qué moneda.
+- [ ] Las pruebas (`python -m unittest discover -s tests -v`) siguen en `OK`.

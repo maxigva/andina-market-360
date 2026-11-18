@@ -1,0 +1,9 @@
+$ gh issue view 2 --json number,title,labels,body --jq "\"#\(.number) \(.title) | etiquetas: \([.labels[].name]|join(\", \"))\", (.body | split(\"\n\") | map(select(startswith(\"## \"))) | .[])"
+#2 bug: cifra incorrecta tras editar CSV | etiquetas: error, prioridad-alta
+## Resumen
+## Datos de entrada (muestra ficticia)
+## Pasos para reproducir
+## Resultado observado
+## Resultado esperado
+## Impacto
+## Criterio de cierre

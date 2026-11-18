@@ -1,0 +1,6 @@
+$ gh issue list --state all --json number,title,labels,state --jq ".[] | \"#\(.number) [\(.state)] \(.title) | etiquetas: \([.labels[].name]|join(\", \"))\"" | sort
+#1 [OPEN] feat: gráfico de ventas por sede | etiquetas: mejora
+#2 [OPEN] bug: cifra incorrecta tras editar CSV | etiquetas: error, prioridad-alta
+#3 [OPEN] docs: presentar sedes, origen ficticio y período en el tablero | etiquetas: documentación
+#4 [OPEN] feat: filtro por producto en el tablero | etiquetas: mejora
+#5 [OPEN] bug: el verificador de Markdown marca enlaces dentro de código en línea | etiquetas: error

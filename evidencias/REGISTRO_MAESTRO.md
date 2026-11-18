@@ -14,3 +14,4 @@
 | 10 | Resolución de conflictos e historial | ✓ | ✓ | 18/11 | [CAP10_registro.md](CAP10_registro.md) |
 | 11 | GitHub Desktop y Visual Studio Code | ✓ | ✓ | 18/11 | [CAP11_registro.md](CAP11_registro.md) |
 | 12 | Documentación con Markdown | ✓ | ✓ | 18/11 | [CAP12_registro.md](CAP12_registro.md) |
+| 13 | Gestión de tareas con GitHub Issues y Projects | ✓ | ✓ | 18/11 | [CAP13_registro.md](CAP13_registro.md) |

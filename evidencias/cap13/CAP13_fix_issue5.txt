@@ -1,0 +1,7 @@
+$ python tools/verificar_md.py capitulos/cap12.md; echo "--- sigue detectando los errores reales:"; python tools/verificar_md.py fichas/reto12_3/README_prueba_errores.md | wc -l | sed "s/^/errores detectados: /"; python tools/verificar_md.py README.md CONTRIBUTING.md docs/manual.md; echo "--- un enlace roto real fuera de código sigue apareciendo:"; printf "Ver [x](no-existe.md) y \`[y](tampoco.md)\`\n" > prueba_enlace.md; python tools/verificar_md.py prueba_enlace.md; rm prueba_enlace.md
+OK: 1 archivo(s) sin errores
+--- sigue detectando los errores reales:
+errores detectados: 5
+OK: 3 archivo(s) sin errores
+--- un enlace roto real fuera de código sigue apareciendo:
+prueba_enlace.md:1: enlace roto: no-existe.md

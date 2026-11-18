@@ -1,0 +1,8 @@
+$ for n in 2 5; do gh issue view $n --json number,title,state,stateReason,comments --jq "\"#\(.number) \(.title) → \(.state) (\(.stateReason))\", (.comments[-1].body | split(\"\n\")[0:3] | join(\" | \"))"; done; gh issue list --state open --json number,title --jq ".[] | \"abierto: #\(.number) \(.title)\""
+#2 bug: cifra incorrecta tras editar CSV → CLOSED (COMPLETED)
+## Resolución | - **Commit:** bc936f5 `test: verificar que el JSON publicado coincide con el CSV` | - **Archivo:** `tests/test_resumen.py`: `test_json_coincide_con_csv` ahora compara `docs/data/resumen.json` con `resumir(leer_ventas())`. Antes solo escribía y leía un JSON temporal.
+#5 bug: el verificador de Markdown marca enlaces dentro de código en línea → CLOSED (COMPLETED)
+## Resolución | - **Commit:** e096234 `fix: ignorar código en línea al verificar enlaces` | - **Archivo:** `tools/verificar_md.py`: antes de buscar enlaces, quita el código en línea (texto entre comillas invertidas).
+abierto: #4 feat: filtro por producto en el tablero
+abierto: #3 docs: presentar sedes, origen ficticio y período en el tablero
+abierto: #1 feat: gráfico de ventas por sede

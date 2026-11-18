@@ -1,0 +1,4 @@
+$ gh project list --owner maxigva 2>&1 | head -n 3; echo "(el token de gh no tiene el permiso project; no se amplían permisos de la cuenta → tablero Kanban en tabla local)"
+error: your authentication token is missing required scopes [read:project]
+To request it, run:  gh auth refresh -s read:project
+(el token de gh no tiene el permiso project; no se amplían permisos de la cuenta → tablero Kanban en tabla local)

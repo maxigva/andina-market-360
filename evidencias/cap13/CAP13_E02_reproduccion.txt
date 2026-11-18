@@ -1,0 +1,12 @@
+$ cd "$B"; echo "1) Cambio legítimo del CSV (venta 1: 10 → 20 unidades):"; sed -i "2s/,10,25.00/,20,25.00/" data/ventas.csv; sed -n 2p data/ventas.csv; echo "2) Se actualizan las cifras esperadas de las pruebas y el README (--readme), pero se OLVIDA --json:"; sed -i -e "s/1845.00/2095.00/g" -e "s/\"Lima\": 814.00/\"Lima\": 1064.00/" tests/test_resumen.py; python src/resumen.py --readme README.md | tail -n 1; python -m unittest discover -s tests 2>&1 | tail -n 3; echo "3) Resultado observado:"; echo "   calculado desde el CSV: $(python src/resumen.py | tail -n 1)"; echo "   publicado en docs/data/resumen.json (lo que ve la web): $(python -c "import json; print(json.load(open(\"docs/data/resumen.json\"))[\"total\"])")"; echo "4) Resultado esperado: alguna prueba debería fallar, porque la web mostraría S/ 1845.00 en lugar de S/ 2095.00"
+1) Cambio legítimo del CSV (venta 1: 10 → 20 unidades):
+1,2026-01-05,Lima,Arroz 5kg,20,25.00
+2) Se actualizan las cifras esperadas de las pruebas y el README (--readme), pero se OLVIDA --json:
+README actualizado: README.md
+Ran 6 tests in 0.022s
+
+OK
+3) Resultado observado:
+   calculado desde el CSV: TOTAL      S/  2095.00
+   publicado en docs/data/resumen.json (lo que ve la web): 1845.0
+4) Resultado esperado: alguna prueba debería fallar, porque la web mostraría S/ 1845.00 en lugar de S/ 2095.00

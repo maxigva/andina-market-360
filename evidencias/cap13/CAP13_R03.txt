@@ -1,0 +1,14 @@
+$ for f in .github/ISSUE_TEMPLATE/*.md; do echo "== $f"; sed -n "2,5p" $f; grep -c "^## " $f | sed "s/^/secciones: /"; done; python tools/verificar_md.py .github/ISSUE_TEMPLATE/bug_report.md .github/ISSUE_TEMPLATE/mejora.md
+== .github/ISSUE_TEMPLATE/bug_report.md
+name: Error en el proceso de ventas
+about: Cifra incorrecta, falla del script o diferencia entre CSV, JSON y tablero
+title: "bug: "
+labels: error
+secciones: 8
+== .github/ISSUE_TEMPLATE/mejora.md
+name: Mejora del tablero
+about: Nueva funcionalidad o indicador para gerencia
+title: "feat: "
+labels: mejora
+secciones: 4
+OK: 2 archivo(s) sin errores

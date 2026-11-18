@@ -1,0 +1,14 @@
+$ echo "== repositorio del caso, con la prueba corregida =="; python -m unittest discover -s tests 2>&1 | tail -n 3; echo "== pasos del Issue #2 repetidos en una copia temporal =="; cd "$B"; sed -i "2s/,10,25.00/,20,25.00/" data/ventas.csv; cp /c/andina-market-360/tests/test_resumen.py tests/test_resumen.py; sed -i -e "s/1845.00/2095.00/g" -e "s/\"Lima\": 814.00/\"Lima\": 1064.00/" tests/test_resumen.py; python src/resumen.py --readme README.md | tail -n 1; python -m unittest discover -s tests 2>&1 | grep -E "^(FAIL:|Ran|FAILED|OK)"; python -m unittest discover -s tests 2>&1 | grep -m1 -o "docs/data/resumen.json está desactualizado[^\"]*"; echo "--- se regenera el JSON:"; python src/resumen.py --json docs/data/resumen.json | tail -n 1; python -m unittest discover -s tests 2>&1 | tail -n 1
+== repositorio del caso, con la prueba corregida ==
+Ran 6 tests in 0.004s
+
+OK
+== pasos del Issue #2 repetidos en una copia temporal ==
+README actualizado: README.md
+FAIL: test_json_coincide_con_csv (test_resumen.TestResumen.test_json_coincide_con_csv)
+Ran 6 tests in 0.011s
+FAILED (failures=1)
+docs/data/resumen.json está desactualizado: ejecute python src/resumen.py --json docs/data/resumen.json
+--- se regenera el JSON:
+JSON generado: docs/data/resumen.json
+OK

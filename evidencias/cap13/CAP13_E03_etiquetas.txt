@@ -1,0 +1,5 @@
+$ gh label create "documentación" --color 0075ca --description "Cambios en README, manual o guías"; gh label create "mejora" --color a2eeef --description "Nueva funcionalidad del tablero"; gh label create "error" --color d73a4a --description "Resultado incorrecto o falla reproducible"; gh label create "prioridad-alta" --color b60205 --description "Afecta cifras que ve gerencia"; gh label list --search "documentación mejora error prioridad" --limit 10
+documentación	Cambios en README, manual o guías	#0075ca
+mejora	Nueva funcionalidad del tablero	#a2eeef
+prioridad-alta	Afecta cifras que ve gerencia	#b60205
+error	Resultado incorrecto o falla reproducible	#d73a4a
